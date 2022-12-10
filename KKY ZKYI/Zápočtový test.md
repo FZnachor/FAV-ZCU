@@ -3,14 +3,14 @@
 - Autonomní konečný automat může generovat
 	- posloupnost, která po konečném počtu stavů přejde na periodickou posloupnost
 
-- Co je syntéza řeči z textu?
+- Co je syntéza řeči z textu
 	- jde o počítačové generování řeči s cílem převést napsanou zprávu na řečový signál
 
-- Sériové spojení bloků s přenosy F1(s) a F2(s) má přenos
-	- $F(s) = F1(s) \cdot F2(s)$
+- Sériové spojení bloků s přenosy $F_1(s)$ a $F_2(s)$ má přenos
+	- $F(s) = F_1(s) \cdot F_2(s)$
 
 - Konvoluce funkcí $h(t)$ $u(t)$ je definována následovně:
-	- I h(T)u(t-T)dT
+	- $\displaystyle\int_{-\infty}^{\infty} h(\tau)u(t-\tau)d\tau$
 
 - Impulsní charakteristika lineárního t-invariantního systému je
 	- inverzní Fourierova transformace přenosu
@@ -30,25 +30,29 @@
 - Uveďte které z následujících vyjádření lze zapsat produkčním pravidlem
 	- pakliže mi vlétne osina do nosu, kýchám
 
+- Jak je definována jednostranná Laplaceova transformace funkce $h(t)$
+	- $\displaystyle\int_{0}^{\infty} h(t)e^{-st}dt$
+
 - N. Wiener definoval kybernetiku jako vědu o
 	- sdělování a řízení ve strojích a živých organismech
 
-- Jak velkou entropii (neurčitost) musíte odstranit, abyste věděli, které číslo od 1 do 4096 si myslím?
+- Jak velkou entropii (neurčitost) musíte odstranit, abyste věděli, které číslo od 1 do 4096 si myslím
 	- 12 bitů
 
-- Pro jaká reálná čísla „a“ je řešení diferenciální rovnice $\frac{dx}{dt} = a*x$ omezené (stabilní)?
+- Pro jaká reálná čísla „a“ je řešení diferenciální rovnice $\frac{dx}{dt} = a \cdot x$ omezené (stabilní)
 	- $a < 0$
 
 - Jak definoval profesor Minsky umělou inteligenci?
 	- jako vědu o vytváření strojů nebo systémů, které budou při řešení určitého úkolu užívat takového postupu, které - kdyby ho dělal člověk - bychom považovali za projev jeho inteligence
 
-- Jaký tvar má odezva lineárního t-invariantního systému v ustáleném stavu na sinusový signál?
+- Jaký tvar má odezva lineárního t-invariantního systému v ustáleném stavu na sinusový signál
 	- sinusový
 
 - Impulsní charakteristika lineárního t-invariantního systému, je odezva systému na
-	- Jaký je účel segmentace digitálního obrazu?
+	- Diraclův puls
 
-- oddělit objekty od pozadí
+- Jaký je účel segmentace digitálního obrazu
+	- oddělit objekty od pozadí
 
 - Jednoduchá regulační smyčka se skládá z
 	- regulátoru a řízené soustavy
