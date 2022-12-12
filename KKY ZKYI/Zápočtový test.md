@@ -12,15 +12,6 @@
 - Paralelní spojení bloků s přenosy $F_1(s)$ a $F_2(s)$ má přenos
 	- $F(s) = F_1(s) + F_2(s)$
 
-- Impulsní charakteristika lineárního t-invariantního systému je
-	- inverzní Fourierova transformace přenosu
-
-- Přechodová charakteristika lineárního t-invariantního systému je
-    - odezva na jednotkový skok
-
-- Frekvenční charakteristika lineárního t-invariantního systému, je odezva systému na
-    - harmonické buzení
-
 - Mezi bodové jasové transformace nepatří
 	- filtrace šumu
 
@@ -68,6 +59,15 @@
 
 - Impulsní charakteristika lineárního t-invariantního systému, je odezva systému na
 	- Diraclův puls
+
+- Frekvenční charakteristika lineárního t-invariantního systému, je odezva systému na
+    - harmonické buzení
+
+- Přechodová charakteristika lineárního t-invariantního systému je
+    - odezva na jednotkový skok
+
+- Impulsní charakteristika lineárního t-invariantního systému je
+	- inverzní Fourierova transformace přenosu
 
 - Jaký je účel segmentace digitálního obrazu
 	- oddělit objekty od pozadí
