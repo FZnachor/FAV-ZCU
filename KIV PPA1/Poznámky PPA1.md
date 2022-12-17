@@ -476,3 +476,44 @@ for (int prvek: pole) {
 - Je odůvodnitelné použít malá celá čísla (např. -1, 0, 1, 2), pokud však nemají speciální význam
 	- Např. test sudosti/lichosti čísel
 		- ```if (cislo % 2 == 0)```
+
+## Třídy a instance (objekty)
+- Objektové programování
+	- Program je dekomponován na objekty (abstrakce objektů z reálného světa), které udržují data a metody, které s daty pracují, pohromadě
+
+### Třída, instance, reference
+- Strukturovaný datový typ
+- Na rozdíl od základních datových typů, které obsahují pouze jednu hodnotu a nejde je dále členit, třída může obsahovat data ve formě proměnných (atributů) obecně různého typu
+- Kromě dat obsahuje metody, které obecně provádějí operace nad těmito daty
+- Třída je šablonou pro tvorbu instancí (objektů)
+- Název třídy začíná velkým počátečním písmenem, každé další slovo víceslovného názvu začíná velkým písmenem
+- U dokumentačního komentáře třídy se uvádí alespoň jedna řádka popisující účel třídy, dále autor třídy a případně verze (s datem poslední úpravy)
+
+### Instance (objekt)
+- Je vytvořena podle konkrétní třídy a nese v sobě konkrétní hodnoty atributů (proměnných)
+- Od jedné třídy může být vytvořeno více instancí, přičemž každá může mít (a typicky má) jinak nastavené atributy
+- Aby bylo možné s atributy a metodami definovanými ve třídě pracovat, je NUTNÉ vytvořit její instanci (neplatí při použití klíčového slova ```static```)
+	- Tím se vytvoří místo v paměti pro tuto instanci, do kterého se mimo jiné uloží hodnoty jednotlivých atributů
+	- Rozdíl oproti základním datovým typům, kdy se místo v paměti vytvořilo v okamžiku deklarace proměnné (tj. v okamžiku provedení řádky ```int i;``` se vytvořilo místo v paměti o velikosti 4 byty pro uložení celého čísla) 
+- Reference
+	- Abychom mohli pracovat s instancí a jejími atributy a metodami, potřebujeme na ní referenci
+	- Reference (referenční proměnná) ukazuje na místo v paměti, kde je uložena konkrétní instance
+
+#### Deklarace referenční proměnné a vytvoření instance
+- Referenční proměnná se deklaruje stejně jako proměnná základního datového typu, tj. názevTypu názevProměnné;
+	- ```názevTypu``` je název třídy,
+	- ```názevProměnné``` je název referenční proměnné 
+- Pouhou deklarací referenční proměnné ale instance třídy nevznikne 
+	- Po deklaraci (bez inicializace) je referenční proměnná „prázdná“ – není vytvořeno místo v paměti pro instanci a sama referenční proměnná tedy na nic neukazuje
+		- POZOR! – Pokud se jedná o lokální proměnnou (tj., proměnnou deklarovanou uvnitř metody), je vhodné inicializovat referenční proměnnou hodnotou null
+			- Hodnota ```null``` (klíčové slovo) explicitně říká, že reference neodkazuje (zatím) na žádnou instanci
+			- Pokud tuto inicializaci neprovedete, hodnota lokální referenční proměnné není definována a při pokusu o její čtení dojde k chybě (už při překladu programu)
+- Vytvoření instance
+	- Instance se vytvoří pomocí operátoru new (klíčové slovo) a přiřadí se do připravené referenční proměnné 
+	- ```referenčníProměnná = new Třída();```
+		- Referenční proměnná musí být stejného typu jako vytvářená instance (tj. ```Třída```)
+			- Nebo typu předka třídy nebo rozhraní implementovaného třídou (viz předměty KIV/PPA2 a KIV/OOP)
+
+#### Přístup k atributům a metodám instance
+- K jednotlivým atributům (proměnným) a metodám instance přistupujeme přes referenční proměnnou, která na instanci ukazuje
+- Používá se tečková notace
