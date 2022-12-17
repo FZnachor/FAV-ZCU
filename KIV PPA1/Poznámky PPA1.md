@@ -517,3 +517,125 @@ for (int prvek: pole) {
 #### Přístup k atributům a metodám instance
 - K jednotlivým atributům (proměnným) a metodám instance přistupujeme přes referenční proměnnou, která na instanci ukazuje
 - Používá se tečková notace
+	- ```referenčníProměnná.proměnnáInstance```
+		- Do proměnných (pokud jsou viditelné) lze zapisovat hodnoty a lze je i číst
+	- ```referenčníProměnná.metodaInstance()```
+		- Metody lze volat (pokud jsou viditelné)
+
+#### Práce s referenčními proměnnými a instancemi
+- Do referenčních proměnných lze přiřazovat nové instance i jiné referenční proměnné
+- Na jednu instanci může ukazovat více referenčních proměnných
+- Pokud už nějakou instanci nebudeme používat, můžeme do referenční proměnné explicitně přiřadit hodnotu ```null```
+	- Např. ```pocatek = null;```
+	- Tím ztratíme referenci na instanci a Garbage Collector ji časem smaže a uvolní tím paměť, kterou instance zabírá
+	- V Javě neexistuje příkaz pro explicitní smazání instance (a tím pádem „ruční“ uvolnění paměti)
+	- POZOR! – Pokud má referenční proměnná hodnotu ```null``` (tj. neukazuje na žádnou instanci) nelze přes tuto proměnnou přistupovat k atributům a metodám instance (protože tam žádná instance není)
+		- Pokus o přístup vede k chybě ```NullPointerException``` za běhu programu (nikoliv při překladu)
+			- Pokud se může stát (v závislosti na předchozím kódu), že referenční proměnná může být ```null```, nebo může ukazovat na instanci, je vhodné před přístupem k proměnným a metodám instance otestovat, zda je referenční proměnná různá od ```null``` – např. ```if (pocatek != null)```
+
+### Atributy (proměnné) instance
+- Protože třídy jsou abstrakce objektů z reálného světa, atributy typicky odpovídají vlastnostem těchto objektů 
+	- Jako atributy jsou reprezentovány pouze ty vlastnosti, které jsou důležité z hlediska výpočtu (funkce programu)
+	- Každá instance může mít (a typicky má) v atributech uloženy jiné hodnoty
+- Atributy (proměnné) instance jsou deklarované uvnitř třídy ale MIMO metody
+	- V deklaraci NEMAJÍ uvedeno klíčové slovo ```static```
+	- Naprostá většina proměnných v dosavadních programech byla definována uvnitř metod (hlavně ```main()```) a jednalo se tedy o lokální proměnné
+	- Pokud byly dosud proměnné deklarované vně metod, jednalo se o statické proměnné třídy (s klíčovým slovem ```static``` – např. používané deklarace ```Scanner```u pro čtení z klávesnice)
+	- Dokumentační komentáře jsou typicky jednořádkové a stručně popisují účel proměnné 
+	- Atributy se typicky deklarují na začátku třídy (před všemi metodami)
+		- Kvůli přehlednosti
+		- Atribut má viditelnost (je použitelný) přes celou třídu (i před místem deklarace), podobně jako metody 
+	- Atributy (proměnné) instance mohou být libovolného datového typu (primitivní datový typ, třídy nebo pole) - Není žádné omezení
+	- Implicitní inicializace atributů (proměnných) instance 
+		- U lokálních proměnných (deklarovaných uvnitř metod) bylo doporučeno provést inicializaci hned při deklaraci (např. ```int i = 0;```), aby se nestalo, že se pokusíme číst z proměnné její hodnotu, která ale nebyla nastavená
+		- U atributů (proměnných) instance to není nutné, protože jsou automaticky (implicitně) inicializovány na ```0, 0.0, false``` nebo ```null```, v závislosti na datovém typu
+			- Doplnit explicitní inicializaci je možné, ale není to nutné ani vhodné
+
+#### Konstanty instance
+- Ve třídě je možné definovat i konstanty instance
+	- Stejně jako pro lokální konstanty a statické konstanty třídy je nutné přidat klíčové slovo ```final```
+	- ```final datovýTyp JMÉNO_KONSTANTY = hodnota; ```
+		- V deklaraci chybí klíčové slovo ```static```
+	- Např. ```final int MAXIMALNI_SIRKA = 1280;```
+	- Hodnota konstanty instance nemusí být, stejně jako lokální konstanty, nastavena při deklaraci, ale může být **nastavena později** – u **konstanty instance** to však lze provést **pouze v konstruktoru**
+		- Vždy však lze **hodnota konstanty nastavit pouze jednou**
+	- Mnohem častěji se využívají statické konstanty třídy
+
+### Metody instance
+- Metody instance představují **operace nad atributy instance**
+- Platí pro ně téměř stejná pravidla, jako pro statické metody třídy
+
+#### Deklarace metody instance
+- Deklarace se liší od dosud probraných statických metod třídy pouze chybějícím klíčovým slovem ```static``` v hlavičce metody
+	- ```přístupovéPrávo návratováHodnota název(parametry)```
+	- Např. ```public double urciVzdalenost(Bod2D b)```
+
+#### Volání metod instance
+- Pokud voláme metodu instance ve stejné třídě, v jaké je deklarována (tj. voláme ji z jiné metody téže třídy), voláme ji pouze jejím jménem a hodnotami parametrů
+	- ``metoda(parametry)``
+	- Stejné jako u statických metod třídy
+	- Např. ```int mocnina = naDruhou(x);```
+- Pokud použijeme metodu vně třídy, ve které je deklarována, musíme před název metody přidat název referenční proměnné ukazující na instanci, nad níž chceme metodu zavolat
+	- ```referenčníProměnná.metoda(parametry);```
+	- Na rozdíl od statické metody třídy, kdy se používá název třídy
+
+### Metody a atributy instance a třídy
+- Z předchozích kapitol vyplývá, že existují dva druhy metod a dva druhy atributů
+	- Metody a atributy (proměnné) instance
+	- (Statické) metody a atributy (proměnné) třídy
+
+#### Porovnání vlastností metod a atributů instance a třídy
+- Metody a atributy (proměnné) **instance** (bez ```static```)
+	- Každá instance má vlastní hodnoty atributů (proměnných) 
+	- K proměnným instance se přistupuje přes konkrétní referenční proměnnou ukazující na konkrétní instanci 
+	- Metody instance se vně své třídy (kde jsou deklarovány) volají nad konkrétní referenční proměnnou ukazující na konkrétní instanci
+	- Metody instance mohou uvnitř své třídy volat jiné metody instance i metody třídy a přistupovat k proměnným instance i třídy
+	- Při správném objektovém návrhu je to naprostá většina atributů a metod
+- Metody a atributy (proměnné) **třídy** (se ```static```)
+	- Každá proměnná třídy má jen jedno paměťové místo a může tak mít jen jednu hodnotu, bez ohledu na to, kolik instancí třídy existuje
+	- Paměťové místo pro proměnnou třídy existuje, i když žádná instance ještě neexistuje
+	- K proměnným třídy se vně jejich třídy přistupuje přes název třídy
+	- Metody třídy se vně své třídy volají nad názvem třídy
+	- Metody třídy mohou uvnitř své třídy volat pouze metody třídy a přistupovat pouze k proměnným třídy (metody a proměnné instance deklarované v téže třídě, tj. bez ```static```, jsou pro ně nepřístupné)
+	- Při správném objektovém návrhu jich není mnoho
+		- Výjimkou jsou konstanty třídy, které jsou podstatně častější než konstanty instance
+
+#### Použití metod a atributů (proměnných) instance
+- Atributy instance obsahují data konkrétní instance třídy
+- Metody instance provádějí operace nad těmito konkrétními daty 
+	- Díky tomu, že metody instance mají přístup k atributům instance přímo, tato data se nemusí předávat (a nepředávají) jako parametry metod
+	- Metody instance jsou poměrně často bez parametrů, protože většinou pracují s proměnnými instance, ke kterým mají přímý přístup (aniž by musely být předávány jako parametry metody)
+	- Pokud v programu od třídy vytvářím instanci či instance, většina atributů a metod bude instance, nikoliv třídy
+		- Výjimku tvoří konstanty instance, které se v programech používají minimálně
+
+#### Použití metod a proměnných třídy
+- Použití konstant třídy
+	- Konstanty v dané třídě jsou ve většině případů stejné pro všechny instance => **není vhodné používat konstanty instance**
+	- **Konstanta třídy** zabírá **pouze jedno paměťové místo** (na rozdíl od konstanty instance, kde je zabráno tolik paměťových míst, kolik je instancí)
+	- Pro získání hodnoty konstanty třídy se nevytváří instance, přistupuje se k ní přes název třídy (např. ```Math.PI```)
+		- Uvnitř třídy není název třídy nutný
+		- Konstanty mají obvykle přístupové právo ```public```
+		- Konstantě třídy lze přiřadit hodnota pouze přímo v deklaraci, není možné ji inicializovat později
+		- Použití statické konstanty třídy je vidět např. na Obr. 13.2
+
+- Použití proměnných třídy
+	- Málo časté
+	- Hodí se, pokud potřebujeme, aby byla proměnná jen jedna pro všechny instance
+	- Např. doporučené použití třídy ```Scanner``` pro čtení ze standardního vstupu 
+		- ```public static Scanner sc;```
+		- Aby ```Scanner``` fungoval správně na standardní vstup, je potřeba mít jen jeden v celém programu. Tento požadavek splňuje právě statická proměnná ```sc```, přes kterou pak lze provádět čtení kdekoliv v programu
+			- Do proměnné ```sc``` se přiřadí instance hned na začátku metody ```main()``` a tato instance se pak používá pro veškeré čtení
+
+- Použití metod třídy
+	- Vstupní bod programu – metoda ```main()``` – je metoda třídy (statická)
+	- To vychází z toho, že na začátku programu není k dispozici instance žádné třídy, a tedy nemůže být spuštěná metoda instance
+	- Pokud potřebuji pomocnou metodu, kterou volám v metodě ```main()```, musí to být rovněž metoda třídy (statická)
+		- Zde stojí za zvážení, jestli není lepší v metodě ```main()``` vytvořit instanci a nad ní pak volat libovolné metody instance
+
+	- Metody, u kterých se nevyplatí vytvářet instanci
+		- Je mnoho metod, které realizují nějaký výpočet, ke kterému nepotřebují instanční proměnné ani jiné vlastnosti instance (např. matematické výpočty – metody třídy ```Math```)
+		- U takových metod je vhodné, aby byly metody třídy (statické), protože se nemusí vytvářet instance a volají se přímo nad názvem třídy
+		- Více takových metod může být deklarováno v tzv. utility třídě
+			- Volání je pak možné z jakékoliv metody (třídy či instance)
+
+#### Mechanizmus předání referenčních parametrů metod
