@@ -1910,3 +1910,4 @@ typ nebo třída)
 	- Hlavička třídy, jejíž instance jsou v prohledávaném poli, musí být ```public Třída implements Comparable<Třída>```
 	- Musí obsahovat metodu ```public int compareTo(Třída třída)```
 	- Podrobnosti viz předměty KIV/PPA2 a KIV/OOP
+#### Mechanizmus předání referenčních parametrů metod
