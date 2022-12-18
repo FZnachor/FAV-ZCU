@@ -2058,3 +2058,337 @@ typ nebo třída)
 	- V závorce za klíčovým slovem ```try``` může být uvedeno i více instancí různých tříd, jednotlivé deklarace jsou odděleny středníkem
 
 ### Ruční vyhození výjimky
+- Výjimka může v programu nejen vzniknout, může být i vyhozena ručně
+	- Příkaz ```throw výjimka;```
+		- POZOR! – Nikoliv ```throws```
+	- Např. ```throw new IOException("Soubor je prazdny.");```
+		- Vytvořena a vyhozena nová instance výjimky ```IOException```
+		- Za příkazem ```throw``` je normální vytvoření instance výjimky jedním z jejích konstruktorů
+	- Např. ```throw ex;```
+		- Vyhozena existující instance výjimky, na kterou ukazuje referenční proměnná ```ex```
+		- Vyhozena může být kontrolovaná výjimka (```Exception```) i výjimka za běhu (```RuntimeException```)
+		- Ruční vyhození výjimky se používá poměrně často
+			- Při zadání nesprávných parametrů metody
+			- Při kombinaci ošetření výjimky v místě výskytu a předání výjimky výše
+
+#### Vyhození výjimky při zadání nesprávných parametrů metody
+- Způsob, jak zareagovat např. v setru při zadání neplatné hodnoty atributu
+	- Dosud jsme řešili nevhodně tím, že se v případě zadání neplatné hodnoty nic nestalo
+	- Výjimka je vyhozena příkazem ```throw```
+	- Pokud se jedná o kontrolovanou výjimku (```Exception```), musí být v hlavičce metody uvedena za klíčovým slovem ```throws```
+	- Pokud se jedná o výjimku za běhu (```RuntimeException```), nemusí být v hlavičce metody uvedena
+		-  Přesto je dobré ji tam uvést
+			- Dá se tak jasně najevo, jakou výjimku či výjimky může metoda vyhazovat
+			- Pokud se jedná o výjimku za běhu, není nutné výjimku ošetřovat při volání metody, i když je uvedena v hlavičce
+	- Příklad vyhození vlastní výjimky v setru ve třídě ```Ctverec```
+		- Použití třídy ```Ctverec``` je ve třídě ```VlastnostiCtverce```
+
+#### Ošetření výjimky v místě výskytu a její předání výše
+- Výjimka je v místě výskytu (částečně nebo úplně) ošetřena, ale informace o ní je propagována výše
+- Propagování výše se provede v bloku ```catch``` příkazem ```throw```
+	- Výjimky jsou zachyceny blokem ```catch```, ve kterém se provede ošetření (zde není žádné potřeba) a výjimka se následně předá výše
+	- Uzavření souboru (pokud je otevřen) se provede v bloku ```finally``` (chceme ho zavřít v každém případě, ať už výjimka vznikla nebo ne) 
+- Pokud potřebujeme v ošetření výjimky provést pouze uzavření souboru (a ne jinou akci), je možné (a lepší) použít konstrukci ```try```-withrerources
+	- Bloky ```catch``` ani ```finally``` se vůbec neuvedou, ale k uzavření souboru dojde
+	- Kvůli chybějícímu bloku ```catch``` se výjimka ani nezachytí a není tedy ani nutné znovu ji vyhazovat příkazem ```throw```
+
+## Práce se soubory a složkami (adresáři)
+- Se soubory se dá pracovat jako s nedělitelnými jednotkami, kdy je lze přesouvat, kopírovat, mazat atd.
+- Obsah souboru se rovněž dá číst a zapisovat
+
+### Základní pojmy
+- Některé základní pojmy již byly zmíněny, zde budou uvedeny systematicky
+
+#### Soubor a složka (adresář)
+- Soubor (file)
+	- Základní jednotka uspořádání dat na disku (z pohledu uživatele i z pohledu programátora)
+	- Obsahuje data v závislosti na typu souboru
+	- Název souboru
+		- Např. ```data.txt, TBBT.s10.e13.avi```
+		- Jednoznačná identifikace souboru v rámci jedné složky
+			- V jedné složce nemůžou být dva soubory se stejným jménem
+			- POZOR!
+				- Linux je „case-sensitive“ (citlivý na velikost písmen), jména ```soubor.txt``` a ```Soubor.txt``` jsou tedy různá a mohou být v jedné složce (ale není to rozumné)
+				- Windows není „case-sensittive“, jména ```soubor.txt``` a ```Soubor.txt``` jsou tedy stejná a nemohou být v jedné složce
+		- Délka názvu je omezena (např. ve Windows na 255 znaků), ale je dostačující
+		- Název může obsahovat většinu běžných znaků s několika výjimkami (např. lomítko „/“ a zpětné lomítko „\“)
+	- Přípona souboru 
+		- Vše od poslední tečky do konce názvu souboru (tj. je součástí názvu)
+		- Typicky udává typ souboru
+		- Většina souborů příponu má, ale mít ji nemusí
+	- Složka/adresář (folder/directory)
+		- Složky mají hierarchickou strukturu
+		- Název složky (adresáře)
+			- Platí stejná pravidla a omezení jako pro soubory
+		- Přípona složky
+			- Složky příponu většinou nemají
+			- Ale mohou ji mít 
+		- Každá složka (adresář) může obsahovat další soubory a složky (adresáře) 
+		- Ve skutečnosti se jedná o speciální soubor, který má v sobě (v nějaké formě) uložený seznam souborů a složek, které obsahuje
+			- Podrobněji viz předmět KIV/ZOS
+
+#### Cesta a související pojmy
+- Cesta (ke složce či k souboru)
+	- Posloupnost názvů složek, které jsou oddělené lomítkem „/“ (Linux i Windows) nebo zpětným lomítkem „\“ (Windows)
+- Důležité složky (adresáře) se speciálním označením 
+	- Kořenová složka (adresář) – root folder (directory)
+		- Složka, která je v hierarchii nejvýše (sama v žádné složce neleží)
+		- Označuje se lomítkem „/“ (v Linuxu i ve Windows) nebo zpětným lomítkem „\“ (ve Windows)
+		- Ve Windows je kořenová složka na každém logickém disku (označeném písmenem)
+		- V Linuxu je jen jedna kořenová složka a další disky se připojují do hierarchické struktury složek
+			- Lze i ve Windows, ale příliš často se to nepoužívá 
+	- Aktuální složka (adresář) – current folder (directory)
+		- Složka, ve které se právě nacházíme (typicky složka, ze které je spuštěn náš program)
+		- Označuje se jednou tečkou „.“
+		- Tato speciální složka ukazuje sama na sebe a nachází se v každé složce
+	- Nadřazená složka (adresář) – parent folder (directory)
+		- Složka, která je v hierarchii bezprostředně nad aktuální složkou
+		- Označuje se dvěma tečkami „..“
+		- Tato speciální složka odkazující na nadřazenou složku aktuální složky (tj. ve které se aktuální složka nachází) se nachází v každé složce
+		- V kořenové složce ukazuje stejně jako „.“ sama na sebe
+- Absolutní cesta
+	- Začíná v kořenové složce, začíná lomítkem
+	- Např. /home/skola/ppa1
+	- Např. D:\Users\tpotuzak\Skola\PPA1
+	- Ve Windows má každý logický disk (označený písmenem) svou kořenovou složku, proto je písmeno (D:) součástí absolutní cesty – v rámci jednoho disku začíná absolutní cesta „\“
+	- Při použití absolutní cesty je jedno, jaká je aktuální složka
+	- Z každé aktuální složky ukazuje na stejný objekt (složku nebo soubor)
+- Relativní cesta
+	- Je relativní k aktuální složce – k jednomu objektu jsou relativní cesty z různých aktuálních složek různé
+	- Může začínat
+		- Aktuální složkou „.“ (v Linuxu často nutné, ve Windows není nutné) nebo názvem podřazené složky (ve Windows)
+		- Nadřazenou složkou „..“
+		- Např. ```./skola/ppa1```
+- Úplné jméno souboru (či složky)
+	- Jednoznačná identifikace souboru (či složky) v rámci celého souborového systému
+	- Absolutní cesta včetně názvu souboru (či složky) 
+	- Např. ```D:\Users\tpotuzak\Skola\PPA1\data.txt```
+
+### Rozhraní Path a třídy Paths a Files
+- Pro práci se soubory jako s celky se dají využít třídy ```Paths, Files``` a rozhraní ```Path``` z balíku ```java.nio.file```
+	- Rozhraní ```Path``` reprezentuje cestu, tj. soubor nebo adresář (složku)
+		- Podrobně o rozhraní viz předmět KIV/OOP 
+		- V dalším textu se budeme k rozhraní ```Path``` chovat, jako by to byla třída 
+	- Třída ```Files``` obsahuje mnoho statických metod pro práci se soubory 
+		- Kromě práce se souborem jako celkem umožňuje i práci s obsahem souboru
+- Lze pracovat se soubory i složkami
+	- V názvech metod se používá se výhradně název „adresář“ („directory“), název „složka“ („folder“) se nepoužívá
+	- S adresáři lze provádět téměř stejné operace jako se soubory (mazání, přesun, kopírování, atd.), proto existuje jedna třída pro práci jak se soubory tak s adresáři
+
+#### Zajištění nezávislosti na operačním systému 
+- Protože různé operační systémy používají různé oddělovače složek v cestě, je ve třídě ```File``` definována proměnná (řetězec) s oddělovačem, která je nastavená podle operačního systému, na kterém je program spuštěn
+	- ```File.separator```
+	- Tato proměnná by se měla používat, pokud vytváříme cestu z jednotlivých jmen adresářů
+	- V Linuxu je její hodnota "/", ve Windows je její hodnota "\"
+	- Např. ```String jmeno = File.separator + "ppa1" + File.separator + " data.txt";```
+	- Třída File je z balíku java.io a původně se používala pro práci se soubory jako s celky (místo ```Path```, ```Paths```, a ```Files```)
+- Pokud místo této proměnné použijeme přímo jedno z lomítek, pak je lepší použít obyčejné lomítko „/“, protože funguje na Linuxu i na Windows
+- Zpětné lomítko se navíc v Javě používá pro zápis speciálních znaků (např. „\n“ pro konec řádky) a je tedy nutné ho zdvojovat „\\“ 
+
+#### Základní operace s cestou
+- Rozhraní ```Path```
+	- Používá se jako parametr v mnoha metodách třídy ```Files``` (jako parametr určující soubor či složku, se kterou bude metoda pracovat)
+	- Soubor či adresář (složka) reprezentovaný instancí ```Path``` může, ale nemusí existovat
+	- Obsahuje pouze operace pro práce s cestou samotnou
+- Vytvoření nové instance
+	- Nová instance se nevytváří konstruktorem, ale s využitím metody třídy ```get()``` pomocné třídy ```Paths```
+		- POZOR!
+			- Jedná se o jinou třídu než je rozhraní ```Path```
+			- Její metoda třídy ```get()``` vrací instanci rozhraní ```Path```
+	- ```Path cesta = Paths.get(retezecSCestou);```
+	- Např. ```Path soubor = Paths.get("data.txt");```
+	- Např. ```Path soubor = Paths.get("D:\\ppa1\\data.txt");```
+	- Je vhodné používat ```File.sepearator``` pro oddělení jednotlivých názvů adresářů
+- Absolutní cesta
+	- Metoda ```toAbsolutPath()```
+	- Vrátí novou instanci ```Path``` reprezentující soubor nebo složku jako absolutní cestu
+		- Pokud už současná instance je absolutní cesta, vrátí stejnou instanci
+		- Pokud je současná instance relativní cesta, vytvoří z ní absolutní doplněním aktuálního adresáře (složky)
+- Zjištění jména souboru či adresáře (složky)
+	- Metoda ```getFileName()```
+	- Vrátí poslední položku cesty (za posledním oddělovačem)
+		- Pokud je cesta ukončena oddělovačem, nevadí to, metoda stejně vrátí poslední položku cesty, nikoliv prázdný řetězec
+- Převod na ```File``` (dříve používáno místo ```Path```) a obráceně 
+	- Metoda instance ```Path.toFile()```
+		- Převede instanci ```Path``` na instanci ```File```
+	- Metoda instance ```File.toPath()```
+		- Převede instanci ```File``` na instanci ```Path```
+	- Převod na řetězec
+		- Standardní metoda ```toString()```
+
+#### Práce se souborem nebo adresářem pomocí třídy Files
+- Třída ```Files``` obsahuje mj. metody pro práci se souborem či adresářem jako celkem
+	- Jedná se o metody třídy a jako parametr mají instanci rozhraní ```Path``` určující, s jakým souborem mají pracovat
+	- Metody třídy ```Files``` pro práci se soubory a adresáři jako s celkem obecně vyhazují konkrétní výjimku odvozenou typicky od ```IOException```, podle toho, k jakému problému dojde
+- Zjištění existence souboru
+	- Metoda ```Files.exists(soubor)```
+		- Vrátí ```true```, pokud zadaný soubor nebo adresář (instance ```Path```) fyzicky existuje na disku, jinak vrátí ```false```
+- Zjištění, zda se jedná o adresář
+	- Metoda ```Files.isDirectory(soubor)```
+		- Vrací ```true```, pokud je zadaný souboru (instance ```Path```) adresář
+		- Pokud objekt neexistuje, nebo je to soubor, vrací ```false```
+- Zjištění informací o souboru nebo adresáři 
+	- Metoda ```Files.getLastModifiedTime(soubor)```
+		- Vrátí datum a čas poslední modifikace zadaného souboru nebo adresáře jako instanci třídy ```FileTime```
+			- Metoda ```toString()``` této třídy vrací datum a čas v čitelném formátu
+		- Pro neexistující soubory nebo adresáře vyhodí výjimku
+	- Metoda ```Files.size(soubor)```
+		- Vrátí velikost souboru v bytech
+		- Pro neexistující soubor vyhodí výjimku
+		- Pro adresář vrátí 0 
+- Smazání souboru či adresáře 
+	- Metoda ```Files.delete(soubor```
+		- Smaže soubor nebo adresář
+		- Pokud soubor nebo adresář neexistuje, nebo adresář není prázdný, vyhodí výjimku
+- Přejmenování/přesunutí souboru či adresáře
+	- Metoda ```Files.move(původníSoubor, cílovýSoubor)```
+		- Přejmenuje nebo přesune soubor nebo adresář
+		- Při neúspěchu (např. cílový soubor již existuje) vyhodí výjimku
+- Kopírování souboru či adresáře
+	- Metoda ```Files.copy(původníSoubor, cílovýSoubor)```
+		- Překopíruje soubor nebo adresář
+		- Pokud se jedná o adresář, nezkopíruje se jeho obsah
+		- Při neúspěchu vyhodí výjimku
+- Vytvoření adresáře
+	- Metoda ```createDirectories(adresář)```
+		- Vytvoří adresář (v případě nutnosti všechny dosud neexistující adresáře v cestě)
+		- Při neúspěchu vyhodí výjimku
+
+## Souborový vstup a výstup
+- Dosud jsme vstupní data četli z klávesnice (standardní vstup) a vypisovali výstupní data na obrazovku (standardní výstup)
+- Je však běžné, že programy čtou a zapisují vstupní a výstupní data z a do souborů
+
+### Proudový vstup a výstup dat 
+- Na vstupní a výstupní operace lze nahlížet tak, že se jedná o proud dat (stream)
+	- To má tu výhodu, že zdroj dat (source – v případě vstupu) nebo cíl dat (target – v případě výstupu) mohou být různých typů (např. klávesnice/obrazovka nebo vstupní/výstupní soubor) a program tento proud dat zpracovává stejným způsobem
+	- Tj. můžeme pracovat stejně s různými zdroji a cíli dat, liší se pouze počáteční inicializace zdroje a/nebo cíle 
+
+#### Vlastnosti proudu dat
+. Základní vlastnost – „teče spojitě vpřed“
+	- Není možné se v něm vracet, nebo přeskakovat dopředu
+		- Tyto možnosti ale prakticky nejsou potřeba příliš často
+- Typické zdroje dat jsou
+	- Klávesnice, soubor a síťové spojení
+- Typické cíle dat jsou
+	- Obrazovka, soubor a síťové spojení
+- Klávesnici a obrazovku jsme používali ve všech příkladech uvedených doposud
+- Na soubory se zaměříme nyní
+- Síťové spojení bude probráno v navazujících předmětech
+
+
+### Typy souborů
+- **Soubory** se dají rozdělit na **textové** a **binární**
+- Oba typy souborů **obsahují pouze binární čísla**
+	- V textovém souboru jsou jednotlivé byty interpretovány jako znaky v pevně
+daném kódování
+	- V binárním souboru je význam jednotlivých bytů dán aplikací, která soubor zapisuje a/nebo čte
+		- I binární soubor lze zobrazit jako textový, ale typicky uvidíme jen změť znaků, ze které se nic užitečného nedozvíme 
+
+#### Textové soubory
+- Připomínají vstup z klávesnice
+- Jsou **čitelné pro člověka** (obsahují prostý text)
+	- POZOR!
+		- Nejde o soubory textových procesorů (např. MS Word), které sice obsahují mj. text, ale kromě něj i jeho formátování, styly, obrázky, atd.
+	- Jde o soubory čitelné (zobrazitelné) obecným textovým editorem (např. PSPad, Notepad++, Poznámkový blok)
+- Jsou organizovány po řádcích
+	- Ve skutečnosti je v souboru jen posloupnost znaků (do důsledku binárních čísel), která do řádků organizovaná není => je potřeba konce řádků vyznačit 
+	- Pro vyznačení se používají značky konce řádku
+		- Značky se skládají z jednoho či dvou znaků (bytů) označovaných ```<CR> ```(znak '\r' v Javě, dekadické číslo znaku 13)a ```<LF>``` (znak '\n' v Javě, dekadické číslo znaku 10)
+	- Konkrétní značka závisí na systému
+		- Windows
+			- ```<CR><LF>```
+			- Pořadí je důležité, ```<LF><CR>``` není chápána jako značka konce řádku 
+		- Linux
+			- ```<LF>```
+		- Mac OS/OS X
+			- Dříve ```<CR>``` (do Mac OS verze 9)
+			- Novější verze ```<LF>```
+		- V Javě stačí zapsat znak '\n' a Java doplní konec řádku podle toho, na jakém operačním systému je spuštěna 
+	- Textový soubor zapsaný v jednom operačním systému nemusí mít správně zobrazené řádky v jiném operačním systému 
+		- Záleží na konkrétním programu, který otevírá textový soubor, většina textových editorů umí správně zobrazit konce řádků ze všech běžných operačních systémů
+- Typická univerzální přípona je ```.txt```
+	- Pouze dodržovaná konvence
+- Textové soubory mohou mít i mnoho jiných specifických přípon podle toho, o jaký soubor se jedná 
+	- Zdrojové soubory programovacích jazyků
+		- ```.java, .cpp, .c, .h, .pas, .js, .php``` a další 
+
+#### Binární soubory
+- Pro běžného uživatele jsou mnohem častější
+- Běžné binární soubory 
+	- Obrázky
+		- ```.jpg, .png, .gif, .bmp``` a další
+	- Hudba
+		- ```.mp3, .ogg, .wav``` a další
+	- Video
+		- ```.avi, .mp4, .mkv, .mov``` a další
+	- Komprimované archivy
+		- ```.zip, .rar, .7z``` a další
+	- Dokument MS Word, MS Excel
+		- ```.doc, .docx, .xls, .xlsx```
+	- Soubory ```.docx``` a ```.xlsx``` jsou ve skutečnosti komprimované složky obsahující množství ```xml``` souborů, obrázky a další data
+- Nejsou čitelné pro člověka a nejsou uspořádané po řádcích
+	- Pro jejich prohlížení a editaci jsou potřeba specializované programy (např. přehrávače médií pro hudbu a video) 
+- Jejich vnitřní organizace je daná formátem souboru 
+	- Formát souboru je indikován příponou 
+		- Tu ale lze libovolně měnit (je to jen součást názvu souboru), proto nemusí odpovídat skutečnému obsahu souboru
+		- Nesoulad přípony a skutečného obsahu souboru někdy působí potíže prohlížečům daného formátu (soubor nemusí jít otevřít)
+		- Jak formát vypadá – tj. co který byte znamená a jaké jsou povolené hodnoty – závisí na tvůrci formátu 
+
+#### Výhody a nevýhody textových a binárních souborů
+- Výhody textových souborů 
+	- Jsou čitelné pro člověka
+		- Člověk dokáže informaci přečíst, ale to nutně nemusí znamenat, že jí porozumí
+			- Např. řádka ```21, 37, 54, diference 0.3888``` je sice čitelná, ale těžko říci, co znamená 
+	- Je možné je číst a upravovat obecným textovým editorem
+- Nevýhody textových souborů
+	- Stejné množství informace většinou zabírá více místa
+	- Pomalejší zpracování (čtení/ zápis kvůli převodu z/do čitelné formy) 
+- Výhody binárních souborů
+	- Paměťově úspornější
+	- Rychlejší zpracování
+- Nevýhody binárních souborů
+	- Pro každý formát či skupinu formátů je potřeba speciální prohlížeč
+	- Nečitelnost v případě nedokumentovaných proprietárních formátů 
+		- Tuto vlastnost někteří výrobci považují za výhodu
+- V dalším textu se budeme zabývat proudovým čtením a zápisem textových souborů, pokud nebude řečeno jinak
+
+### Využití prostředků pro standardní vstup/výstup 
+- Již dříve jsme využívali přesměrování standardního vstupu a/nebo výstupu pomocí prostředků operačního systému
+	- rogramy vytvořené pro práci se standardním vstupem a výstupem fungovaly i po přesměrování vstupu a/nebo výstupu bez problémů
+	- Prostředky použité pro čtení standardního vstupu a zápis do standardního výstupu lze tedy použít i pro práci se soubory 
+- Pro práci se soubory obecně platí (bez ohledu na to, jaký prostředek použijeme)
+	- Soubor (vstupní i výstupní) je nutné před použitím otevřít
+		- Soubor se připraví pro čtení a/nebo zápis, konkrétní soubor na disku se „spojí“ s prostředkem pro práci se souborem
+		- Většinou se provede už při vytvoření instance prostředku pro práci se souborem 
+	- Soubor (vstupní i výstupní) je vhodné po posledním použití uzavřít
+		- Konkrétní soubor na disku se „odpojí“ od prostředku pro práci se souborem
+		- Provede se voláním metody ```close()``` nebo automaticky při využití konstrukce ```try```-with-resources
+		- Všechny otevřené soubory jsou automaticky uzavřeny JVM po ukončení programu, takže nehrozí, že by zůstaly otevřené
+		- Při čtení ze souboru se z hlediska obsahu souboru nic nestane, pokud soubor neuzavřeme
+			- Souborů, které mohou být najednou otevřeny, je však omezený počet
+			- Pokud je soubor otevřen, typicky do něj nelze zapisovat jinou aplikací
+		- Při zápisu do souboru se může stát, že se data nezapíší všechna, pokud soubor neuzavřeme
+	- Téměř vždy je nutné ošetřit výjimky (typicky odvozené od ```IOException```)
+		- Čtení a zápis do souboru je operace, která může často selhat z nejrůznějších příčin, které často nejsou ovlivnitelné naším programem
+		- Proto je ošetření nutné (```IOException``` je kontrolovaná výjimka a je vyhazována většinou metod pro práci se soubory)
+
+#### Použití třídy Scanner pro čtení ze souboru
+- Třídu ```Scanner``` lze přímo použít pro čtení ze souboru
+- Stačí do konstruktoru uvést soubor místo standardního vstupu (```System.in```) 
+	- Nelze uvést pouze název souboru, je potřeba vytvořit instanci rozhraní ```Path```
+	- ```Scanner s = new Scanner(Paths.get("vstup.txt"));```
+		- POZOR!
+			- Instance rozhraní ```Path``` se vytváří metodou třídy ```get()``` třídy ```Paths```
+	- Je nutné ošetřit ```IOException```
+- Test konce souboru
+	- Protože se často může stát, že nevíme, kolik hodnot či řádek je ve čteném souboru uvedeno, lze využít metody pro testování, zda se v souboru nachází další hodnota daného typu 
+		- Pokud ne, lze skončit
+	- Metody ```hasNextTyp()```
+		- Např. metoda ```hasNextInt()```
+			- Vrací ```true```, pokud je ve vstupním souboru další celé číslo
+		- Např. metoda ```hasNextDouble()```
+			- Vrací ```true```, pokud je ve vstupním souboru další reálné číslo
+		- Např. metoda ```hasNext()```
+			- Vrací ```true```, pokud je ve vstupním souboru další řetězec
+		- Např. metoda ```hasNextLine()```
+			- Vrací ```true```, pokud je ve vstupním souboru další řádka
