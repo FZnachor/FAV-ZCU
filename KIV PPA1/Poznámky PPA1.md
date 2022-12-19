@@ -2392,3 +2392,728 @@ daném kódování
 			- Vrací ```true```, pokud je ve vstupním souboru další řetězec
 		- Např. metoda ```hasNextLine()```
 			- Vrací ```true```, pokud je ve vstupním souboru další řádka
+
+#### Použití třídy ```PrintStream``` pro zápis do souboru 
+- Třída ```PrintStream``` poskytuje známé metody ```println()```, ```print()``` a ```format()``` pro zápis formátovaných dat do souboru
+- V referenční proměnné ```System.out``` se skrývá instance třídy ```PrintStream```
+- Jeden z konstruktorů umožňuje vytvořit novou instanci třídy ```PrintStream``` ze zadaného názvu souboru
+	- Místo souboru můžeme použít i standardní výstup
+		- Stačí použít ```System.out``` (viz první zakontovaná řádka v metodě ```main()```) a odstranit konstrukci ```try – catch```
+
+### Využití prostředků balíku ```java.nio.file```
+- Prostředky pro jednoduché čtení a zápis z/do souborů poskytuje třída ```Files``` z balíku ```java.nio.file```
+	- Nahrazuje funkcionalitu z balíku ```java.io```, který je v Javě od začátku
+		- Mnoho tříd z balíku ```java.io``` však stále využívá
+	- Obsahuje snadno použitelné statické metody (podobně jako třída ```Math```)
+
+#### Rychlé čtení s využitím třídy BufferedReader
+- funguje dobře, ale pokud by byl vstupní soubor větší, trvalo by jeho načítání nezanedbatelnou dobu
+	- Je třeba si uvědomit, že práce (tj. čtení a zápis) s vnější pamětí (tj. typicky s pevným diskem, kde jsou soubory uloženy) je řádově pomalejší než práce s vnitřní pamětí => rychlost čtení a zápisu je vhodné řešit ve většině případů, nejen při práci s extrémně velkými soubory
+- Využití třídy ```BufferedReader```
+	- Tzv. bufferovaný vstup
+		- V podstatě to znamená, že se z disku načte najednou větší část obsahu souboru do paměti a odtud se následně čtou data => podstatně rychlejší než číst data z disku po jednotlivých číslech nebo řádcích
+	- Instanci třídy ```BufferedReader``` lze snadno získat ze třídy ```Files``` na základě zadání souboru jako instance ```Path```
+		- Metoda ```Files.newBufferedReader(soubor)```
+	- Třída ```BufferedReader``` nabízí metodu ```readLine()```, která umožňuje načíst jednu řádku ze souboru
+		- Metoda vrací ```null```, pokud dosáhne konce souboru – využívá se, pokud nevíme, kolik řádek v souboru je (častý případ)
+		- Nenabízí však metody pro načtení jiných datových typů jako třída ```Scanner```
+		Načtenou řádku je tedy nutné zpracovat (rozdělit podle nějakého znaku, převést na číslo apod.) ručně
+	- Čtení pomocí třídy ```BufferedReader``` je výrazně rychlejší než čtení pomocí třídy ```Scanner```
+
+#### Rychlý zápis s využitím třídy BufferedWriter
+- Podobně jako lze čtení ze souboru urychlit použitím třídy ```BufferedReader```, je možné zápis do souboru urychlit použitím třídy ```BufferedWriter```
+	- Tzv. bufferovaný výstup
+		- V podstatě to znamená, že se data zapisují nejprve do paměti a následně se větší blok dat zapíše najednou na disk
+	- Ze třídy ```Files``` lze snadno získat instanci ```BufferedWriter``` pro rychlý zápis do souboru pouze na základě zadání souboru jako instance ```Path```
+	- Třída ```BufferedWriter``` ale neobsahuje metody pro pohodlný zápis výstupu (```println()```, ```print()```, ```format()```) 
+	- Proto je vhodné zkombinovat ji se třídou ```PrintWriter```, která zmíněné metody obsahuje
+		- Třída ```Files``` bohužel neobsahuje metodu, která by vrátila rovnou instanci třídy ```PrintWriter```
+- POZOR!
+	- Při použití třídy ```BufferedWriter``` je obzvláště důležité soubor po zapsání všech dat uzavřít
+	- ```BufferedWriter``` zapisuje data nejprve do paměti a následně zapíše celý blok dat do souboru
+	- Pokud soubor neuzavřeme, velmi často se stává, že poslední blok se do souboru nezapíše a soubor tak není kompletní
+		- Pokud je dat, které zapisujeme do souboru, málo, může se stát, že soubor bude úplně prázdný
+	- Okamžité zapsání do souboru lze vynutit metodou ```flush()```
+- Příklad použití tříd ```BufferedWriter``` a ```PrintWriter```
+- Rozdíl mezi ```PrintWriter``` a ```PrintStream```
+	- V Javě je několik tříd pro práci se vstupy a výstupy končící na …(```Input/Output```)```Stream``` a několik tříd pro práci se vstupy výstupy končící na …```Reader/Writer```
+	- Třídy ```…Reader/Writer``` pracují se znaky
+		- Znak v Javě zabírá dva byty, ale většina textových souborů takto uložena není
+		- Znaky se do souborů typicky ukládají jako jeden či více bytů podle použitého kódování
+		- Při čtení nebo zápisu provádějí třídy ```…Reader/Writer``` konverzi
+	- Třídy …(```Input/Output```) ```Stream``` pracují s byty
+		- Jsou určeny pro práci s byty, které však také mohou představovat znaky
+		- Metody určené pro formátovaný výstup (např. metody ```println()```, ```print()``` a ```format()``` třídy ```PrintStream```) rovněž provádějí konverzi, ostatní metody ne
+		- Umožňují i zápis a čtení jednoho či více bytů přímo (bez konverze)
+- Proč je standardní výstup instance třídy ```PrintStream``` (určená pro práci s byty), i když standardní výstup evidentně pracuje se znaky
+	- Historické důvody, v Javě 1.0 třídy ```…Reader/Writer``` neexistovaly
+	- Zachováno kvůli zpětné kompatibilitě
+	- Jsou i situace, kdy je vhodné, aby standardní vstup a/nebo výstup pracoval s byty a ne se znaky
+
+#### Načtení všech řádek souboru
+- Určeno pro malé soubory
+	- Rychlost načítání je řádově srovnatelná s třídou ```BufferedReader```
+- Metoda ```Files.readAllLines(soubor)```
+	- Metoda zajistí otevření i uzavření souboru samostatně, je potřeba pouze odchytit případnou ```IOException```
+	- Metoda vrací seznam řádek (```List<String>``` – ne pole) souboru zadaného jako instance ```Path```
+		- Jednotlivé řádky v seznamu jsou přístupné pomocí metody instance seznamu ```get(index)```
+			- Indexy jsou stejné jako u pole – 0 až délka seznamu - 1
+		- Délku seznamu vrátí metoda instance seznamu ```size()```
+		- Seznam se dá procházet, stejně jako pole, cyklem ```for – each```
+
+### Práce s binárními soubory
+- Práce s binárními soubory je v Javě velice podobná práci s textovými soubory
+- Používáme třídy končící na …(```Input/Output```) ```Stream```
+	- Naprostá většina metod těchto tříd neprovádí konverzi na znaky (s výjimkou metod ```println()```, ```print()``` a ```format()``` třídy ```PrintStream```)
+		- Byty se načtou/zapíšou tak, jak jsou (na rozdíl od tříd končících na ```…Reader/Writer```)
+
+#### Zápis do binárního souboru
+- Je možné zapisovat přímo jednotlivé byty
+	- Základní třída ```OutputStream```
+		- Její instanci lze získat metodou ```Files.newOutputStream(soubor)```
+- Je možné zapisovat hodnoty základních datových typů
+	- Třída ```DataOutputStream```
+		- Obsahuje metody ```writeTyp(hodnota)``` pro zápis všech základních datových typů
+			- Např. ```writeDouble(5.0)```
+		- Do jednoho souboru je tak možné zapsat hodnoty různých datových typů
+			- Pořadí a počty jednotlivých hodnot je třeba řádně zdokumentovat, aby bylo možné takový binární soubor číst 
+- Pro urychlení je možné použít třídu ```BufferedOutputStream``` stejným způsobem jako ```BufferedWriter```
+	- Třída ```Files``` však neposkytuje metodu, která by vracela instanci ```BufferedOutputStream```
+	- Je potřeba vytvořit ```BufferedOutputStream``` ručně
+
+#### Čtení z binárního souboru
+- Je možné číst přímo jednotlivé byty
+	- Základní třída ```InputStream```
+		- Její instanci lze získat metodou ```Files.newInputStream(soubor)```
+- Je možné číst hodnoty základních datových typů
+	- Třída ```DataInputStream```
+		- Obsahuje metody ```readTyp()``` pro čtení všech základních datových typů
+			- Např. ```readDouble()```
+			- Odpovídají metodám ```writeTyp()``` třídy ```DataOutputStream```
+- Pro urychlení je možné použít třídu ```BufferedInputStream```
+	- Třída ```Files``` však neposkytuje metodu, která by vracela instanci ```BufferedInputStream```
+	- Je potřeba vytvořit ```BufferedInputStream``` ručně
+
+## Zobrazení dat v počítači
+- Všechna data uložená v počítači jsou uložena jako posloupnost binárních číslic (bitů) uspořádaná po bytech (8 bitů)
+- Způsob uložení dat se nazývá **kódování**
+	- Je dán datovým typem dat
+		- Určuje, jaký mají význam jednotlivé bity a byty
+- Rozsahy hodnot jednotlivých datových typů a počet bytů, které zabírají v paměti, byly zmíněny v Kap. 3.2
+- Jakým způsobem jsou jednotlivé datové typy uloženy (jaké kódování je použito), je popsáno v následujících podkapitolách
+
+### Převod čísel mezi soustavami
+- Nativní číselná soustava počítače, odpovídající uspořádání fyzické paměti, je dvojková (binární) 
+	- Ruční zápis binárních čísel je však dlouhý, proto se pro zápis binárních čísel často používá šestnáctková (hexadecimální) soustava, která pro stejné číslo potřebuje 4x méně číslic
+		- Na jeden byte stačí 2 hexadecimální číslice, ale 8 binárních číslic
+- V běžném životě se většinou počítá v desítkové (dekadické) soustavě
+- Čísla lze mezi jednotlivými soustavami převádět pomocí kalkulačky či jiných programů (přepočet je dostupný např. v PSPadu)
+- Algoritmy pro ruční převod čísel mezi dvojkovou, desítkovou a šestnáctkovou soustavou jsou v následujících podkapitolách
+
+#### Převod z desítkové do dvojkové soustavy (univerzální postup)
+- Celou a desetinnou část řešíme zvlášť
+- Celá část
+	- Celou část dělíme 2, píšeme si zbytky po dělení
+	- Poslední číslice výsledku (0 nebo 1) a zbytky přečtené odzadu dají celou část binárního čísla
+- Desetinná část
+	- Desetinnou část násobíme 2, píšeme si číslici vlevo od desetinné čárky (v celé části)
+	- Číslice přečtené popředu dají desetinnou část binárního čísla
+- Příklad převodu čísla 69,6875 na jeho reprezentaci v binární soustavě je na
+
+#### Převod z desítkové do dvojkové soustavy („intuitivní“) 
+- „Intuitivní“ postup pro celá čísla
+- Napsat si vyčíslené mocniny 2, nalézt největší menší nebo stejnou mocninu 2, zapsat pod ní 1 a odečíst ji od převáděného čísla
+- Opakovat, dokud z čísla nezbude 0
+- Příklad převodu 69 na jeho reprezentaci v binární soustavě
+	- Odečtu 64, protože 64 < 69, pod 64 zapíšu 1, zbude 5
+	- Odečtu 4, protože 4 < 5, pod 4 zapíšu 1, zbude 1
+	- Odečtu 1, protože 1 = 1, pod 1 zapíšu 1, zbude 0
+	- Zbytek pozic doplním 0 
+
+#### Převod z dvojkové do desítkové soustavy
+- Převod z dvojkové soustavy do desítkové (pro celá i reálná čísla)
+	- Každou číslici označit zprava doleva jako zvyšující se mocninu 2
+	- Mocniny u číslic 1 vyčíslit a sečíst
+
+#### Převod z dvojkové do šestnáctkové soustavy
+- Převod z dvojkové soustavy do šestnáctkové (pro celá i reálná čísla)
+	- Rozdělit číslo na čtveřice od desetinné čárky (na obě strany)
+	- Každá čtveřice je jedna číslice šestnáctkové soustavy (0 až F)
+		- Vyčíslit hodnotu čtyř binárních číslic jako při převodu do desítkové soustavy
+	
+#### Převod z šestnáctkové do dvojkové soustavy
+- Převod z šestnáctkové do dvojkové soustavy (pro celá i reálná čísla) 
+	- Každou šestnáctkovou číslici převést do desítkové soustavy
+	- Použít pro každou číslici intuitivní postup pro převod z desítkové do dvojkové soustavy
+
+### Kódy pro uložení celočíselných datových typů
+- Pro uložení celočíselných datových typů existuje několik kódů 
+	- Bezznaménkové
+	- Znaménkové
+		- Přímý kód
+		- Inverzní kód
+		- Doplňkový kód
+		- Kód s posunutou nulou 
+
+#### Uložení celých čísel bez znaménka
+- Zápis ve dvojkové soustavě zarovnaný na násobky bytů
+- Pouze pro nezáporná čísla
+- Např. 131 je ```1000 0011```, 3 je ```0000 0011```
+
+#### Přímý kód
+- Kladná čísla stejná jako u bezznaménkového kódování
+- Znaménko určeno v MSB (Most Significant Bit – ten nejvíce vlevo)
+- Např. -3 je 1000 0011
+- Nevýhody
+	- Dvojí nula ```– 1000 0000``` (záporná) a ```0000 0000``` (kladná)
+- Používá se pro zobrazení mantisy u reálných čísel
+
+#### Inverzní kód
+- Kladná čísla stejná jako u bezznaménkového kódování
+- Pro záporná čísla se mění všechny ```0``` na ```1``` a ```1``` na ```0```
+- Např. -3 je ```1111 1100```
+- Nevýhody
+	- Dvojí nula ```1111 1111``` (záporná) a ```0000 0000``` (kladná)
+- Používá se v bitových operacích, případně jako mezikrok v doplňkovém kódu 
+
+#### Doplňkový kód (dvojkový doplněk)
+- Matematická definice
+	- D(x) = x pro x ≥ 0
+	- D(x) = x + K pro x < 0, kde K = $2^{n}$ (kapacita soustavy)
+- Kladná čísla stejná jako u bezznaménkového kódování
+- Záporná čísla jsou uložena jako „inverzní kód + 1“
+- Např. -3 je ```1111 1101```
+- Používá se výhradně pro uložení celých znaménkových čísel
+	- Např. typy ```byte, short, int, long``` v Javě
+- Výhody
+	- Pouze jedna nula – ```0000 0000```
+	- Odečítání je přičítání záporného čísla 
+- Pozor na nesymetrický rozsah -128 až 127 (pro 1 byte)
+	- Absolutní hodnota nejmenšího záporného čísla je mimo rozsah 
+- Přetečení
+	- Nastává, když nám aritmetickými operacemi vyjde hodnota, která se nevejde do daného rozsahu
+	- Např. 127 + 1 (pro 1 byte) = -128
+		- MSB se přičtením 1 k maximálnímu číslu nastaví na 1, což indikuje záporné číslo, proto vyjde -128 
+	- Možné reakce na přetečení
+		- Přerušení výpočtu jako reakce na chybu
+		- Pokračování výpočtu s nesprávným výsledkem – používá Java
+	- Zda přetečení nastane, závisí na vstupních číslech – někdy může program fungovat správně a někdy ne => špatně se hledá
+
+#### Kód s posunutou nulou
+- Lineární posun nuly po celočíselné ose
+	- ```0000 0000``` je nejmenší (záporné) číslo
+	- Nula je ve středu rozsahu, tedy $2^{n-1}$ – 1, např. ```0111 1111```
+	- ```1111 1111``` je největší kladné číslo
+- Podobně jako u doplňkového kódu je rozsah nesymetrický
+- Nevýhoda
+	- Kladná čísla jsou odlišná od bezznaménkového kódování
+	- Např. 3 je ```1000 0010```
+- Používá se pro uložení exponentu u reálných čísel
+
+### Kódy pro uložení reálných datových typů
+- Aproximace reálných čísel
+- Též nazýváno „zobrazení v pohyblivé řádové čárce“ (floating point)
+- Dle normy IEEE 754 na 4 nebo 8 bytech (v Javě ```float``` – 4 byty a ```double``` – 8 bytů)
+	- Kromě samotného kódování norma IEEE 754 definuje i standardní chování základních aritmetických operací (sčítání, odčítání, násobení, dělení, …)
+
+#### IEEE 754 na 4 bytech
+- Formát v pohyblivé řádové čárce s jednoduchou přesností (single-precision floatingpoint format) 
+- Používá 4 byty (32 bitů)
+	- Rozsah v absolutní hodnotě cca 10-45 až 10+38
+	- Přesnost na cca 6 až 7 (dekadických) desetinných míst
+	- Rozdělení na znaménko, exponent a mantisu
+- Znaménkový bit patří mantise (nikoliv exponentu)
+	- 0 odpovídá +
+	- 1 odpovídá -
+- Mantisa (23 bitů)
+	- Uložena v přímém kódu (znaménkový bit je oddělen exponentem)
+	- Je normovaná
+		- 1 ≤ mantisa < základ (tj. 2)
+		- Její první bit v normovaném tvaru musí tedy být vždy 1 (1 před desetinou čárkou) a proto se neukládá
+	- Určuje přesnost čísla
+- Exponent (8 bitů) 
+	- Uložen v kódu s posunutou nulou, kde 0 je ```0111 1111```
+	- Určuje rozsah čísla
+- Hodnota 0 je uložena jako samé nuly
+- Hodnota čísla se dá vypočítat
+- Určení, jak bude vypadat zápis v IEEE 754 na 4 bytech pro číslo -258,125
+- Přesnost uložených čísel je omezená
+- Některá čísla jsou zaokrouhlená
+- Pokud je hodnota čísla menší než minimum, číslo nelze zobrazit, zaokrouhluje se automaticky na 0 => podtečení
+- Pokud je hodnota čísla v absolutní hodnotě větší než maximum, číslo nelze zobrazit, zaokrouhluje se automaticky na (kladné nebo záporné) nekonečno => přetečení
+- NaN (Not a Number)
+	- Definovaná hodnota při chybné operaci s reálným číslem (např. dělení nuly nulou)
+- Operace s reálnými čísly
+	- Sčítání
+		- Porovnáním exponentů se zjistí menší číslo, tomu se zvětší exponent na úroveň většího čísla => zmenšuje se přesnost (mantisa)
+		- Pro exponentem hodně odlišná čísla se může v důsledku místo menšího čísla přičítat nula 
+	- Násobení
+		- Exponenty se sečtou
+		- Mantisy se vynásobí
+- Obecně platí 
+	- Nepoužívat reálná čísla tam, kde stačí celá
+		- Výpočty nemusí být přesné (zaokrouhlovací chyby)
+		- Výpočty s celými čísly mohou být rychlejší
+	- Nepoužívat pro reálná čísla porovnání na rovnost (operátor „```==```“)
+
+#### IEEE 754 na 8 bytech
+- Formát v pohyblivé řádové čárce s dvojitou přesností (double-precision floating-point format)
+- Používá 8 bytů (64 bitů)
+	- Přesnost na cca 15 (dekadických) desetinných míst
+- Způsob uložení je úplně stejný jako u 4 bytů, jen se liší velikost exponentu a mantisy 
+	- Znaménko 1 bit
+	- Mantisa 52 bitů
+	- Exponent 11 bitů
+
+### Kódy pro uložení znaků a řetězců
+#### Uložení znaků
+- Přiřazují každému znaku zvolené abecedy nezáporné celé číslo
+- Existuje mnoho kódů
+
+#### Uložení řetězců
+- Řetězec je složen z jednotlivých znaků (v daném kódování)
+- Řetězec má délku udávanou v počtu znaků
+- Způsob uložení v paměti závisí především na použitém programovacím jazyce
+	- Java
+		- String
+			- Řetězec je neměnná (immutable) instance třídy
+			- Znaky řetězce jsou v instanci uloženy jako pole znaků (char[])
+			- Řetězec tak může mít libovolnou délku
+		- ```StringBuilder/StringBuffer```
+			- Měnitelný řetězec
+			- Kromě délky má i kapacitu (kolik znaků lze do řetězce uložit), která je rovněž proměnná
+			- Znaky řetězce jsou v instanci rovněž uloženy jako pole znaků (char[])
+			- Řetězec tak může mít libovolnou délku
+	- C
+		- Řetězec je pole bytů začínající indexem 0
+		- Za posledním platným znakem řetězce je přidán znak s hodnotou 0 (tj. '\0' – nikoliv znak '0')
+		- Řetězec tak může mít libovolnou délku
+		- V řetězci se nesmí vyskytnout znak '\0'
+	- Pascal
+		- Řetězec je pole bytů, znaky jsou uloženy od indexu 1
+		- Na indexu 0 je uložena délka řetězce, která je tak omezena na maximálně 255 znaků
+		- Platí pro původní specifikaci jazyka Pascal
+			- Jeho novější mutace (např. FreePascal) obsahují i další typy řetězců 
+
+### Uložení logického datového typu (```boolean```)
+- Též booleovský datový typ
+- Ukládají se jen dvě hodnoty
+	- ```true``` (pravda, logická 1)
+	- ```false``` (nepravda, logická 0)
+- Prakticky se realizují pomocí celočíselného bezznaménkového typu
+- Některé jazyky specifický logický typ nemají a používají místo něj celočíselný typ
+	- Např. C
+
+### Problém ukládání dat do fyzické paměti
+- Týká se všech datových typů, jejichž hodnoty jsou uloženy na více než jednom bytu tj. většina) 
+	- Demonstrujeme na uložení neznaménkového čísla na 4 bytech (01A2B3C4)H počínaje adresou 1000 
+- Pokud má datový typ větší délku než jeden byte, pak jsou dvě možnosti, jak tyto byty uložit do fyzické paměti
+	- Big Endian (BE) – „vyšší řády na nižší adrese“ – „přirozené“ uložení 
+		- Číslo bude uloženo jako ```01 A2 B3 C4```
+			- Adresa 1000: ```01```
+			- Adresa 1001: ```A2```
+			- Adresa 1002: ```B3```
+			- Adresa 1003: ```C4```
+	- Little Endian (LE) – „vyšší řády na vyšší adrese“ – „obrácené“ uložení
+		- Číslo bude uloženo jako ```C4 B3 A2 01```
+			- Adresa 1000: ```C4```
+			- Adresa 1001: ```B3```
+			- Adresa 1002: ```A2```
+			- Adresa 1003: ```01```
+- Obecně se nedá říct, s kterým způsobem se setkáme více
+	- Je běžné, že se oba způsoby vyskytují na jednom počítači
+- Může způsobit potíže při zápisu a následném čtení binárních souborů
+	- Je potřeba vědět, zda je soubor zapsán jako LE nebo BE
+- Způsob záleží na
+	- Procesoru
+		- Např. Intel LE, Motorola BE
+	- Operačním systému
+		- Windows LE
+	- Programovacím jazyce
+		- Java BE 
+			- Zaručuje přenositelnost binárních souborů
+				- Pokud však byly zapsány i přečteny programem napsaným v Javě
+		- V mnoha programovacích jazycích není určen a přebírá se způsob od operačního systému
+
+## Kodování znaků
+- Určuje, jakým „číslem“ jsou jednotlivé znaky (a řetězce složené ze znaků) reprezentovány
+
+### Základní pojmy
+- Terminologie není jednotná, liší se u velkých firem a organizací
+	- Stejné pojmy se používají pro různé věci
+	- Pro stejné věci existují různé pojmy
+- V dalším textu bude využita terminologie z Unicode – Character Encoding Model
+	- Viz https://www.unicode.org/reports/tr17/
+
+#### Organizace kódování znaků
+- Pro kódování znaků lze použít několikaúrovňovou organizaci
+	- Znaková sada (množina kódovaných znaků – Coded Character Set – CCS) 
+		- Mapování mezi množinou (abstraktních) znaků a množinou nezáporných celých čísel (kódové body – code points)
+		- Např. ```A = 41``` (abstraktní znak ```A``` má kódový bod ```41``` (hexadecimálně))
+		- Příklady znakových sad jsou US-ASCII, ISO-8859-1, Unicode
+	- Forma kódování znaků (Character Encoding Form – CEF)
+		- Mapování množiny nezáporných celých čísel (prvků CCS) na množinu kódových jednotek dané šířky (např. 32bitových hodnot ```int```)
+		- Např. ```A = 00 00 00 41``` (znak ```A``` namapovaný na 32bitový ```int```) 
+	- Kódovací schéma (Character Encoding Scheme – CES) 
+		- Alternativní název charset – budeme používat dále, odpovídá třídě v ```Javě java.nio.charset.Charset```
+	- Způsob mapování kódových jednotek z CEF do posloupnosti bytů
+	- Např. ```A = 00 41``` (znak ```A``` pro znakovou sadu Unicode a kódovací schéma UTF-16BE)
+	- Pro jednu znakovou sadu může existovat více charsetů 
+		- Např. pro znakovou sadu Unicode existují charsety UTF-8, UTF16 a UTF-32
+	- Často ale pro jednu znakovou sadu existuje jen jeden charset
+		- Např. ISO-8859-2 
+	ěžně je jeden soubor napsán v jednom charsetu
+- Teoreticky je ale možné, aby byl jeden soubor současně napsán
+	- Ve více znakových sadách (např. Unicode, ISO-8859-2)
+	- Za použití více charsetů (UTF-8, ISO-8859-2)
+	- Kombinací obou předchozích – nejhorší případ
+- Různé soubory jsou běžně v různých charsetech
+
+#### Trocha historie
+- Sedmibitový ASCII kód (US-ASCII)
+	- American Standard Code for Information Interchage
+	- Základem většiny kódování používaných v současnosti (alespoň v Evropě a Americe)
+	- Protože data se standardně ukládají po bytech, je osmý (nejdůležitější) bit (Most Significant Bit – MSB – ten nejvíc vlevo) vždy 0
+	- Umožňuje uložit 128 znaků
+		- Stačí pouze pro čistě anglické texty
+	- Nestačí pro uložení dalších znaků jiných jazyků (např. diakritické znaky češtiny) používajících latinku a už vůbec ne pro uložení znaků jiných abeced
+- 8bitové kódy založené na ASCII
+	- Použila se zbývající polovina rozsahu jednoho bytu (MSB roven 1), což dává dalších 128 znaků 
+	- Protože jeden znak je jeden byte, není třeba používat speciální charset (kódovací schéma) 
+		- Znaková sada má stejný název jako charset 
+	- 128 znaků navíc ale nestačí pro požadavky všech jazyků (ani pro všechny jazyky používající latinku) najednou
+		- Vzniklo mnoho charsetů, každý reprezentující specifické požadavky jednoho či skupiny jazyků) 
+		- I pro jeden jazyk vzniklo více (různých) charsetů 
+			- Vznikají charsety dle normy ISO ISO-8859-1 až ISO-8859-15 (pro různé skupiny jazyků)
+			- Vznikají charsety v národních standardizačních organizacích
+			- Vznikají propietární charsety, které jsou platformově závislé (Cp1250 pro Windows, MacCentralEurope)
+- 16bitový CEF
+	- Řeší problém s nedostatečným počtem znaků použitím 16 bitů (2 bytů) pro jeden znak => to dává až 65536 možných znaků
+	- Na vývoji pracují cca od roku 1990 paralelně dvě organizace
+		- Unicode Consortium
+			- Znaková sada Unicode
+		- ISO (International Organization for Standardization)
+			- Znaková sada ISO/EIC 10646, ve zkratce UCS (Universal Character Set)
+		- Pro běžné použití netřeba rozlišovat, jednotlivé znaky mají stejné kódové body
+- 32bitový CEF
+	- Při zahrnutí ideografických písem (typicky asijská písma) však ani 65536 znaků není dostatečné množství
+	- Řeší se použitím 32 bitů (4 bytů) pro jeden znak => to dává teoreticky přes 4 × 10**9 možných znaků, kdy se však nevyužívá celý rozsah
+
+#### Problém pojmenování charsetů
+- Je běžné, že jeden charset má několik jmen, které se od sebe částečně nebo zcela liší 
+	- Způsobeno tím, že charsety nově pojmenovávají i různí výrobci (HW a/nebo SW), i když už jméno charsetu existuje
+	- Např. US-ASCII má 14 dalších evidovaných jmen
+		- ISO646-US, IBM367, ASCII, cp376, default, ascii7, ANSI_X3.4-1986, iso-ir-6, us, 646, iso_646.irv:1983, csASCII, ANSI_X3.4-1968, ISO_646.irv:1991
+- Pořádek zavádí IANA (Internet Assigned Numbers Authority)
+- Rozlišuje se základní pojmenování (nejoficiálnější), tzv. kanonické jméno, a ostatní evidovaná jména, tzv. aliasy
+	- Např. US-ASCII je kanonické jméno a iso-ir-6 je jeho evidovaný alias 
+- Může se stát, že jméno charsetu není evidováno v IANA, ale charset je podporován některými aplikacemi
+	- Pak se používá stejný princip kanonického jména a aliasů, ale kanonické jméno musí začínat „x-“ nebo „X-“
+	- Např. Java Core API podporuje charset x-MacCentralEurope s aliasem MacCentralEurope 
+
+### Jednobytové kódy
+- Ačkoliv se čím dál více užívá Unicode, stále se můžeme setkat s použitím jednobytových kódu
+	- Především historické soubory, které (dosud) nebyly převedeny do Unicode
+
+#### US-ASCII (ASCII)
+- Většina (nejen) jednobytových kódů vychází ze US-ASCII
+- Původně využito pouze 7 bitů
+	- ```00``` až ```1F``` (0 až 31) – řídící znaky (např. ```<CR>```, ```<LF>``` atd.)
+	- ```20``` (32) – mezera
+	- ```21``` až ``2F`` (33 až 47) – interpunkce (např. „!“, „,“, „"“ atd.) 
+	- ```30``` až ```39``` (48 až 57) – číslice „0“ až „9“
+	- ```3A``` až ```40``` (58 až 64) – další znaky (např. „;“, „:“, „<“, „@“ atd.)
+	- ```41``` až ```5A``` (65 až 90) – velká písmena „A“ až „Z“
+	- ```5B``` až ``60`` (91 až 96) – další znaky (např. „^“, „[“, atd.)
+	- ```61``` až ```7A``` (91 až 122) – malá písmena „a“ až „z“
+	- ```7B``` až ```7F``` (123 až 127) – další znaky (např. „{“, „~“, „|“ atd.)
+- I v anglicky mluvících zemích se začalo využívat dalších 128 znaků (MSB roven 1), ač nebyly potřeba pro běžné znaky anglické abecedy
+	- Využití mj. pro znaky s čárami umožňující vykreslení „grafických“ oken v textovém prostředí
+
+#### Různá jednobytová kódování češtiny
+- Stejně jako pro mnoho jiných jazyků i pro češtinu vznikl jednobytový kód vycházející z ASCII 
+	- Prvních 128 znaků stejných jako US-ASCII (MSB roven 0)
+	- Dalších 128 znaků použito pro diakritické a další znaky (MSB roven 1) 
+- Bohužel vzniklo hned několik kódů, které se vzájemně liší pozicí některých znaků s diakritikou
+	- Běžněji se vyskytujících je cca 11
+	- Pokud předpokládáme, že soubor je uložen v jednom kódování a ve skutečnosti je uložen v jiném, některé znaky s diakritikou nebudou zobrazeny správně (tj. budou místo nich zobrazeny jiné znaky)
+	- Některá kódování se liší jen v několika málo znacích, proto je možné si nesrovnalostí na první pohled nevšimnout
+- Jednobytová kódování pro češtinu (a slovenštinu a další středo a východoevropské jazyky), se kterými je možné se setkat 
+	- ISO-8859-2 – Latin Alphabet No. 2
+		- Aliasy – ibm912, l2, ibm-912, ISO_8859-2, latin2, csISOLatin2, iso8859_2, 912, 8859_2, ISO8859-2, iso-ir-101
+		- Základní charset pro východoevropské země – mezinárodní standard dle ISO
+		- Dříve se používalo na Linuxu téměř výhradně (dnes na Linuxu většinou nahrazeno UTF-8) 
+	- windows-1250 – Windows Eastern European
+		- Aliasy – cp1250, cp5346
+		- Proprietární charset firmy Microsoft
+		- Podporován operačními systémy (Windows) a aplikacemi této firmy
+		- Od ISO-8859-2 se v češtině liší pouze ve znacích „š“, „Š“, „ž“, „Ž“, „ť“, „Ť“ 
+	- IBM852 – MS-DOS Latin-2 (POZOR! – Liší se od ISO-8859-2 ale i od windows1250) 
+		- Aliasy – 852, ibm-852, csPCp852, ibm852
+		- Proprietární charset firmy IBM
+		- Používaný charset v českém MS-DOS
+		- Stále používaný implicitní charset v konzoli českých Windows 
+			- Obzvláště bizardní situace, kdy konzole používá IBM852 a zbytek systému používá windows-1250 
+			- Důvod, proč mohou nastat problémy s diakritickými znaky při jejich vstupu/výstupu z/do konzole
+				- Java předpokládá na standardním vstupu/výstupu charset operačního systému (což je windows-1250), ale konzole používá IBM852
+				- Od verze Java 1.8 zlepšení, ale stále nefunguje univerzálně 
+	- x-MacCentralEurope – Macintosh Latin-2 
+		- Alias MacCentralEurope
+		- Proprietární charset firmy Apple 
+
+### Unicode
+- Řeší problému s nedostatkem znaků použitím více bitů (bytů)
+	- Původně (verze 1.0, 1991) 16 bitů (2 byty)  až 65536 znaků
+	- Brzy se ukázalo (verze 2.0, 1996), že 16 bitů není dost a přešlo se na 32 bitů teoreticky přes 4 × 109 možných znaků, ale v současnosti se neplánuje využití více než 21 bitů
+	- Prvních 128 znaků mají stejné kódové body (code points) jako znaky v 7bitové US-ASCII
+- Kódové body (code points) jednotlivých znaků se označují jako ```U+hexaČíslo```
+	- ```hexaČíslo``` jsou typicky 4 hexadecimální číslice, může jich být až 6 (vzhledem k uvažovanému rozsahu maximálně 21 bitů – každé 2 číslice reprezentují 1 byte) 
+	- Např. ```U+0041``` je znak „```A```“ – odpovídá zápisu ```\u0041``` v Javě
+
+#### Současné rozdělení rozsahu znaků Unicode 
+- Ze 32 bitů se využívá pouze 21 bitů
+	- Konkrétně hodnoty ```U+000000``` až ```U+10FFFF```
+- Tento rozsah je rozdělen na 17 skupin (sfér – planes), každá o velikosti 65536 znaků => celkem přes 10**6 znaků 
+	- Původní sada znaků, která se vejde do 16 bitů (2 byty) se označuje jako BMP (Basic Multilingual Plane) 
+		- Je první v pořadí, rozsah ```U+000000``` až ```U+00FFFF```
+		- Zahrnuje všechny znaky používané v Evropě a Americe a základní ideografická písma čínštiny, japonštiny a korejštiny (HAN písmo)
+		- Samotné BMP je vnitřně děleno do bloků, které (na rozdíl od sfér) nemají konstantní velikost
+			- Např. ASCII (rozsah ```U+000000``` až ```U+00007F```) je tzv. Basic Latin Block 
+	- Dalších 16 sfér v rozsahu ```U+010000``` až ```U+10FFFF``` jsou tzv. doplňkové sféry (supplementary planes), které se v oblasti střední Evropy téměř nikdy nepoužívají
+		- V současnosti (2022 – Unicode verze 15.0) má pět doplňkových sfér přiřazeny znaky a celkem šest sfér je pojmenováno 
+	- V současnosti (2022 – Unicode verze 15.0) je namapováno (tj. kódovým bodům jsou přiřazeny znaky) 149697 znaků
+		- Unicode verze 1.0.1 měl 28327 znaků 
+
+#### Kódovací schémata (charsety) Unicode 
+- Protože znak může být uložen na více bytech, je možné používat více charsetů (kódovacích) schémat
+- Unicode má tři základní charsety UTF (Unicode Transformation Format), přičemž dva z nich mají další varianty  celkem 7 charsetů
+	- UTF-8
+	- UTF-16
+		- Další varianty UTF-16BE a UTF-16LE přesně specifikující pořadí uložení bytů
+	- UTF-32
+		- Další varianty UTF-32BE a UTF-32LE přesně specifikující pořadí uložení bytů
+	- Všechny charsety jsou schopny uložit celý rozsah Unicode (21 bitů)
+	- Jednotlivé charsety jsou popsány v Kap. 28.3.4 až 28.3.6
+
+#### Problém pořadí bytů, značka bytového pořadí
+- Pokud ukládáme do paměti či souboru vícebytové entity (v tomto případě znaky), je potřeba rozlišit pořadí bytů
+	- Např. pokud uvažujeme uložení znaku „```A```“ (```U+0041```) na dvou bytech, může být uložen jako
+		- Little Endian (LE – „obrácené uložení“) – ```41 00```
+		- Big Endian (BE – „přirozené uložení“) – ```00 41```
+	- Pokud uvažujeme uložení znaku „```A```“ na čtyřech bytech, může být uložen jako
+		- Little Endian – ```41 00 00 00```
+		- Big Endian – ```00 00 00 41```
+- Způsob ukládání závisí na platformě (Windows LE), programovacím jazyku (Java vždy BE), aplikaci atd.
+- Jaký způsob je použit, je důležité při čtení souboru pro správné načtení vícebytových znaků
+- Charsety Unicode mohou pro identifikaci používat počáteční značku bytového pořadí
+	- Byte Order Mark (BOM)
+	- Zapisuje se na úplný začátek souboru
+	- Pro tento účel Unicode definuje dva kódové body
+		- ```U+FEFF``` – pevná mezera nulové délky (zero width no-break space)
+		- ```U+FFFE``` – není kód znaku (not a character code) 
+	- Pro UTF-16 má BOM tvar ```FE FF``` pro BE a``` FF FE``` pro LE
+		- Pokud je značka načtena správně, pak by se pevná mezera nulové délky neměla ze své podstaty zobrazit
+		- Pokud je načtena nesprávně (zamění se BE za LE nebo naopak), opět by se neměla zobrazit, protože se jedná o neplatný znak
+	- BOM se může nebo nesmí vyskytovat, což je dáno definicí konkrétního charsetu
+	- U UTF-8 má BOM tvar ```EF BB BF```
+		- Není vyžadována ani doporučována, nicméně není zakázána 
+		- Může nastat problém se zdrojovými soubory ```.java```, které mohou být uloženy v UTF-8
+		- Překladač javac nepředpokládá na začátku souboru BOM (i když není zakázáno, aby tam byla), některé editory ji tam však umístí  program pak nelze přeložit
+
+### UTF-8
+- Bylo vytvořeno, aby se znaky Unicode daly zakódovat posloupností bytů, se kterými umí pracovat každá aplikace a každý souborový systém
+- Obecně rozšířený a používaný charset
+	- Např. řetězce v .class souborech jsou uloženy v UTF-8
+	- Ze zmíněných sedmi charsetů Unicode se UTF-8 používá v Evropě a v Americe pravděpodobně nejčastěji
+- Pro texty využívající pouze znaky anglické abecedy je UTF-8 totožné s US-ASCII
+	- Využívá se jen jeden byte na jeden znak
+	- Soubory tak zabírají stejně místa, jako kdyby byly kódovány v US-ASCII
+- Pro diakritické znaky se využívají dva byty, pro speciálnější znaky z BMP tři byty
+	- Protože diakritických znaků je např. v českém textu cca 10 %, velikost souboru s českým textem naroste oproti použití jednobytového kódování (např. windows-1250) pouze o cca 10 %
+- Pro znaky mimo BMP se využívají čtyři byty
+- Základní nevýhoda UTF-8
+	- Znaky obecně nemají stejnou délku => není možné skočit přímo na určitý znak
+		-  „Přeskoč prvních 20 znaků“
+- Princip kódování znaků v UTF-8
+	- Aby bylo jasné, zda daný znak je uložen jako 1, 2, 3 nebo 4 byty, používá se MSB
+	- Principiálně je možné zakódovat pomocí UTF až 31 bitů
+		- ```1111 110u 10vv vvvv 10ww www 10xx xxxx 10yy yyyy 10zz zzzz```
+- Princip čtení UTF-8
+	- Pokud má byte nastaveno MSB na ```1```, pak počet jedničkových bitů za ním udává počet následujících bytů za prvním bytem znaku, přičemž každý následující byte začíná ```10``` (viz Tab. 28.2)
+	- Pokud nečteme text od začátku a „trefíme“ se doprostřed vícebytového znaku, poznáme to podle bitů ```10``` => pak je třeba přeskočit všechny byty začínající ```10```
+- V UTF-8 je zbytečná BOM – je jen jedno možné pořadí bytů 
+	- Podle specifikace není ani vyžadována ani doporučena, není však zakázána
+	- Některé aplikace však BOM u UTF-8 vyžadují a některé s ní naopak mají problémy 
+
+#### UTF-16 
+- Vychází z UCS-2, což je kódování ISO s pevnou šířkou 2 byty na znak, což pokryje celou BMP
+- Protože však Unicode přešel na 21 bitů, 2 byty (16 bitů) nestačí (pro znaky mimo BMP)
+- Proto nastupuje UTF-16, které některé znaky kóduje 4 byty (tj. dvěma znaky UCS-2)
+	- Oba „znaky“ se dohromady nazývají zástupné páry (surrogate pairs)
+	- Mezi UCS-2 a UTF-16 je podobný vztah jako mezi ASCII a UTF-8
+- UTF-16 se využívá pro uložení řetězců v operační paměti v Javě
+- Při uložení UTF-16 do souborů se využívá BOM pro určení pořadí uložení bytů (LE nebo BE) 
+	- Varianty UTF-16LE a UTF-16BE mají pořadí uložení bytů přímo určeno a BOM nesmí obsahovat 
+		- Pokud BOM přesto obsahují, je ignorována
+- Oproti UTF-8 zabírá pro běžné texty psané latinkou téměř dvojnásobek místa
+	- Pro texty psané pouze znaky anglické abecedy přesně dvojnásobek
+
+#### UTF-32 
+- Kódování s pevnou šířkou 4 byty na znak
+	- Každý znak je uložen jako 4 byty
+	- Na 4 bytech jsou tak přímo uloženy kódové body Unicode 
+	- Pouze 21 bitů je významových
+	- Prakticky odpovídá UCS-4 (kódování ISO, rovněž 4 byty na znak) 
+- Při uložení UTF-32 do souboru se rovněž využívá BOM pro určení pořadí uloženy bytů (LE nebo BE) 
+	- Varianty UTF-32LE a UTF-32BE mají pořadí uložení bytů přímo určeno a BOM nesmí obsahovat
+		- Pokud ho přesto obsahují, je ignorován 
+
+### Praktické použití v Javě
+- Java vnitřně ukládá řetězce do paměti jako UTF-16, většina souborů je však uložena v UTF-8 nebo v různých jednobytových charsetech
+	- Při čtení a zápisu řetězců z/do souborů (i na standardní vstup a výstup) je tedy nutná konverze 
+
+#### Nastavení charsetu při čtení a zápisu z/do textových souborů
+- Konverzi provádějí třídy pro práci se soubory, jejichž název končí ```…Reader/Writer```
+	- Jsou určeny pro práci se znaky
+- Charset vstupního/výstupního souboru lze popsat instancí třídy ```Charset```
+	- Metoda třídy ```Charset.forName(kódování)```
+		- Vrátí instanci třídy ```Charset``` reprezentující daný charset na základě jeho jména
+		- Lze použít kanonické jméno i aliasy
+	- Metody z třídy ```Files``` pro čtení a zápis z/do souboru umožňují zadat charset souboru jako instanci třídy ```Charset```
+		- Metoda ```Files.readAllLines(soubor, charset)```
+		- Metoda ```Files.newBufferedReader(soubor, charset)```
+		- Metoda ```Files.newBufferedWriter(soubor, charset)```
+
+#### Správné zobrazení češtiny v konzoli Windows
+- Od verze Javy 1.8 se čeština v konzoli Windows někdy zobrazuje správně, někdy však stále chybně 
+	- Správně se zobrazují literály s diakritickými znaky zapsané přímo ve zdrojovém kódu
+	- Špatně se zobrazují řetězce načtené ze standardního vstupu a vypsané na standardní výstup
+	- Do verze Javy 1.7 včetně se zobrazovaly špatně i literály zapsané přímo ve zdrojovém kódu
+- Problém je způsoben rozdílným standardním charsetem Windows (windows-1250) a konzole (implicitně IBM852 – lze změnit) 
+	- Tyto charsety nejsou totožné (liší se v některých znacích)
+	- Java tak očekává na standardním vstupu a výstupu charset windows-1250, ale v konzoli je IBM852 
+- Korektní zobrazení v Java programech v konzoli Windows lze zařídit nastavením odpovídajícího charsetu pro standardní vstup a standardní výstup
+	- Pro standardní vstup stačí nastavit charset v konstruktoru třídy Scanner
+		- Zadává se pouze název charsetu jako řetězec
+	- Standardní výstup funguje od Javy 1.8 korektně
+- POZOR!
+	- Problémy se týkají pouze konzole (příkazové řádky) Windows
+	- Konzole IDE nástrojů (např. Eclipse) přebírají charset Windows (jsou to grafická okna) a čeština v nich funguje správně
+
+## Porovnání objektového a procedurálního programování
+- Programovacích stylů je celá řada
+	- Mezi nejběžnější styly patří v současné době objektové a procedurální programování 
+
+### Základní charakteristiky obou přístupů
+- Oba přístupy se v některých aspektech podobají a v některých liší 
+
+#### Objektové programování
+- Java, kterou jsme se celý semestr zabývali, je primárně objektový jazyk
+- V objektovém programování je řešený problém dekomponován na objekty představující objekty z reálného světa
+- Zdrojový kód je tak členěn na třídy, které obsahují atributy (data) a metody (podprogramy – procedury a funkce), které se těmito atributy pracují
+	- Podle třídy lze vytvořit libovolné množství instancí (objektů), každá s vlastním nastavením hodnot atributů
+- Díky použití objektů je program lépe členěn na víceméně samostatné jednotky (třídy)
+	- Lepší znuvupoužitelnost kódu
+	- Třída se poměrně snadno dá použít v jiném v jiném programu, protože je oddělená od dalších tříd
+- Zapouzdřenost + jasně stanovená identita
+	- Díky přístupovým právům (viz Kap. 14.7.1) je zajištěn kontrolovaný přístup k datům (atributům) z vnějšku třídy
+	- Vše někomu patří – metody a atributy (proměnné) jsou vždy součástí tříd
+- Kromě zapouzdřenosti existují dva další pilíře objektového programování
+	- Skládání (objekt obsahuje jiné objekty) a polymorfizmus
+	- Viz předměty KIV/PPA2 a KIV/OOP
+- Objektové programování nabádá programátora k větší disciplíně
+	- Obsahuje více pravidel, která by se měla dodržovat
+	- Při jejich dodržení by měla vést k přehlednějšímu zdrojovému kódu
+- Objektové programování nabádá k dekompozici problému (na objekty)
+
+#### Procedurální programování
+- V procedurálním programování je problém dekomponován na jednotlivé činnosti
+- Program tvoří jeden celek (ač může být často rozdělen do několika jednotek / zdrojových souborů – modulů) členěný na podprogramy (procedury a funkce)
+- Procedury a funkce rovněž pracují s daty, ale nejsou s nimi přímo svázány v jednom celku jako v objektovém programování
+	- Procedury a funkce jsou umístěny „volně“, nejsou v žádné třídě
+	- Pro jednoduché problémy mohou být programy kratší, protože není potřeba vytvářet třídy
+- Procedurální programování dává programátorovi větší volnost
+	- Pravidel je méně než v objektovém programování
+	- Pro složitější programy může být zdrojový kód méně přehledný (ale nemusí – záleží na programátorovi) 
+- Kombinace více přístupů
+	- Mnohé jazyky umožňují programovat jak procedurálně, tak objektově (a případně mohou obsahovat další přístupy)
+		- Programátor pak může kombinovat oba přístupy nebo používat jen jeden z nich podle svého uvážení
+		- Např. C++, PHP, Pascal (FreePascal, Delphi) 
+
+### Jednotlivé rozdíly
+- V následujících kapitolách budou ukázány hlavní rozdíly mezi objektovým a procedurálním programování
+	- Aby nebylo nutné učit se syntaxi nějakého procedurálního jazyka (např. C), budou příklady na procedurální programování ukázány v Javě
+- Procedurální programování v Javě
+	- Java je primárně objektový jazyk a byla tak koncipována od svého vzniku
+	- Přesto je v ní možné „simulovat“ procedurální programování
+		- Celý program napsat do jedné třídy
+			- Další třídy používat pouze jako strukturovaný datový typ
+		- Používat pouze statické metody
+	- POZOR!
+		- Tento postup je použit pouze pro porovnání principů objektového procedurální programování
+	- Neznamená to, že by se tak v Javě mělo programovat
+
+#### Metody, procedury a funkce
+- V procedurálním i objektovém programování jsou části výkonného kódu rozděleny do podprogramů, které je možné (opakovaně) volat v jiných částech kódu 
+	- V objektovém programování se nazývají metody
+		- Lze je rozdělit na procedury (nemají návratovou hodnotu) a funkce (mají návratovou hodnotu)
+	- V procedurálním programování se nazývají rovnou procedury (nemají návratovou hodnotu) a funkce (mají návratovou hodnotu)
+	- Toto je pouze rozdíl v terminologii
+- Metody v objektovém programování
+	- Jsou součástí konkrétní třídy
+	- Metody instance
+		- Při dobrém návrhu většina metod
+		- Volají se nad konkrétní instancí
+		- Mají přístup k atributům instance => díky tomu mají obvykle menší počet formálních parametrů (poměrně často nemají žádné parametry)
+	- Metody třídy
+		- Je možné je volat bez vytvoření instance
+		- Nemají přístup k atributům instance
+		- Data, se kterými mají pracovat, musí být do metody předány přes její formální parametry
+			- Nebo mohou pracovat s proměnnými třídy
+			- Nebo mohou pracovat s tzv. „globálními“ proměnnými 
+		- Jsou velmi podobné procedurám a funkcím v procedurálním programování
+- Procedury a funkce v procedurálním programování
+	- Volají se přímo jen svým jménem a skutečnými parametry
+	- Data, se kterými mají pracovat, musí být do procedury/funkce předány přes její parametry
+		- Nebo mohou pracovat s „globálními“ proměnnými
+- Předávání parametrů do metody (procedury či funkce)
+	- Předání parametrů odkazem
+		- Ve formálním parametru se předá proměnná a s její hodnotou se v metodě (proceduře či funkci) pracuje
+		- Změna hodnoty provedená v metodě se projeví i vně metody
+	-  Předání parametrů hodnotou
+		- Ve formálním parametru se předá kopie hodnoty proměnné a s touto hodnotou se v metodě (proceduře či funkci) pracuje
+		- Změna hodnoty provedená v metodě se neprojeví vně metody, protože se mění kopie
+		- Tento postup používá Java (a mnoho dalších jazyků)
+	- Způsob, který se použije, nezáleží na tom, zda se jedná o procedurální nebo objektové programování
+		- Způsob závisí na konkrétním jazyce 
+		- Některé jazyky umožňují jeden nebo druhý způsob, přičemž druhého (neumožněného) způsobu je obvykle možno nějak dosáhnout
+		- Některé jazyky explicitně umožňují oba způsoby (např. C#, Pascal) 
+	- Těla metod (procedur či funkcí)
+		- Těla metod, procedur a funkcí se v obou přístupech (objektový a procedurální) nijak neliší
+		- V obou případech obsahují výkonný kód metody (tj. příkazy, které provedou činnost metody/procedury/funkce)
+
+#### Globální proměnné 
+- V procedurálním programování je potřeba předat všechna potřebná data do procedur a funkcí pomocí parametrů
+	- Na rozdíl od objektových jazyků, kde metody instance mají přístup k atributům instance
+- Často však také existuje možnost mít tzv. „globální proměnnou“, která je viditelná ve všech procedurách a funkcích programu
+	- Tato možnost často existuje v procedurálních i objektových jazycích explicitně (např. PHP), nebo se dá různými způsoby dosáhnout
+	- Např. v Javě jsou veřejné (statické) proměnné třídy viditelné odevšad
+		- Mimo třídu, kde jsou definovány, je potřeba volat je s názvem třídy
+	- Obecně platí, že metody, procedury a funkce mohou s takovou proměnnou pracovat, pokud není zastíněná lokální proměnnou se stejným jménem
+
+#### Homogenní strukturované datové typy (pole) 
+- S poli se pracuje v podstatě stejně, bez ohledu na to, zda používáme procedurální či objektové programování
+- Konkrétní implementace pole závisí spíše na programovacím jazyku než na přístupu k programování
+	- Např. v Javě je pole instance speciální třídy, která kromě samotných prvků obsahuje i délku pole a další data
+	- Např. v C je pole jen posloupnost prvků stejného typu, které jsou umístěny za sebou v paměti počínaje určitou adresou  délka pole není v poli uložena
+- POZOR!
+	- Pokud v daném jazyce není součástí pole i jeho délka, je potřeba mít délku uloženou zvlášť (typicky v celočíselné proměnné)
+	-  Nutné, abychom věděli, jak je pole dlouhé a nedostali jsme se při práci s polem mimo platné indexy
+
+#### Heterogenní strukturované datové typy
+- Pokud je v objektovém jazyce potřeba uložit data různých datových typů do jednoho celku, použije se typicky objekt (instance třídy)
+- V procedurálním jazyce objekty nejsou, ale možnost ukládat heterogenní data do společných celků typicky existuje 
+	- Typicky se používají strukturované datové typy, které mají položky různých datových typů (podobně jako atributy instance), ale neobsahují žádné metody
+	- Lze si je představit jako třídy s veřejnými proměnnými instance bez metod
+	- Běžný obecný název je záznam (record) nebo struktura (struct) 
+		- Konkrétní názvy a způsob deklarace se liší jazyk od jazyka 
