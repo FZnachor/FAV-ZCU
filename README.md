@@ -2,15 +2,21 @@
 
 👋 Vítej v repozitáři, kde shromažďujeme poznámky z předmětů vyučovaných na [Fakultě aplikovaných věd](https://fav.zcu.cz) ZČU v Plzni.
 
+- 🚫 neručíme za správnost všeho, co tu najdeš - určitě budeme rádi, pokud něco opravíš nebo upřesníš
+- 🙋‍♂️ máš-li své poznámky a chceš se o ně podělit, můžeš je sem přidat
+
+Pokud máš jakékoliv otázky, návrhy či vylepšení, všechny kontakty najdeš níže.
+
+## 📂 Struktura repozitáře
+
 - všechny materiály najdeš ve složkách jednotlivých předmětů
-- neručíme za správnost všeho, co tu najdeš - určitě budeme rádi, pokud něco opravíš nebo upřesníš
-- máš-li své poznámky a chceš se o ně podělit, můžeš je sem přidat
+- kromě složek předmětů je tu i speciální složka `Informace`, kak dáváme jiné důležité informace ke studiu na FAVce
 
 ## 📗 Chci se zapojit!
 
 To je skvělý! Každá pomoc s poznámkami se bude hodit. 
 
-### Pravidla repozitáře
+### 📋 Pravidla repozitáře
 
 Aby repozitář nějak vypadal, platí tu následující pravidla:
 
