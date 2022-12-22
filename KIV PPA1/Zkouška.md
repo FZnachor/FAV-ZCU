@@ -7,6 +7,8 @@ Ve výjimečných případech (podezření z podvádění, zlomená ruka) je mo�
 ## Zkouškový test
 
 - Zaškrtávání A, B, C (jedna správná odpověď)
+    - metoda instance jde bez referenční proměnné zavolat
+        - pouze z jiné metody instance
 	- metoda s parametrem, kterým je dvourozměrné pole
 	- vyhození podmínky je
 		- rozumný způsob pro ošetření výjimky na jiném místě 
@@ -14,7 +16,7 @@ Ve výjimečných případech (podezření z podvádění, zlomená ruka) je mo�
 	- metody které lze porovnávat pomocí $<$ a $>$
 		- pouze ty s metodou `compareTo()`
 	- vyhledávání prvku, který je vícenásobný, půlením intervalů v seřazeném poli
-		- může být vybrán první prvek, ale nemusí (pokud se např. při výběru)
+		- může být vybrán první prvek, ale nemusí (např. pokud odpovídá prostřední prvek, ale před ním je ještě jeden, který také odpovídá)
 - Napsání metody na součin dvou vektorů (vynásobení prvků vektorů na stejném indexu)
 - Vybrání správných částí kódu metody na obrácení pole
 - Práce s objekty (`Krychle`)
