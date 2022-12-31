@@ -22,7 +22,7 @@ Aby repozitář nějak vypadal, platí tu následující pravidla:
 
 - zprávy commitů **piš v češtině**, s velkým počátečním písmenem a bez tečky na konci
 - přidávej **jenom markdown (.md) soubory**, tedy žádné `PDF` nebo `DOCX` a podobně (můžeš ale použít některý online konvertor)
-- do markdownu **je možné přidat např. obrázek** či jiný soubor, takové soubory prosím ukladej do složky `.assets` ve složce s `MD` souborem
+- do markdownu **je možné přidat např. obrázek** či jiný soubor, takové soubory prosím ukladej do složky `_assets` ve složce s `MD` souborem
 
 Určitě se na něco zapomnělo nebo se nemyslelo na nějakou specifickou situaci, takže je vždy možné se domluvit a pravidla upřesnit či změnit.
 
