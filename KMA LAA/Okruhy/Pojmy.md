@@ -18,3 +18,5 @@
     | její **hodnost** je **menší než její řád** | $hod(A) < n$                |
     | má **nulový determinant**                  | $\det{A} = 0$               |
     | **neexistuje** k ní **inverzní matice**    | $\text{neexistuje } A^{-1}$ |
+
+### lineární zobrazení, jádro, obraz, matice lineárního zobrazení
