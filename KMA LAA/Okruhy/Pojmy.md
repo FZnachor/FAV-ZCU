@@ -66,3 +66,24 @@
 - **algebraický doplněk matice**
     - Subdeterminant (minor) vzniklý z matice vynecháním $i$-tého řádku a $j$-tého sloupce.
     - $(-1)^{i+j} * \det A[\cancel{i/j}]$
+
+### polynom proměnné x
+- polynom je funkce ve tvaru součtu násobků mocninných funkcí
+- $$\displaystyle p(x) = \sum^n_{i=0} a_{i}x^i \ \ \forall x \in C, a_{n} \neq 0$$
+
+- $$p(x) = a_nx^n + a_{n-1}x^{n-1} + . . . + a_{1}x + a_0 \ \ \ \forall x \in C, a_{n} \neq 0$$
+
+### vlastní číslo, vektor, spektrum matice
+- **vlastní číslo matice**
+    - máme čtvercovou matici - $A$, vlastní vektor matice $A$ - $\vec{u}$, vlastní číslo matice $A$ - $\lambda$
+    - pro vlastní číslo musí platit: $A * \vec u = λ * \vec u$
+
+- **spektrum matice**
+    - Nechť A je čtvercová matice
+    - soubor všech vlastních čísel matice A
+    - značí se $Sp(A)$
+    	- např.: $Sp(A) = \{3^2; -1\}$
+
+- **vlastní vektor matice**
+    - Nechť A je čtvercová matice
+    - **nenulový** vektor $\vec u$ je vlastním vektorem matice $A$ příslušnému vlastnímu číslu $\lambda$, jestliže $A * \vec u = λ * \vec u$
