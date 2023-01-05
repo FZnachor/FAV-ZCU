@@ -19,7 +19,7 @@
     | má **nulový determinant**                  | $\det{A} = 0$               |
     | **neexistuje** k ní **inverzní matice**    | $\text{neexistuje } A^{-1}$ |
 
-### lineární, identické zobrazení, jádro, obraz, matice lineárního zobrazení
+### lineární, identické zobrazení, jádro, obraz, matice lineárního zobrazení a přechodu
 - zobrazení (funkce) => množiny M do množiny N je předpis, kdy každému prvku z M je přiřazen právě jeden prvek z N
 - **lineární zobrazení** (homomorfizmus)
     - máme ***L. V. P.***: $U, V$
@@ -44,3 +44,25 @@
     - Máme ***L. V. P.***: $U, V$ a ***linerní zobrazení*** $\mathbb{L} : U \rightarrow V$
     - **matice lineárního zobrazení** je matice M pro kterou platí: $\widehat{\mathbb{L}(u)} = M * \vec u$
     - M = [$\widehat{\mathbb{L}(u_1)}  \space\space \widehat{\mathbb{L}(u_2)} \space\space ... \space\space \widehat{\mathbb{L}(u_n)}$]
+
+- **matice přechodu**
+    - Máme ***L. V. P.***: $U, V$ a ***linerní zobrazení*** $\mathbb{L} : U \rightarrow V$
+    - **matice přechodu $T$** je matice pro kterou platí: $T* \vec x_c = \widehat {I * \vec x_d}$
+    - matice přechodu $T$ od báze $D$ k bázi $C$
+
+### determinant matice, hodnost matice, algebraický doplněk matice
+- **determinant**
+    - **Determinantem** čtvercové matice $A = [a_{ij}]$ řádu $n$ nazveme číslo
+    - $$\det(A) = \sum_{\pi}^{} zn(\pi)a_{1\pi(1)}a_{2\pi(2)}\dots a_{n\pi(n)}$$
+    - kde sčítáme přes všechny permutace na množině $\{1, 2, \dots, n\}$.
+    - součet všech permutací vzniklých z diagonálního řádku matice, kde sudá permutace je s kladným znaménkém a lichá se záporným
+    - v součinu prvků v definici determinantu je z každého řádku a z každého sloupce vybrán právě jeden prvek
+
+- **hodnost matice**
+    - počet nenulových řádků / sloupců matice
+    - **dimenze lineárního obalu souboru řádků / sloupců matice**
+    - Je to číslo, které představuje maximální počet lineárně nezávislých řádků / sloupců matice.
+
+- **algebraický doplněk matice**
+    - Subdeterminant (minor) vzniklý z matice vynecháním $i$-tého řádku a $j$-tého sloupce.
+    - $(-1)^{i+j} * \det A[\cancel{i/j}]$
