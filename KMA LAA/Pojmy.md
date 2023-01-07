@@ -125,3 +125,23 @@ Tvary
 **Regulární (singulární) matice** - Čtvercovou matici A řádu $n$ nazveme regulární, je-li $\text{hod}(A) = n$, jinak ji nazveme singulární (tj. $\text{hod}(A) < n$).
 
 **Adjungovaná matice k matici A** - Matice poskládaná transponovaně z algebraických doplňků, značí se $A^A$.
+
+### Lineární zobrazení
+
+Nechť $\mathcal{U}, \mathcal{V}$ jsou LVP a $\mathbb L : \mathcal{U} \to \mathcal{V}$ lineární zobrazení.
+
+**Lineární zobrazení (homomorfizmus)** - Zobrazení $\mathbb L : \mathcal{U} \to \mathcal{V}$ kde $\mathcal{U}, \mathcal{V}$ jsou LVP, jestliže pro každé $\vec x, \vec y \in \mathcal{U}$ a pro každé $c \in \mathbb R$ platí:
+1. $\mathbb{L}(\vec x + \vec y) = \mathbb{L}(\vec x) + \mathbb{L}(\vec y)$
+2. $\mathbb{L}(k \cdot \vec x) = k \cdot \mathbb{L}(\vec x)$
+
+**Identické zobrazení** - Zobrazení $\mathbb F$ definované vztahem $\mathbb F(x) = (x)$.
+
+**Jádro lineárního zobrazení** - Množina všech prvků $\vec x \in \mathcal{U}$ takových, že $\mathbb L(\vec x) = \vec o$. Značíme ji $\text{Ker}(\mathbb L) = \{ \vec x \in \mathcal{U}; \mathbb L(\vec x) = \vec o \}$.
+
+**Obraz lineárního zobrazení** - Množina všech prvků $\vec y \in \mathcal{V}$ takových, že existuje $\vec x \in \mathcal{U}$ tak, že $\mathbb L(\vec x) = \vec y$. Značí se $\text{Im}(\mathbb L) = \{ \vec y \in \mathcal{V}; \exists \vec x \in \mathcal{U} \text { tak, že } \mathbb L(\vec x) = \vec y \}$.
+
+**Izomorfní zobrazení** - Lineární zobrazení $\mathbb L$, jestliže je prostě a zároveň na.
+
+**Izomorfní prostory** - Prostory $\mathcal{U}, \mathcal{V}$, pokud existuje izomorfní zobrazení z $\mathcal{U}$ do $\mathcal{V}$.
+
+Matice přechodu ??
