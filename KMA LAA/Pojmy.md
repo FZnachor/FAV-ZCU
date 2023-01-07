@@ -100,3 +100,28 @@ Tvary
 
 **Souřadnice prvku** - Nechť $\mathcal{V}$ je nenulový konečně generovaný LVP, $\vec v \in \mathcal{V}$ a nechť $B = {\vec b_{1}, \vec b_{2}, \dots, \vec b_{k}}$ je jeho uspořádaná báze. Jednoznačně určené koeficienty $c_{1}, c_{2}, \dots, c_{n} \in \mathbb{R}$ LK $v = c_{1}\vec{b_{1}}, c_{2}\vec{b_{2}}, \dots, c_{n}\vec{b_{n}}$ prvku $\vec v$ bází $B$, značí se $\widehat{\vec v_{B}} = [c_{1}, c_{2}, \dots, c_{n}]^T$.
 
+### Determinant matice
+
+**Permutace** - Vzájemně jednoznačné zobrazení konečné množiny na sebe.
+
+**Transpozice** - Permutace $\pi$, pro kterou existují $i, j$ takové, že $\pi(i) = j, \pi(j) = i$ a $\pi(k) = k$ pro všechna $k \neq i, j$.
+
+**Znaménko permutace $\pi$** - Číslo 1, je-li permutace sudá a -1, je-li permutace lichá (skládá se ze sudého/lichého počtu transpozice).
+
+**Determinant** - Determinantem čtvercové matice $A = [a_{ij}]$ řádu $n$ nazveme číslo $\displaystyle\det A = \sum_{\pi} zn(\pi) a_{1\pi(1)} a_{2\pi(2)} \dots a_{n\pi(n)}$, kde sčítáme přes všechny permutace na množině $\{ 1, 2, \dots, n \}$.
+
+**Algebraický doplněk prvku $a_{ij}$** - Číslo $A_{ij} = (-1)^{i+j} \det A[\cancel{i/j}]$, kde matice A je čtvercová.
+
+### Hodnost matice
+
+**Řádkový (sloupcový) prostor** - Nechť A je typu $m/n$. Lineární obal všech řádkových (sloupcových) vektorů (řádků/sloupců) matice A nazveme **řádkovým (sloupcovým) prostorem** matice A.
+
+**Řádková (sloupcová) hodnost matice** - Dimenze řádkového (sloupcového) prostoru matice A nazveme řádkovou (sloupcovou) hodností matice A, značíme $\text{hod}^r(A)$, resp. $\text{hod}^s(A)$.
+
+**Hodnost matice** - Hodností matice A nazveme $\text{hod}^r(A)$
+
+**Minor řádu $m$** - Determinant libovolné čtvercové podmatice řádu $m$.
+
+**Regulární (singulární) matice** - Čtvercovou matici A řádu $n$ nazveme regulární, je-li $\text{hod}(A) = n$, jinak ji nazveme singulární (tj. $\text{hod}(A) < n$).
+
+**Adjungovaná matice k matici A** - Matice poskládaná transponovaně z algebraických doplňků, značí se $A^A$.
