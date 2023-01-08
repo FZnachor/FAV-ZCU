@@ -20,7 +20,7 @@ Speciální typy polynomů ??
 
 ### Matice
 
-**Matice typu $m/n$** - Soubor (tabulka) $m \times n$ prvků (čísel) $a_{ij}$ zapsanných do $m$ řádků a $n$ sloupců, obvykle $a_{ij} \in \mathbb C$.
+**Matice typu $m/n$** - Soubor (tabulka) $m \times n$ prvků (čísel) $a_{ij}$ zapsaných do $m$ řádků a $n$ sloupců, obvykle $a_{ij} \in \mathbb C$.
 
 Správně bychom měli definovat: Matice **A** typu $m/n$ je zobrazení $\{1, 2, \dots, m\} \times \{1, 2, \dots, n\} \to \mathbb C$ (nebo speciálně $\mathbb R$).
 
@@ -145,3 +145,83 @@ Nechť $\mathcal{U}, \mathcal{V}$ jsou LVP a $\mathbb L : \mathcal{U} \to \mathc
 **Izomorfní prostory** - Prostory $\mathcal{U}, \mathcal{V}$, pokud existuje izomorfní zobrazení z $\mathcal{U}$ do $\mathcal{V}$.
 
 Matice přechodu ??
+
+### Soustavy lineárních rovnic
+
+**Řešení soustavy rovnic** - Každý vektor $\overline {\vec x} \in \mathbb R^n$, pro nějž platí $A\overline {\vec x} = \vec b$.
+
+**Ekvivalentní soustavy** - Dvě soustavy, které mají stejnou množinu řešení.
+
+**(Ne)homogenní soustava** - Soustava rovnic se nazývá **homogenní**, jestliže $\vec b = \vec o$. V opačném případě se nazývá **nehomogenní**.
+
+### Vlastní čísla a vlastní vektory
+
+**Vlastní číslo matice A** - Nechť A je čtvercová matice řádu $n$. Číslo $\lambda \in \mathbb C$ nazveme vlastním číslem matice A, jestliže existuje nenulový vektor $\vec u \in \mathbb R^n$ takový, že $\lambda \vec u = A\vec u$.
+
+**Vlastní vektor** - Vektor $\vec u$ příslušející vlastnímu číslu $\lambda$, pro který platí $\lambda \vec u = A\vec u$.
+
+**Charakteristický polynom** - Polynom $\det(A-\lambda I)$ se nazývá charakteristický polynom matice A, která je čtvercová.
+
+**Charakteristická rovnice** - Rovnice $\det(A - \lambda I) = 0$, kde se charakteristický polynom rovná nule.
+
+**Spektrum matice** - Soubor všech vlastních čísel matice A, značíme ho $\text{Sp}(A)$.
+
+**Podobnost matice** - Matice A a B jsou čtvercové, matice A je podobná matici B, jestliže existuje regulární matice T taková, že $A = T^{-1}BT$. Značíme $A \approx B$.
+
+**Lineární operátor** - Lineární zobrazení $\mathbb L : \mathcal{U} \to \mathcal{U}$.
+
+**Řetězec zobecněných vlastních vektorů** - Uspořádaná $k$-tice vektorů $\vec u_{i}$ je řetězcem zobecněných vlastních vektorů, kde A je čtvercová matice a $\lambda$ je vlastní číslo matice A, jestliže
+- $(A-\lambda I)\vec u_{1} = \vec o, \vec u_{1} \neq \vec o$,
+- $(A-\lambda I)\vec u_{2} = \vec u_{1}$,
+- $\dots$
+- $(A-\lambda I)\vec u_{k} = \vec u_{k-1}$,
+
+a $k$ je nejmenší číslo, pro něž je $(A-\lambda I)^k = \vec O$.
+
+**Zobecněný vlastní vektor** - Vektor $\vec u_{1}$ je vlastní vektor příslušející vlastnímu číslu $\lambda$. Pro každé $j = 1,2,\dots,k$ se nazývá $j$-tý zobecněný vlastní vektor příslušející vlastnímu číslu $\lambda$.
+
+### Prostory se skalárním součinem
+
+**Skalární součin** - Zobrazení $(\vec x, \vec y) : \mathcal{U} \times \mathcal{U} \to \mathbb{R}$ splňující vlastnosti
+1. $(\vec x, \vec x) \geq 0$ pro každé $\vec x \in \mathcal{U}; (\vec x,\vec x) = 0$, právě když $\vec x = \vec o$,
+2. $(\vec x, \vec y) = (\vec x, \vec y) \space \forall\vec x, \vec y \in \mathcal{U}$,
+3. $(k\vec x, \vec y) = k(\vec x, \vec y) \space \forall\vec x, \vec y \in \mathcal{U}, \forall k \in \mathbb{R}$,
+4. $(\vec x + \vec y, \vec z) = (\vec x, \vec z) + (\vec y, \vec z) \space \forall\vec x, \vec y, \vec z \in \mathcal{U}$,
+
+kde $\mathcal{U}$ je LVP nad $\mathbb{R}$.
+
+**Eukleidovský prostor** - LVP se skalárním součinem.
+
+**Norma** - Zobrazení $\Vert \text.\Vert : \mathcal{U} \to \mathbb{R}$ v lineárním vektorovém prostoru $\mathcal{U}$, které má vlastnosti
+1. $\Vert \vec{x} \Vert \geq 0 \, \forall \vec{x} \in U;\space \Vert \vec{x} \Vert = 0$, právě když $\vec{x} = \vec{o}$,
+2. $\Vert k\vec{x} \Vert = \vert k \vert \cdot \Vert \vec{x} \Vert \ \forall\vec{x} \in U$ a $\forall k \in \mathbb{R}$,
+3. $\Vert \vec{x} + \vec{y} \Vert \leq \Vert \vec{x} \Vert + \Vert \vec{y} \Vert \ \forall \vec{x}, \vec{y} \in \mathbb{R}$.
+
+**Ortogonální prvky** - Dva prvky $\vec x, \vec y$ Eukleidovského prostoru, jestliže $(\vec x, \vec y) = 0$. Píšeme $\vec x \perp \vec y$. Množiny $X, Y \subset \mathcal{U}$ jsou ortogonální, jestoiže $\vec x \perp \vec y$ pro každé $\vec x \in X, \vec y \in Y$.
+
+**Ortogonální báze** - Báze Eukleidovského prostoru, jejíž každé dva prvky jsou ortogonální.
+
+Unitární prostor ??
+
+**Ortogonální doplňek** - Ortogonální doplněk $\mathcal{V}^{\perp}$ podprostoru $\mathcal{U}$ v $\mathcal{U}$ je množina všech vektorů z $\mathcal{U}$, které jsou kolmé na $\mathcal{V}$, tedy na každý prvek $\mathcal{V}$, kde $\mathcal{V}$ je podprostor Eukleidovského prostoru $\mathcal{U}$. Píšeme $V^{\perp} = \{\vec{u} \in \mathcal{U}; \vec{u} \perp \vec{v} \text{ pro každé } \vec{v} \in V\}$.
+
+**Ortonormální báze** - Ortogonální báze $B = \{ \vec b_{1}, \vec b_{2}, \dots, \vec b_{k} \}$, kde $(\vec b_{i}, b_{i}) = 1$ pro každé $i = 1, 2, \dots, k$.
+
+### Kvadratické formy
+
+**Kvadratická forma** - Zobrazení $\kappa(\vec x) = \vec x^T A \vec x$, kde A je reálná symetrická matice.
+
+**Inercie kvadratické formy** - Označme $k$ počet kladných vlastních čísel matice A, $z$ počet záporných a $d$ počet vlstních čísel matice A rovných nule, inercií kvadratické formy označíme trojici čísel $(k, z, d)$ a značíme $in(\kappa) = (k, z, d)$, kde $\kappa(\vec x) = \vec x^TA\vec x$ je kvadratická forma a A je reálná symetrická matice.
+
+Řekněme, že kvadratická forma $\kappa(\vec x)$ na $\mathbb{R}^5$ je
+
+| typ                                     | jestliže                               |
+| --------------------------------------- | -------------------------------------- |
+| **pozitivně definitní**                 | $in(\kappa) = (k, 0, 0)$               |
+| **negativně definitní**                 | $in(\kappa) = (0, z, 0)$               |
+| **pozitivně semidefinitní**             | $in(\kappa) = (k, 0, d), d > 0$        |
+| **negativně semidefinitní**             | $in(\kappa) = (0, z, d), d > 0$        |
+| **indefinitní**                         | $in(\kappa) = (k, z, d), k > 0, z > 0$ |
+| **pozitivně i negativně semidefinitní** | $in(\kappa) = (0, 0, d)$                                       |
+
+**Hlavní minor matice A řádu $k$** - Číslo $\det(A_{k})$, kde $A = [a_{ij}]$ je symetrická matice řádu $n$ a $A_{k}$ je její podmatice obsahující prvky $a_{11}, a_{22}, \dots, a_{kk}$. Značí se $\Delta_{k}$.
