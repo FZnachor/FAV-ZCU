@@ -146,6 +146,7 @@
 ### kořen polynomu, stupeň polynomu
 - Nechť $p(x)$ je polynom proměnné $x$
 - **kořenem polynomu** $p(x)$: $c \in C$ takové, že $p(c) = 0$
+- **stupeň polynomu**: nejvyšší mocnina proměnné x u níž je nenulový koeficient
 
 ### diagonální, symetrická, trojúhelníková, . . . matice
 - **diagonální matice**
@@ -169,3 +170,19 @@
 	- Pro **horní trojúhelníkovou** platí pro všechna $i > j$, že $a_{ij} = 0$ 
 	- Pro **dolní trojúhelníkovou** platí pro všechna $i < j$, že $a_{ij} = 0$
 	$$H = \begin{bmatrix} 1 & 2 & 1 \\ 0 & 3 & 0 \\ 0 & 0 & 4 \end{bmatrix} \quad D = \begin{bmatrix} 1 & 0 & 0 \\ 2 & 2 & 0 \\ 1 & 1 & 0 \end{bmatrix}$$
+
+### Ortogonální průmět a jeho vlastnosti
+- Nechť V je euklidovský prostor
+- Nechť $U$ je podprostor prostoru $V$
+- nechť $v \in V$, $v \notin U$
+- **ortogonální průmět** prvku $v$ do podprostoru $U$ je prvek $v_0$ pokud platí:
+    - $v_0 \in U$
+    - $(v - v_0) \perp U$
+- ortogonální průmět $v_0$ tedy realizuje vzdálenost $v$ od $U$ (vzdálenost je zde definována )
+
+### Norma
+- máme $L. V. P.: V$
+- norma je zobrazení $||x||: V \rightarrow R$
+    - 1. $$||x+y|| \leq ||x|| + ||y|| \ \forall {x,y} \in V $$
+    - 2. $$ ||\lambda * x|| = ||\lambda|| * ||x|| \ \forall {x} \in V \ \forall \lambda \in \mathbb R$$
+    - 3. $||x|| \geq 0 \ \forall x  \in \mathbb R, \ ||x|| = 0 <=> x = 0$
