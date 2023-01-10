@@ -10,7 +10,7 @@
 
 **Stupeň polynomu $p(x)$** - Největší $k$, pro něž je $a_{k}$ nenulové, značíme $\text{st}(p(x))$.
 
-**Nulový polynom** - Polynom $p(x)$, který má všechny koeficient nulové, poté platí $\text{st}(p(x)) = -\infty$.
+**Nulový polynom** - Polynom $p(x)$, který má všechny koeficienty nulové, poté platí $\text{st}(p(x)) = -\infty$.
 
 Operace s polynomy ??
 
@@ -62,11 +62,13 @@ Tvary
 
 **Inverzní matice** - Matice $A^{-1}$ je inverzní matice ke čtvercové matici A, pro kterou platí, že $A \cdot A^{-1} = A^{-1} \cdot A = I$.
 
-**Rozšířená matice soustavy** -  Matice $A^R = [A | b]$, kde matice $A$ obsahuje vektory neznámých a $b$ je vektor pravých stran.
+**Rozšířená matice soustavy** -  Matice $A^R = [A | \vec b]$, kde matice $A$ obsahuje vektory neznámých a $\vec{b}$ je vektor pravých stran.
 
 **Pivot v řádku $i$** - První nenulový prvek v tomto řádku (bráno zleva).
 
-**Matice ve stupňovitém tvaru** - Matice A, kde pro každý řádek platí: Je-li v $i$-tém řádku pivod na pozici $j$, ve všech dalších řádcích je na pozici $j' > j$ a je-li řádek nulový, každý další je také nulový.
+**Matice ve stupňovitém tvaru** - Matice **A**, kde pro každý řádek platí:
+1. Je-li v $i$-tém řádku pivod na pozici $j$, ve všech dalších řádcích je na pozici $j' > j$.
+2. Je-li řádek nulový, každý další je také nulový.
 
 ### Lineární vektorové prostory
 
@@ -98,7 +100,7 @@ Tvary
 
 **Dimenze $\mathcal{V}$** - Počet prvků báze LVP $\mathcal{V}$, značí se $\dim(\mathcal{V})$.
 
-**Souřadnice prvku** - Nechť $\mathcal{V}$ je nenulový konečně generovaný LVP, $\vec v \in \mathcal{V}$ a nechť $B = {\vec b_{1}, \vec b_{2}, \dots, \vec b_{k}}$ je jeho uspořádaná báze. Jednoznačně určené koeficienty $c_{1}, c_{2}, \dots, c_{n} \in \mathbb{R}$ LK $v = c_{1}\vec{b_{1}}, c_{2}\vec{b_{2}}, \dots, c_{n}\vec{b_{n}}$ prvku $\vec v$ bází $B$, značí se $\widehat{\vec v_{B}} = [c_{1}, c_{2}, \dots, c_{n}]^T$.
+**Souřadnice prvku** - Nechť $\mathcal{V}$ je nenulový konečně generovaný LVP, $\vec v \in \mathcal{V}$ a nechť $B = \{\vec b_{1}, \vec b_{2}, \dots, \vec b_{k}\}$ je jeho uspořádaná báze. Jednoznačně určené koeficienty $c_{1}, c_{2}, \dots, c_{n} \in \mathbb{R}$ lineární kombinace $\vec{v} = c_{1}\vec{b_{1}}, c_{2}\vec{b_{2}}, \dots, c_{n}\vec{b_{n}}$ se nazývají souřadnice prvku $\vec v$ v bázi $B$, značí se $\widehat{\vec v_{B}} = [c_{1}, c_{2}, \dots, c_{n}]^T$.
 
 ### Determinant matice
 
