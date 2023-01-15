@@ -70,7 +70,7 @@ Tvary
 **Pivot v řádku $i$** - První nenulový prvek v tomto řádku (bráno zleva).
 
 **Matice ve stupňovitém tvaru** - Matice **A**, kde pro každý řádek platí:
-1. Je-li v $i$-tém řádku pivod na pozici $j$, ve všech dalších řádcích je na pozici $j' > j$.
+1. Je-li v $i$-tém řádku pivot na pozici $j$, ve všech dalších řádcích je na pozici $j' > j$.
 2. Je-li řádek nulový, každý další je také nulový.
 
 ### Lineární vektorové prostory
