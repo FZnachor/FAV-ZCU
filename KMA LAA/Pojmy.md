@@ -41,7 +41,7 @@ Tvary
 - **$m$-složkový sloupcový vektor** - matice typu $m/1$
 - **$n$-složkový řádkový vektor** - matice typu $1/n$
 
-**Nulová matice** - Matice typu $m/n$, jestliže $a_{ij} = 0$, značíme ji 0.
+**Nulová matice** - Matice typu $m/n$, jestliže $a_{ij} = 0$ pro každé $i, j$, značíme ji 0.
 
 **Diagonální matice** - Čtvercová matice, pro kterou platí $a_{ij} = 0$ jestliže $i \neq j$, zapisujeme $A = \text{diag}(a_{11}, a_{22}, a_{nn})$.
 
@@ -76,7 +76,7 @@ Tvary
 ### Lineární vektorové prostory
 
 **Lineární vektorový prostor nad tělesem $\mathbb T$** - Neprázdná množina $\mathcal{V}$, kde pro každé $\vec x, \vec y, \vec z \in \mathcal{V}$ a pro každé $k, l \in \mathbb T$
-- existuje právě jeden prvek $\vec u \in \mathcal{V}$ tak, že $\vec u = \vec x + \vec y$,
+- $\exists!\space \vec u \in \mathcal{V}$ tak, že $\vec u = \vec x + \vec y$,
 - $\exists!\space \vec u \in \mathcal{V}$ tak, že $\vec u = k \vec x$,
 - $(\vec x + \vec y) + \vec z = \vec x + (\vec y + \vec z)$,
 - existuje prvek $\vec o \in \mathcal{V}$ takový, že $\vec x + \vec o = \vec o + \vec x = \vec x$,
@@ -97,7 +97,7 @@ Tvary
 
 **Generující množina LVP** - Množina $M$, která generuje LVP $\mathcal{V}$, jestliže $\langle M \rangle = \mathcal{V}$.
 
-**Konečně generovaný prostor** - Prostor, ve kterém existuje konežná množina generující $\mathcal{V}$.
+**Konečně generovaný prostor** - Prostor, ve kterém existuje konečná množina generující $\mathcal{V}$.
 
 **Báze prostoru $\mathcal{V}$** - Lineárně nezávislá množina, která generuje prostor $\mathcal{V}$.
 
@@ -145,7 +145,7 @@ Nechť $\mathcal{U}, \mathcal{V}$ jsou LVP a $\mathbb L : \mathcal{U} \to \mathc
 
 **Obraz lineárního zobrazení** - Množina všech prvků $\vec y \in \mathcal{V}$ takových, že existuje $\vec x \in \mathcal{U}$ tak, že $\mathbb L(\vec x) = \vec y$. Značí se $\text{Im}(\mathbb L) = \{ \vec y \in \mathcal{V}; \exists \vec x \in \mathcal{U}, \mathbb L(\vec x) = \vec y \}$.
 
-**Izomorfní zobrazení** - Lineární zobrazení $\mathbb L$, jestliže je prostě a zároveň na.
+**Izomorfní zobrazení** - Lineární zobrazení $\mathbb L$, jestliže je prosté a zároveň na.
 
 **Izomorfní prostory** - Prostory $\mathcal{U}, \mathcal{V}$, pokud existuje izomorfní zobrazení z $\mathcal{U}$ do $\mathcal{V}$.
 
@@ -206,7 +206,7 @@ kde $\mathcal{U}$ je LVP nad $\mathbb{R}$.
 2. $\Vert k\vec{x} \Vert = \vert k \vert \cdot \Vert \vec{x} \Vert \ \forall\vec{x} \in U$ a $\forall k \in \mathbb{R}$,
 3. $\Vert \vec{x} + \vec{y} \Vert \leq \Vert \vec{x} \Vert + \Vert \vec{y} \Vert \ \forall \vec{x}, \vec{y} \in \mathbb{R}$.
 
-**Ortogonální prvky** - Dva prvky $\vec x, \vec y$ Eukleidovského prostoru, jestliže $(\vec x, \vec y) = 0$. Píšeme $\vec x \perp \vec y$. Množiny $X, Y \subset \mathcal{U}$ jsou ortogonální, jestoiže $\vec x \perp \vec y$ pro každé $\vec x \in X, \vec y \in Y$.
+**Ortogonální prvky** - Dva prvky $\vec x, \vec y$ Eukleidovského prostoru, jestliže $(\vec x, \vec y) = 0$. Píšeme $\vec x \perp \vec y$. Množiny $X, Y \subset \mathcal{U}$ jsou ortogonální, jestliže $\vec x \perp \vec y$ pro každé $\vec x \in X, \vec y \in Y$.
 
 **Ortogonální průmět** - Nechť $\mathcal{V}$ je Eukleidovský prostor, $\mathcal{U}$ podprostor $\mathcal{V}$ a $\vec{v} \in \mathcal{V}, \vec{v} \notin \mathcal{U}$. **Ortogonální průmět** prvku $\vec{v}$ do podprostoru $\mathcal{U}$ je prvek $\vec{v}_{0}$, pokud platí:
 - $\vec{v}_{0} \in \mathcal{U}$,
