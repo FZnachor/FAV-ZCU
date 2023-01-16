@@ -15,11 +15,7 @@
 
 **Nulový polynom** - Polynom $p(x)$, který má všechny koeficienty nulové, poté platí $\text{st}(p(x)) = -\infty$.
 
-Operace s polynomy ??
-
 **Kořen polynomu** - Číslo $c \in \mathbb C$, pro které platí $p(c) = 0$.
-
-Speciální typy polynomů ??
 
 ### Matice
 
@@ -56,6 +52,28 @@ Tvary
 **Dolní trojúhelníková matice** - Matice, pro kterou platí $a_{ij} = 0$ pro všechna $i < j$.
 
 **Rovnost** - Matice **A** a **B** jsou si rovny, jestliže jsou stejného typu a platí $a_{ij} = b_{ij}$ pro všechna $i, j$, píšeme **A** = **B**.
+
+**Sčítání matic** - Sčítáme matice stejného typu po prvcích ($c_{ij} = a_{ij} + b_{ij}$), zapisujeme $C = A + B$.
+- $A+B = B+A$
+- $A+(B+C) = (A+B)+C$
+- $A+0 = 0+A = A$
+- $(A+B)^T = A^T + B^T$
+
+**Násobení matice konstantou** - Zapisujeme $C = k \cdot A$, kde $k \in \mathbb{C}$. Každý prvek vynásobíme číslem $k$.
+- $0 \cdot A = 0$
+- $k(A+B) = kA + kB$
+- $(k_{1}+k_{2})A = k_{1}A + k_{2}B$
+- $(k_{1}k_{2})A = k_{1}(k_{2}A)$
+- $1A = A$
+- $-1A = -A$
+- $(kA)^T = kA^T$
+
+**Násobení dvou matic** - Zapisujeme jako $C = A \cdot B$, kde A je typu m/**n** a B je typu **n**/p. Platí, že $c_{ij} = a_{i1}b_{1j} + a_{i2}b_{2j} + \dots + a_{in}b_{nj}$. Násobení dvou matic není komutativní.
+- $A(BC) = (AB)C$
+- $(A+B)C = AC + BC$
+- $A(B+C) = AB + AC$
+- $(AB)^T = B^TA^T$
+- $k(AB) = (kA)B = A(kB)$
 
 **Opačná matice** - Matice $[-a_{ij}]$ k matici **A**, značíme -**A**.
 
