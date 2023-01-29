@@ -242,7 +242,7 @@ Unitární prostor ??
 
 **Kvadratická forma** - Zobrazení $\kappa(\vec x) = \vec x^T A \vec x$, kde A je reálná symetrická matice.
 
-**Inercie kvadratické formy** - Označme $k$ počet kladných vlastních čísel matice A, $z$ počet záporných a $d$ počet vlstních čísel matice A rovných nule, inercií kvadratické formy označíme trojici čísel $(k, z, d)$ a značíme $in(\kappa) = (k, z, d)$, kde $\kappa(\vec x) = \vec x^TA\vec x$ je kvadratická forma a A je reálná symetrická matice.
+**Inercie kvadratické formy** - Označme $k$ počet kladných vlastních čísel matice A, $z$ počet záporných a $d$ počet vlastních čísel matice A rovných nule, inercií kvadratické formy označíme trojici čísel $(k, z, d)$ a značíme $in(\kappa) = (k, z, d)$, kde $\kappa(\vec x) = \vec x^TA\vec x$ je kvadratická forma a A je reálná symetrická matice.
 
 **Definitnost kvadratické formy** - Řekněme, že kvadratická forma $\kappa(\vec x)$ na $\mathbb{R}^5$ je
 
