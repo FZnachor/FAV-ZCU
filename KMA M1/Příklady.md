@@ -40,4 +40,17 @@ $\displaystyle\lim_{ n \to \infty } \left( 1+\frac{9}{n^2} \right)^{7-5n^3} = e^
 
 ### Průběh funkce
 
+**Výpočet definičního oboru**:
+
+Pokud máme **jednu funkci** (např. $\log(3x+2)$), stačí vypočítat lineární nerovnici $3x + 2 > 0$. Výsledkem bude $x > -\frac{2}{3}$, takže tedy $D(f) = \left( -\frac{2}{3}, \infty \right)$.
+
+Pro **více funkcí** je potřeba funkce rozložit na vnější a vnitřní a poté postupně zjišťovat definiční obory.
+
+| funkce     | definiční obor                                                           |
+| ---------- | ------------------------------------------------------------------------ |
+| $\log(x)$  | $(0, \infty)$                                                            |
+| $\sqrt{x}$ | $\langle0, \infty)$                                                      |
+| $\tan(x)$  | $\mathbb{R} - \left\{  \frac{\pi}{2} + k\pi  \right\}; k \in \mathbb{Z}$ |
+| $\cot(x)$  | $\mathbb{R} - \left\{  k\pi  \right\}; k \in \mathbb{Z}$                 |
+
 ### Lokální extrémy funkce
