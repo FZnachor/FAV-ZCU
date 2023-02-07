@@ -40,6 +40,8 @@ $\displaystyle\lim_{ n \to \infty } \left( 1+\frac{9}{n^2} \right)^{7-5n^3} = e^
 
 ### Průběh funkce
 
+V příkladech bude pracováno s funkcí $f(x) = -2x^4 + 4x^2 + 6$.
+
 **Definiční obor**:
 
 Pokud máme **jednu funkci** (např. $\log(3x+2)$), stačí vypočítat lineární nerovnici $3x + 2 > 0$. Výsledkem bude $x > -\frac{2}{3}$, takže tedy $D(f) = \left( -\frac{2}{3}, \infty \right)$.
@@ -67,11 +69,40 @@ Vypočítám limitu jdoucí ke krajům $D(f)$, v případě $D(f) = (-\infty, \i
 
 **Průsečíky s osami**:
 
-$f(x) = y = -2x^4 + 4x^2 + 6$
-
 | osa      | dosazení               |         |
 | -------- | ---------------------- | ------- |
 | s osou y | $y = 0 + 0 + 6$        | $x = 0$ |
 | s osou x | $0 = -2x^4 + 4x^2 + 6$ | $y = 0$ |
 
-### Lokální extrémy funkce
+**První derivace** - monotonie a lokální extrémy funkce:
+
+- $f'(x = -8x^3 + 8x = 8x(1-x)(1+x)$
+
+Nulové body: $\{0, 1, -1\}$
+
+V prvním kroce zderivuji funkci $f(x)$ a ze získané funkce $f'(x)$ mohu zjistit, kde je funkce rostoucí a klesající. Funkci je dobré si rozložit na součin, aby byly zřejmé nulové body, tedy body, kde funkce nebude růst ani klesat. Je také možné najít lokální maxima a minima.
+
+|         | $(-\infty, -1)$ | $(-1, 0)$ | $(0, 1)$ | $(1, \infty)$ |
+| ------- | --------------- | --------- | -------- | ------------- |
+| $8x$    | -               | -         | +        | +             |
+| $(1-x)$ | +               | +         | +        | -             |
+| $(1+x)$ | -               | +         | +        | +             |
+| $f'(x)$ | **+**           | **-**     | **+**    | **-**         |
+| $f(x)$  | roste           | klesá     | roste    | klesá         |
+
+Existenci lokálního minima/maxima ověříme druhou derivací.
+
+- **lokální maxima**: $f(-1) = f(1) = 8$
+- **lokální minimum**: $f(0) = 6$
+
+**Druhá derivace** - konvexita/konkávita, inflexní body:
+
+- $f''(x) = -24x^2 + 8 = 8(1-\sqrt{ 3 }x)(1+\sqrt{ 3 }x)$
+
+Ověření lokálních maxim a minim provedeme zjištěním druhé derivace v podezřelých bodech.
+- $f''(-1) = f''(1) = -16 < 0, \quad$ jedná se tedy o lokální maxima
+- $f''(0) = 8 > 0, \quad$ jedná se tedy o lokální minimum
+
+Poté najdu nulové (inflexní) body pomocí druhé derivace a určím jejich hodnotu na původní funkci:
+- $\left\{ \frac{\sqrt{ 3 }}{3}, -\frac{\sqrt{ 3 }}{3} \right\}$
+- $f\left( \frac{\sqrt{ 3 }}{3} \right) = f\left( -\frac{\sqrt{ 3 }}{3} \right) = 7 + \frac{1}{9}$
