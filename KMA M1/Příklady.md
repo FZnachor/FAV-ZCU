@@ -21,8 +21,8 @@ $\displaystyle\lim_{ n \to \infty } \left(\sqrt{ n+1 } - \sqrt{ n }\right) = \li
 
 ### Limita s Eulerovým číslem
 
-$\displaystyle\lim_{ n \to \infty } \left( 1 + \frac{1}{n+5} \right)^{n-3} = 1$
-- Hodnota před $n$ je stejná jako v jmenovateli, tak v mocnině, limita je tedy $1$ (číslo v čitateli zlomku).
+$\displaystyle\lim_{ n \to \infty } \left( 1 + \frac{1}{n+5} \right)^{n-3} = e$
+- Hodnota před $n$ je stejná jak ve jmenovateli, tak v mocnině, limita je tedy $e^1$ (na číslo v čitateli zlomku).
 
 $\displaystyle\lim_{ n \to \infty } \left( 1 + \frac{-1}{n+9} \right)^{7n} = \lim_{ n \to \infty } \left( 1 + \frac{-7}{7n+63} \right)^{7n} = e^{-7}$
 - Hodnota před $n$ není ve jmenovateli a v mocnině stejná, proto musím zlomek vynásobit vhodným číslem, aby tato rovnost platila, v tomto případě číslem $7$.
