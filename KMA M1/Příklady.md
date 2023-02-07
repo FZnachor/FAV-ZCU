@@ -40,7 +40,7 @@ $\displaystyle\lim_{ n \to \infty } \left( 1+\frac{9}{n^2} \right)^{7-5n^3} = e^
 
 ### Průběh funkce
 
-**Výpočet definičního oboru**:
+**Definiční obor**:
 
 Pokud máme **jednu funkci** (např. $\log(3x+2)$), stačí vypočítat lineární nerovnici $3x + 2 > 0$. Výsledkem bude $x > -\frac{2}{3}$, takže tedy $D(f) = \left( -\frac{2}{3}, \infty \right)$.
 
@@ -52,5 +52,26 @@ Pro **více funkcí** je potřeba funkce rozložit na vnější a vnitřní a po
 | $\sqrt{x}$ | $\langle0, \infty)$                                                      |
 | $\tan(x)$  | $\mathbb{R} - \left\{  \frac{\pi}{2} + k\pi  \right\}; k \in \mathbb{Z}$ |
 | $\cot(x)$  | $\mathbb{R} - \left\{  k\pi  \right\}; k \in \mathbb{Z}$                 |
+
+**Limity v krajních bodech D(f)**:
+
+Vypočítám limitu jdoucí ke krajům $D(f)$, v případě $D(f) = (-\infty, \infty)$:
+
+- $\displaystyle \lim_{ n \to -\infty } f(x) = \dots$
+- $\displaystyle \lim_{ n \to \infty } f(x) = \dots$
+
+**Sudost / lichost funkce**:
+
+- sudá: $f(x) = f(-x)$
+- lichá: $-f(x) = f(-x)$
+
+**Průsečíky s osami**:
+
+$f(x) = y = -2x^4 + 4x^2 + 6$
+
+| osa      | dosazení               |         |
+| -------- | ---------------------- | ------- |
+| s osou y | $y = 0 + 0 + 6$        | $x = 0$ |
+| s osou x | $0 = -2x^4 + 4x^2 + 6$ | $y = 0$ |
 
 ### Lokální extrémy funkce
