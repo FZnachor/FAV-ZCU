@@ -32,9 +32,22 @@ $\displaystyle\lim_{ n \to \infty } \left( 1+\frac{9}{n^2} \right)^{7-5n^3} = e^
 
 ### Limita funkce
 
+Je podobná limitě posloupnosti. Jestliže jde k nějaké určité hodnotě, tak jí zkusíme dosadit a případně vhodně upravit. Existuje také limita zleva (mínus), kde dosazujeme hodnotu trochu menší než dané číslo, případně limita zprava, kde naopak dosazujeme o trochu větší hodnotu.
+
 ### Derivace
 
+K derivování funkce stačí použít vzorečky v derivacích funkce, není na tom nic příliš složitého.
+
 ### Neurčitý intergrál
+
+Při integrování musíme vždy zvolit vhodnou metodu řešení, tedy
+- pokud máme ve funkci součin, použijeme metodu **per partes**,
+- pokud máme ve funkci např. vysokou mocninu či odmocninu, použijeme **substituci**.
+
+Při počítání metodou per partes se také po několika krocích můžeme dostat ke stejnému integrálu jako v zadání (zpravidla u funkcí $\sin$ a $\cos$), jedná se poté o cyklický per partes a je potřeba postupovat následovně.
+- Postupujeme podle per-partes (a zachováváme pořadí, ve kterém jsme dosazovali).
+- Po několika krocích se dostaneme do stavu, kdy se ve výsledku opět objeví stejný integrál jako v zadání.
+- Vytvoříme rovnici **původní integrál = aktuální postup** a vyjádříme původní integrál (většinou přičtením a vydělením dvěma).
 
 ### Určitý integrál
 
@@ -44,9 +57,13 @@ V příkladech bude pracováno s funkcí $f(x) = -2x^4 + 4x^2 + 6$.
 
 **Definiční obor**:
 
-Pokud máme **jednu funkci** (např. $\log(3x+2)$), stačí vypočítat lineární nerovnici $3x + 2 > 0$. Výsledkem bude $x > -\frac{2}{3}$, takže tedy $D(f) = \left( -\frac{2}{3}, \infty \right)$.
+Pokud máme **jednu funkci** (např. $f(x) = \log(3x+2)$), stačí vypočítat lineární nerovnici $3x + 2 > 0$. Výsledkem bude $x > -\frac{2}{3}$, takže tedy $D(f) = \left( -\frac{2}{3}, \infty \right)$.
 
 Pro **více funkcí** je potřeba funkce rozložit na vnější a vnitřní a poté postupně zjišťovat definiční obory.
+- Pro ukázku určíme definiční obor funkce $\displaystyle f(x) = \sqrt{ \frac{x+3}{4-2x} }$, v tomto případě má odmocnina $D\geq 0$.
+- Napíšeme si rovnici $\displaystyle \frac{x+3}{4-2x} \geq 0$ a do grafu načrtneme funkce a jejich průsečíky s osou x (nulové body).
+- Vidíme, že celý zlomek bude kladný, jestliže v čitatel i jmenovateli vyjde stejné znaménko, takže si do grafu zapíšeme výsledná znaménka. Nesmíme zapomenout také na to, jestli nám někde nevyjde 0 ve jmenovateli.
+- Z grafu poté zjistíme, že $D(f) = \langle -3; 2 )$.
 
 | funkce     | definiční obor                                                           |
 | ---------- | ------------------------------------------------------------------------ |
