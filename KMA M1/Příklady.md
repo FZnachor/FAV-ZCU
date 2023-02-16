@@ -17,7 +17,7 @@ $\displaystyle\lim_{ n \to \infty } \left( \frac{n^2}{n+3} - \frac{n^2}{n+2} \ri
 ### Limita s odmocninou
 
 $\displaystyle\lim_{ n \to \infty } \left(\sqrt{ n+1 } - \sqrt{ n }\right) = \lim_{ n \to \infty } \left(\frac{n+1-n}{\sqrt{ n+1 } + \sqrt{ n }}\right) = 0$
-- Vynásobíme $\displaystyle\frac{\sqrt{ n+1 } + \sqrt{ n }}{\sqrt{ n+1 } + \sqrt{ n }}$, čímž získáme $\frac{n+1-n}{\sqrt{ n+1 } + \sqrt{ n }}$. (Využití vzorečku $(a-b)(a+b) = a^2+b^2$.)
+- Vynásobíme $\displaystyle\frac{\sqrt{ n+1 } + \sqrt{ n }}{\sqrt{ n+1 } + \sqrt{ n }}$, čímž získáme $\frac{n+1-n}{\sqrt{ n+1 } + \sqrt{ n }}$. (Využití vzorečku $(a-b)(a+b) = a^2-b^2$.)
 
 ### Limita s Eulerovým číslem
 
