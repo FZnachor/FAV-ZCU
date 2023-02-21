@@ -39,3 +39,30 @@
     - přetypovává se **reference**, nikoli instance samotná
     - obráceně ne (runtime error) => předek nemusí implementovat vše co potomek
     - každou referenci je možné přetypovat na referenci na ```Object```
+
+## Polymorfismus
+- instanci potomka lze použít všude kde se očekává předek
+    - parametr metody
+    - pole předků
+    - ...
+
+# Rekurzivní programy
+- programy, které volají sami sebe
+- rekurze, musí někdy skončit!
+
+## Přímá rekurze
+- metoda volá přímo sebe sama
+- je vidět na první pohled
+
+## Nepřímá rekurze
+- ```a``` volá ```b```, ```b``` volá ```a```
+
+## Problémy rekurze
+- problémy s hloubkou zásobníku
+    - spíše programátorská chyba => přetečení zásobníku
+    - pro mnoho praktických problémů je rekurze dostatečná
+    - Java umožňuje nastavit velikost zásobníku
+- často lze zapsat do nerekurzní formy
+    - nerekurzivní => často rychlejší
+    - zrychlení se projeví, pokud je samotný vykonávaný kód triviální
+    - někdy je přepsání poměrně složité
