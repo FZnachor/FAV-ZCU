@@ -162,5 +162,3 @@ opačný prvek $\qquad a + (-a) = 0 \qquad (-1) + 1 = 0$
 nulový prvek 0 $\qquad -1 = 2 \quad -2 = 1$
 
 $\mathbb{Z}_{3}$ vždy existuje inverzní prvek $\forall \, x \in \mathbb{Z}_{3}, x \neq 0$
-
-Věta: Mějme $\mathbb{Z}_{n}, a \in \mathbb{Z}_{n}$, pak existuje $a^{-1} \in \mathbb{Z}_{n} \iff \gcd(a, n) = 1$, tj. $a, n$ jsou nesoudělná.
