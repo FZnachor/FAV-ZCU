@@ -118,3 +118,4 @@ Uspořádání
 		- $a \in X$ je maximální, pokud $\not\exists \, x \in X : x \neq a, a \leq x$
 		- $a \in X$ je nejmenší, pokud $\not\exists \, x \in X : x \geq a$
 		- $a \in X$ je největší, pokud $\not\exists \, x \in X : a \geq x$
+	- Pozorování: X konečná množina, tak relace uspořádání je reflexivně-tranzitivní uzávěr relace bezprostředního předchůdce
