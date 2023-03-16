@@ -98,6 +98,3 @@ Komplement prvku: $(X, \wedge, \vee)$ konečný, 1 nejv. prvek, 0 nejm. prvek
 	- $a \wedge \overline a = 0$
 	- $a \vee \overline a = 1$
 - svaz takový, že $\forall a \in X \quad \exists$ komplementární svaz
-
-Booleova algebra
-- distributivní a komplementární svaz s 0, 1
