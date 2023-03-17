@@ -1,0 +1,111 @@
+# Abstraktní datové typy
+
+- abstraktní - nezabývá se rozdíly, ale tím, co je **společné**
+- definují možné operace s daty
+- nedefinují způsob uložení dat ani provedení operací (implementaci)
+
+**ADT vs rozhraní**
+- ADT můžou být implementovány různě v různých jazycích
+- rozhraní jen způsob implementace ADT v Javě
+
+**Kolekce**
+- datové struktury, které uchovávání sadu prvků
+- umožňují operace s daty
+	- přidat prvek (na začátek, na konec, za/před prvek, s nějakým klíčem, ...)
+	- vybrat prvek (na začátku, na konci, na indexu, s extrémním klíčem, ...)
+	- odebrat prvek (na začátku, na konci, na indexu, s extrémním klíčem, ...)
+
+**Implementace ADT**
+- určuje složitost operací
+- obvykle reprezentována třídou
+
+**Úkol programátora**
+- vybrat vhodnou ADT
+- vybrat vhodnou implementaci ADT
+- vědět, co ADT dělá (jaká je složitost operací)
+
+## Zásobník
+
+**Operace**
+- přidání na konec
+- vybrání prvku na konci
+- odebrání prvku z konce
+
+**LIFO fronta** - last in, first out
+
+### Implementace polem
+
+**Složitost operací**
+- vybrání prvku $\Theta(1)$
+- odebrání prvku $\Theta(1)$, pokud se pole nezmenšuje
+- přidávání prvku
+	- vejde-li se $\Theta(1)$
+	- nevejde-li se $\Theta(n)$ - pole 2x zvětšíme
+	- v průměru?
+
+**Amortizovaná složitost**
+- zkoumáme přidání n prvků, pro jednoduchost je původní velikost pole 1
+- kolikrát se pole zvětšuje? (záleží na n)
+	- $n \leq 1$: 0x
+	- $n \leq 2$: 1x
+	- $n \leq 4$: 2x
+	- $n \leq 2^k$: kx
+- počet zvětšování $k = \log_{2}n$
+- počet kopírovaných prvků pro i-té zvětšení: $2^{i-1}$
+- celkový počet operací při zvětšování: $\sum^{\log_{2}n}_{i=1} 2^{i-1}$
+
+| počet prvků n | počet zvětšení | počet kopírovaných prvků |
+| ------------- | -------------- | ------------------------ |
+| $n \leq 1$    | 0x             | 0                        |
+| $n \leq 2$    | 1x             | 1                        |
+| $n \leq 4$    | 2x             | 3                        |
+| $n \leq 8$    | 3x             | 7                        |
+| $n \leq 16$   | 4x             | 15                       |
+| $n \leq 2^k$  | kx             | $2^k - 1$                |
+
+- nejhorší případ: hned po zvětšení pole
+	- $n = 2^k + 1, o = 2^{k+1} - 1$
+	- $o = 2(2k) - 1 = 2(2k + 1) - 3 = 2n - 3 < 2n$
+- **závěr**:
+	- složitost oprace přidání je $\mathcal{O}(n)$
+	- průměrná složitost je $\Theta(1)$
+	- při zvětšování **o konstantu** to neplatí
+		- přidání n prvků $\Omega(n^2)$
+		- přidání jednoho prvku $\Omega(n)$
+
+### Implementace spojovým seznamem
+
+**Řešení**
+- vyrobíme si spojovací prvek
+- funguje podobně jako lego
+- připojuje se na něj jeden kousek dat
+- může se na něj připojit další spojovací prvek
+- **výhoda**: alokujeme místo na haldě po malých částech (pro každý přidávaný prvek)
+- **cena**: bude potřeba paměť navíc pro spojovací prvky
+
+**Složitost operací**
+- vybrání prvku $\Theta(1)$
+- odebrání prvku $\Theta(1)$
+- přidávání prvku $\Theta(1)$
++ neumožňuje vybrat prvek na libovolném indexu v konstantním čase
+
+### Kterou implementaci použít?
+
+Jak velké jsou položky v seznamu?
+- jsou-li malé, bude lepší implementace polem, kvůli šetření paměti
+- je to ale praktický problém?
+
+Potřebujeme zaručenou rychlost pro přidávání prvku?
+- při implementaci polem to může nějakou dobu trvat
+
+Tyto aspekty není potřeba se učit, vyplývají ze způsobu implementace.
+
+#### Použití z klientské třídy
+
+- použití obou implementací je úplně  stejné
+- uživatel vůbec nemusí vědět, co se děje uvnitř
+- vnitřní data jsou udržována v konzistentním stavu
+
+Objektové programování
+- skrývání implementace
+- uživatel zná jen signaturu metod
