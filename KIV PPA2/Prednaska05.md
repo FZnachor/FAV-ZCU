@@ -24,10 +24,12 @@
 - vybrat vhodnou implementaci ADT
 - vědět, co ADT dělá (jaká je složitost operací)
 
-## Zásobník
+# Zásobník
+
+- abstraktní datová struktura
 
 **Operace**
-- přidání na konec
+- přidání prvku na konec
 - vybrání prvku na konci
 - odebrání prvku z konce
 
