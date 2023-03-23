@@ -126,3 +126,26 @@ Věta (Stone)
 		- $\implies \exists \text{ atom } a \in B : a \leq b_{1}, a \not\leq b_{2}$
 		- $\implies a \in \Theta(b_{1}) \wedge a \not\in \Theta(b_{2})$
 	- $\Theta$ surjektivní
+		- plyne z věty o jednoznačnosti vyjádření prvku b pomocí suprema mn. atomů
+		- $\implies \Theta$ je bijekce (vzájemně jednoznačné zobrazení)
+		- $\Theta$ zachovává 0, 1 $b(0) = \emptyset, b(1) = X$
+		- $\Theta$ zachovává komplement
+		- $\Theta$ zachovává operace $\wedge, \vee$
+			- chci $\Theta(b_{1} \wedge b_{2}) = \Theta(b_{1}) \cap \Theta(b_{2})$ (1)
+				- $\Theta(b_{1} \vee b_{2}) = \Theta(b_{1}) \cup \Theta(b_{2})$ (2)
+			1. atom $x \leq b_{1} \wedge b_{2} \implies x \leq b_{1} \wedge x \leq b_{2}$
+				- $\implies x \in \Theta(b_{1}), x \in \Theta(b_{2})$
+				- $\implies x \in \Theta(b_{1}) \cap \Theta(b_{2})$
+				- $x \in \Theta(b_{1}) \wedge \Theta(b_{2}) \implies x \in \Theta(b_{1}) \wedge x \in \Theta(b_{2})$
+					- $\implies x \leq b_{1} \wedge x \leq b_{2} \implies x \leq b_{1} \wedge b_{2} \implies x \in \Theta(b_{1} \wedge b_{2})$
+			2. $\subseteq \quad x \in \Theta(b_{1} \vee b_{2}) \implies x \leq b_{1} \vee b_{2} \implies x = x \wedge (b_{1} \vee b_{2})$
+				- $= (x \wedge b_{1}) \vee (x \wedge b_{2}) \implies x \wedge b_{1} \neq 0 \text{ nebo } x \wedge b_{2} \neq 0$
+				- pokud $x \wedge b_{1} = 0 = x \wedge b_{2}$
+					- $\implies x \leq b_{2} \text{ nebo } x \leq b_{2} \implies x \in \Theta(b_{1}) \text{ nebo } x \in \Theta(b_{2})$
+					- $\implies x \in \Theta(b_{1}) \cup \Theta(b_{2})$
+			- $\supseteq \quad x \in \Theta(b_{1}) \cup \Theta(b_{2}) \implies x \leq b_{1} \vee x \leq b_{2} \implies x \leq b_{1} \vee b_{2}$
+				- $\implies x \in \Theta(b_{1} \vee b_{2})$
+			- Důsl.: Každá konečná B. algebra má  $2^n$ prvků, kde $n = \#$ atomů.
+				- $\implies$ # atomů = $\log_{2}|B|$
+					- $B = (B, \leq)$
+			- Důsl.: Každé dvě B. algebry se stejným počtem prvků jsou izomorfní
