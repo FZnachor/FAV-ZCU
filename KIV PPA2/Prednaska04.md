@@ -64,8 +64,8 @@ Nalezení pořadí (indexů) pro množinu prvků podle nějakého uspořádání
 - přirozeně vede na rekurzivní zápis
 - postup:
 	- vybere se pivot (např. poslední prvek) a přesune se do proměnné
-	- pole se prochází zleva a při nalezení něčeho většího než je pivot se prvek přesune na volené místo (tedy to místo posledního prvku)
-	- poté se začne procházet od konce, a postup se opakuje, dokud se indexy zleva i zprava nerovnají
+	- pole se prochází zleva a při nalezení něčeho většího než je pivot se prvek přesune na volné místo (tedy to místo posledního prvku)
+	- poté se začne procházet zprava a postup se opakuje, dokud se indexy zleva i zprava nerovnají
 - vlastnosti:
 	- není potřeba vyměňovat prvky (je to drahá operace)
 	- využijeme skutečné parametry left a right jako proměnné
