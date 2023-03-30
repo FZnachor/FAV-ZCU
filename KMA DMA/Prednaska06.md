@@ -115,9 +115,9 @@ Minimalizace B. fcí
 
 Quineho-McCluskeyho metoda
 - Př.: 
-	- ÚDNF: $\quad \overline x \overline y \overline z + \overline x \overline y z + x \overline y z + x y \overline z$
-		1. dvojice: $\quad \overline x \overline y (\overline z + z) = \overline x \overline y$
-		2. druhá dvojice: $\quad (\overline x + x) \overline y \overline z = \overline y \overline z$
+	- ÚDNF: $\quad \overline x \overline y \overline z + \overline x \overline y z + x \overline y \overline z + x \overline y z + x y \overline z$
+		- první dvojice: $\quad \overline x \overline y (\overline z + z) = \overline x \overline y$
+		- druhá dvojice: $\quad (\overline x + x) \overline y \overline z = \overline y \overline z$
 
 | x   | y   | z   | f(x, y, z) |
 | --- | --- | --- | ---------- |
@@ -130,4 +130,7 @@ Quineho-McCluskeyho metoda
 | 1   | 1   | 0   | 1          |
 | 1   | 1   | 1   | 0          |
 
-
+- $f(x, y, z) = x \overline z + \overline y$
+- ? vynechání některých součinů tak, že výsledek je stále roven funkci f
+- f, p součin literálů je implikantem fce f, pokud $p \leq f$
+- implikant je prostý, pokud součin vzniklý odstraněním libovolného literálu z p přestane být implikantem f
