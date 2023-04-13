@@ -3,7 +3,7 @@
 Nalezení pořadí (indexů) pro množinu prvků podle nějakého uspořádání. (neplést s tříděním)
 - jeden z nejčastějších výpočetních úkonů
 - součást mnoha složitějších algoritmů
-- až 30 % častu běžného počítače
+- až 30 % času běžného počítače
 - rychlost algoritmů se dá dobře popsat pomocí jejich výpočetní složitosti
 
 **Dělení**
@@ -64,7 +64,7 @@ Nalezení pořadí (indexů) pro množinu prvků podle nějakého uspořádání
 - přirozeně vede na rekurzivní zápis
 - postup:
 	- vybere se pivot (např. poslední prvek) a přesune se do proměnné
-	- pole se prochází zleva a při nalezení něčeho většího než je pivot se prvek přesune na volné místo (tedy to místo posledního prvku)
+	- pole se prochází zleva a při nalezení něčeho většího než je pivot se prvek přesune na volné místo (tedy na místo posledního prvku)
 	- poté se začne procházet zprava a postup se opakuje, dokud se indexy zleva i zprava nerovnají
 - vlastnosti:
 	- není potřeba vyměňovat prvky (je to drahá operace)
