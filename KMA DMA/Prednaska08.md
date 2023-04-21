@@ -47,4 +47,5 @@ Stromy
 
 Kostry grafu
 - kostra grafu (souvislého) je libovolný faktor izomorfní se stromem
-- každý souvislý graf má kostru
+- Věta: každý souvislý graf má kostru
+	- D: najdu kružnici - odstraním hranu - opakuji [reverzní mazací algoritmus]
