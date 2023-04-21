@@ -1,0 +1,157 @@
+# Stromy
+
+- abstraktní datový typ, který podchycuje vztahy mezi prvky
+- větví se pouze jedním směrem
+- využití:
+	- rodokmen, struktura vedení ve firmě, popis trasování paprsku
+- ve stromě neexistují cykly
+- dá se "pověsit" za nějaký kořen
+
+### Části
+
+**Vrchol (Node)**
+- prvky datové struktury
+- můžou k nim být přiřazena data
+- mají jednoho předka (kromě kořene)
+- mohou mít libovolný počet potomků
+
+**Hrana (Edge)**
+- vztah mezi předkem a potomkem
+- nikdy neexistuje hrana mezi prvky na stejné úrovni
+
+**Kořen (Root)**
+- jediný vrchol, který nemá předka
+
+**List**
+- vrchol bez potomků
+
+**Vnitřní vrchol**
+- vrchol který není list
+
+**Cesta**
+- posloupnost vrcholů, kde jsou každé dva po sobě následující spojeny hranou
+
+**Délka cesty**
+- počet hran cesty
+
+**Hloubka vrcholu**
+- délka cesty z vrcholu do kořene
+
+**Výška (hloubka) stromu**
+- maximální hloubka vrcholu ve stromě
+
+### Druhy stromů
+
+**Uspořádaný strom**
+- potomci mají definované neměnné pořadí
+
+**Neuspořádaný strom**
+- na pořadí potomků nezáleží
+
+Druhy mají vliv na implementaci!
+
+**Binární strom**
+- uspořádaný strom, kde vrchol má dvojici potomků (levý a pravý)
+- každý potomek je také binárním stromem
+
+### Operace
+
+- vybrání kořene
+- přidání potomka danému vrcholu
+- zjištění předka daného vrcholu
+- zjištění potomků daného vrcholu
+- odebrání daného vrcholu ze stromu 
+
+Operace se můžou lišit podle druhu stromu (binární, uspořádaný, ...).
+
+### Implementace
+
+**Implementace binárního stromu polem**
+- vrcholy ukládáme do pole po jednotlivých patrech
+- **indexy**:
+	- kořen má index 1
+	- potomci vrcholu s indexem i mají index (2i) a (2i + 1)
+	- předek vrcholu s indexem i leží na indexu i/2 (celočíselně)
+	- strom o hloubce h má vrcholy s maximálním indexem $2^{h+1} - 1$
+- **reprezentace vrcholu**:
+	- reprezenntován svým indexem
+	- musí mu být přiřazena data, která jsou uložena v poli
+- **data přiřazená vrcholu**:
+	- uložená do pole na index vrcholu
+	- index 0 neobsazený (jednodušší vztahy)
+	- primitivní datové typy
+		-  určení hodnoty symbolizující nepřítomnost vrcholu
+	- reference na instanci třídy
+		- nepřítomnost vrcholu reprezentována pomocí `null`
+- **výhody**:
+	- základní operace jsou triviální aritmetické operace
+- **nevýhody**:
+	- pouze pro binární stromy
+	- musíme předem znát počet prvků
+	- alokuje se paměť i přo nepřítomné prvky (nebo referenci)
+
+Pozn.: **Úplný binární strom**
+- pro určitý index k platí:
+	- všechny vrcholy s menším indexem existují
+	- všechny vrcholy s indexem k a větším neexistují
+- pro tento druh je reprezentace polem vhodná
+	- je možné pole dynamicky zvětšovat
+
+**Implementace binárního stromu spojovou strukturou**
+- spojovací článek `Node`
+	- `<typ> data` - data vrcholu
+	- `Node left, right` - levá a pravá hrana
+- řeší reprezentaci neexistujícího prvku
+- umožňuje uložit vrchol bez dat pomocí `data = null`
+- paměťově úsporné pro částečně zaplněné stromy
+- není potřeba znát předem počet prvků
+- **procházení stromu** (path traversal)
+	- proces zpracování všech vrcholů stromu v určitém pořadí
+	- **způsoby procházení**
+		- **přímý průchod**: vrchol, levý, pravý
+		- **vnitřní průchod**: levý, vrchol, pravý
+		- **zpětný průchod**: levý, pravý, vrchol
+		- **po úrovních**: postupně se zpracují prvky na dané úrovni
+			- snadná implementace frontou
+	- **implementace**
+		- přirozené použité rekurze
+		- obecná metoda na zpracování vrcholu: `process(Node n)`
+		- zahájení průchodu zavoláním metody `preorder/inorder/postorder` nad kořenem
+
+### Binární vyhledávací strom (BST)
+- reprezentuje uspořádanou množinu prvků
+- prvky seřazené pomocí klíče - nejjednodušeji `int`
+- strom je pouze implementací, ADT hierarchický není
+
+**Operace**
+- vložení prvku s klíčem
+- oderání prvku s klíčem
+- zjištění přítomnosti prvku s klíčem
+- nalezení největšího a nejmenšího klíče
+- vybrání všech prvků v pořadí klíčů
+
+Pracujeme se dvěma datovými typy - typ klíče a hodnoty.
+
+**Implementace BST**
+- binární strom
+- každý vrchol má hodnotu a klíč
+- klíče lze porovnávat
+- **definující vlastnost**
+	- je-li `x` klíč uzlu `n`, pak
+		- klíče uzlu `n.left` jsou menší než `x` 
+		- klíče uzlu `n.right` jsou větší než `x` 
+	- předpokládáme, že v ADT nejsou dva stejné klíče
+
+**Složitost operací**:
+- h: výška stromu
+- hledání, vkládání a ostraňování je $\mathcal O(h)$ v nejhorším případě
+- **degenerovaný strom**:
+	- $h = N - 1$
+	- složitosti jsou $\Omega(n)$
+- **úplný strom**:
+	- $h = \lceil \log_{2}(n) \rceil$
+	- složitosti jsou $\mathcal O(\log(n))$
+- **očekávatelný případ**:
+	- vkládané klíče tvoří náhodnou posloupnost
+	- průměrná hloubka $h = 1.39\log_{2}(n)$
+	- složitost je tedy $\mathcal O(\log(n))$
