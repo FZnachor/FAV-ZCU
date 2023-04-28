@@ -95,7 +95,7 @@
 	2) G je silně souvislý $\iff$ $G^C$ má jediný vrchol
 	3) G acyklický $\iff G^C = G$
 
-**Matice přířazené grafům** (or. & neor.)
+**Matice přiřazené grafům** (or. & neor.)
 - Laplaceova matice L(G) neorientovaného grafu G řádu $n = \vert V(G) \vert$
 - redukovaná Laplaceova matice $L_{R}(G)$
 	- vynecháním i-tého řádku a i-tého sloupce pro nějaké (pevné) i
