@@ -1,0 +1,202 @@
+# Graf
+
+- podchycuje obecný vztah (relaci) mezi prvky
+- strom je speciální typ grafu
+
+### Druhy grafů
+
+- **Orientovaný graf**
+	- podchybuje nesymetrické vztahy
+
+### Formální definice
+
+- **Neorientovaný graf** $G$ je dvojice $V, E$:
+	- $V$ je množina vrcholů (vertex, vertices)
+	- $E$ je množina hran (edges)
+	- Hrana je dvouprvková množina $\{ a,b \}, a \in V, b \in V$ (nezáleží na pořadí)
+- **Orientovaný graf** $G$ je dvojice $V, E$:
+	- $V$ je množina vrcholů (vertex, vertices)
+	- $E$ je množina hran (edges)
+	- Hrana je uspořádaná dvojice prvků $( a,b ), a \in V, b \in V$ (záleží na pořadí)
+		- mají šipku
+
+**Značení**
+- $\vert V\vert$ - počet vrcholů grafu
+- $\vert E\vert$ - počet hran grafu
++ $V(G)$ - množina vrcholů grafu $G$
++ $V(E)$ - množina hran grafu $G$
+- $y \in V$ je sousedem $x \in V$ právě když
+	- existuje orientovaná hrana $E = (x, y)$
+	- existuje neorientovaná hrana $E, x \in E, y \in E$
+
+### Operace
+
+- vytvoření grafu s danou množinou vrcholů $V$ (bez hran)
+- přidání (ne)orientované hrany
+- zjištění všech sousedů vrcholu $x \in V$
+- zjištění, zda je $y \in V$ sousedem $x \in V$ (test sousednosti)
+
+### Vrchol
+
+- můžou s ním být asiciována data
+- ADT Graf **neumožňuje** odebírat a přidávat vrcholy
+	- data vrcholů je možné **držet mimo ADT v poli**
+	- jedinou reprezentací vrcholu je jeho **index**
+
+### Implementace
+
+- seznamy sousednosti
+- matice sousednosti
++ implementace se liší pro orientované a neorientované grafy
+
+#### Implementace seznamem sousednosti
+
+- každý vrchol má své sousedy uložené v ADT Seznam
+	- není vhodné použít např. `LinkedList`
+		- nevyužijeme většinu funkcionality
+		- program by byl neefektivní (konverze `int`/`Integer`)
+		- chceme vědět, jak věci fungují uvnitř
+	- použijeme vlastní implementaci se spojovacím prvkem
+	- typ dat: `int`
++ reference na první prvek každého seznamu jsou uloženy v poli velikosti $\vert V\vert$
+
+**Operace**
+- přidání hrany
+	- pro neorientovaný přidáme obě hrany (z **A** do **B** a zároveň z **B** do **A**)
+	- vkládáme na **začátek**, je to **rychlejší**
+- nalezení sousedů
+	- projdeme náš seznam `edges`
+	- **složitost**
+		- záleží na počtu sousedů
+		- husté grafy: počet sousedů může být $\Omega(\vert V\vert)$
+		- řídké grafy: průměrný počet sousedů $\mathcal{O}(1)$
+- test sousednosti
+	- projdeme všechny sousedy a porovnáváme s hledaným
+	- složitost jako u hledání sousedů
+
+**Úprava na ohodnocený graf**
+- na každé hraně má přiřazené číslo (např. délka cesty, propustnost, ...)
+- do spojovacího prvku přidáme ohodnocení hrany
+
+#### Implementace maticí sousednosti
+
+**Orientovaný graf**
+- Matice $\vert V\vert \times \vert V\vert$ obsahuje na pozici $[i, j]$
+	- **1**, pokud z $i$-tého vrcholu vede hrana do $j$-tého
+	- **0**, pokud ne
+
+**Neorientovaný graf**
+- Matice $\vert V\vert \times \vert V\vert$ obsahuje na pozici $[i, j]$ a $[j, i]$
+	- **1**, pokud z $i$-tého vrcholu vede hrana do $j$-tého
+	- **0**, pokud ne
+
+**Reprezentace matice**
+- `int[][]` - alokováno zbytečně moc paměti
+- `byte[][]` - bude nám stačit
+- `boolean[][]` - překladač i pro `boolean` alokuje celý `byte`
++ první index - **řádek**
++ druhý index - **sloupce**
+
+**Operace**
+- přidání hrany
+	- nastavíme 1 na [i, j] (u neorientovaného grafu na [i, j] i [j, i])
+- nalezení sousedů vrcholu `v`
+	- projdeme celou řádku - `matrix[v][i]`
+	- složitost $\Theta(\vert V\vert)$ nezávisle na hustotě grafu
+- test sousednosti
+	- zjištění, jestli na [i, j] je 1
+	- složitost $\mathcal{O}(1)$ nezávisle na hustotě grafu
+
+**Úprava na ohodnocený graf**
+- matice jako `double[][]`
+- v matici na pozici [i, j] uložíme ohodnocení hrany
+- na ostatních pozicích bude hodnota mimo rozsah ohodnocení
+	- `-1`, pokud ohodnocení nesmí být záporné
+	- `NaN`, pokud `NaN` není přípustným ohodnocením
+	- záleží na konkrétní aplikaci
+
+#### Porovnání implementací
+
+**Paměťová složitost**
+- seznam: $\mathcal{O}(\vert V\vert + \vert E\vert)$
+- matice: $\Omega(\vert V\vert^2)$
+
+**Výpočetní složitost operací**
+- vložení hrany
+	- seznam i matice: $\mathcal{O}(1)$
+- nalezení sousedů vrcholu
+	- seznam: $\Omega(n)$, $n$ je počet sousedů vrcholu
+	- matice: $\Omega(\vert V\vert)$
+- test sousednosti
+	- seznam: $\Omega(n)$, $n$ je počet sousedů vrcholu
+	- matice: $\mathcal{O}(1)$
+
+**Záleží na hustotě grafu**
+- Řídký graf
+	- $\vert E\vert \ll \vert V\vert^2$
+	- obvykle vhodnější implementace seznamem sousedů
+	- např. pro planární trojúhelníkové sítě se dá dokázat, že průměrný počet vrcholů je blízký 6
+		- složitost testu sousednosti v průměru $\mathcal{O}(1)$
+- Hustý graf
+	- $\vert E\vert \simeq \vert V\vert^2$, případně $\vert E\vert = k\vert V\vert^2$ pro nějakou konstantu $k$
+	- obvykle vhodnější implementace maticí sousedů
+
+### Procházení grafu
+
+**Příklady**
+- Existuje v grafu cesta z vrcholu A do B?
+- **Graf**: bludiště
+- **Vrchol**: křižovatka
+- **Hrana**: cesta mazi křižovatkami
+- **Úkol**: zjistit, zda existuje cesta z jednoho místa na jiné
++ Jak dlouhá (kolik hran) je nejkratší cesta z vrcholu A do vrcholu B?
++ **Graf**: vlaková spojení
++ **Vrchol**: nádraží
++ **Hrana**: mezi nádražími jede přímý spoj
++ **Úkol**: vyhledat spojení s nejmenším počtem přestupů
+- Které vrcholy se v grafu vyskytují ve vzdálenosti menší než $k$ (počet hran)?
+- **Graf**: síť kontaktů LinkedIn
+- **Vrchol**: záznam osoby
+- **Hrana**: konexe
+- **Úkol**: prohledat konexe do úrovně $k$, zda obsahují hledanou osobu
++ Existuje v orientovaném grafu cyklus?
++ **Graf**: vztah buněk v tabulkovém kalkulátoru
++ **Vrchol**: buňka
++ **Hrana** $A \to B$: hodnota buňky $A$ zavísí na hodnotě buňky $B$
++ **Úkol**: zjistit, zda je možné tabulku vyhodnotit (nesmí obsahovat cyklus!)
+- Přiřadit vrcholům indexy tak, že hrany vedou vždy od menšího indexu k většímu  
+- **Graf**: závislosti činností
+- **Vrchol**: činnost
+- **Hrana** $A \to B$: činnost $B$ může být vykonána, teprve když je činnost $A$ hotová
+- **Úkol**: zjistit, v jakém pořadí je možné činnosti vykonat
+
+#### Prohledávání do šířky (BFS)
+
+- Breadth-First Search
++ zpracovává vrcholy grafu od vrcholu `s` v pořadí **od blízkých ke vzdáleným**
++ postup vyžaduje označování vrcholů
+	+ označení uložíme do pole délky $\vert V\vert$
++ možná označení vrcholů
+	+ nenavštívený (kód 0)
+	+ čekající na zpracování (kód 1)
+	+ hotový (kód 2)
++ vrcholy se vkládají do fronty
+	+ všechny vrcholy ve vzdálenosti `k` se zpracují před těmi se vzdáleností `> k`
+
+**Pozorování**
+- BFS je potřeba doplnit o nějaký užitečný kód
+	+ záleží to na řešeném problému
+- BFS vždy zpracuje jen jednu komponentu (jen vrcholy dosažitelné ze startovního vrcholu)
+	- může se vyřešit pomocí metody `BFS_all`, která bude procházet `for`-cyklem všechny nezpracované vrcholy (kód 0)
+
+**Složitost**
+- vkládání do fronty
+	- každý vrchol jen jednou
+	- $\Omega(\vert V\vert)$
+- procházení sousedů
+	- implementace grafu seznamem: $\mathcal{O}(\vert E\vert)$
+	- implementace grafu maticí: $\Omega(\vert V\vert^2)$
++ celkem
+	+ úplný, popř. hustý graf nebo implementace sousednosti maticí: $\Omega(\vert V\vert^2)$
+	+ implementace sousednosti seznamem: $\mathcal{O}(\vert V\vert + \vert E\vert)$
+		+ graf může mít počet hran až $\vert V\vert^2$
