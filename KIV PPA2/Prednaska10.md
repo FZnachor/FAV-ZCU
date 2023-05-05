@@ -176,12 +176,13 @@
 + zpracovává vrcholy grafu od vrcholu `s` v pořadí **od blízkých ke vzdáleným**
 + postup vyžaduje označování vrcholů
 	+ označení uložíme do pole délky $\vert V\vert$
-+ možná označení vrcholů
-	+ nenavštívený (kód 0)
-	+ čekající na zpracování (kód 1)
-	+ hotový (kód 2)
 + vrcholy se vkládají do fronty
 	+ všechny vrcholy ve vzdálenosti `k` se zpracují před těmi se vzdáleností `> k`
+
+**Značení vrcholů**
++ nenavštívený (kód 0)
++ čekající na zpracování (kód 1)
++ hotový (kód 2)
 
 **Pozorování**
 - BFS je potřeba doplnit o nějaký užitečný kód
