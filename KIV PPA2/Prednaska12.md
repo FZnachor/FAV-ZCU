@@ -1,0 +1,95 @@
+# Prioritní fronta
+
+- abstraktní datový typ
+
+**Žravé (greedy) algoritmy**
+- zváží všechny možnosti pro další krok
+	-  přiřadí cenu
+- provede krok s nejlepší (největší/nejmenší) cenou
++ mohou ale nemusí vést k optimálnímu řešení
+	+ suboptimální: doručování balíků (body, kam musím doručit, ale chci ujet co nejméně km)
+		+ může sloužit jako heuristika
+	- optimální: minimální kostra grafu
+		- spojení měst do jedné počítačové sítě
+		- graf: města a možná spojení
+		- potřeba najít podmnožinu spojující všechna města a mající nejmenší možnou sumu ohodnocení
+		- řešení: najdeme nejkratší nezpracovanou hranu
+			- zkontrolujeme, zda přidáním nevznikne cyklus - jestli ne, přidáme
+			- vznikne optimální řešení
+- Dijkstrův algoritmus
+	- nejkratší cesta v ohodnoceném grafu
+	- vrcholům přiřazuje dočasné ohodnocení
+	- z dočasně ohodnocených vybere ten s nejnižším ohodnocením
+	- okolním vrcholům se aktualizuje hodnocení
++ klíčový problém
+	+ najít v množině dalších možných kroků ten s nejmenší/největší cenou
+- obecný žravý algoritmus
+	- celkem přidá n prvků
+	- celkem odebere n prvků
+	- obecné pořadí přidávání/odebírání
+
+**Operace**
+- přidání prvku (hodnota, priorita)
+- zjištění nejmenšího/největšího prvku (z hlediska priority)
+- odebrání nejmenšího/největšího prvku (z hlediska priority)
+- aktualizace priority prvku
++ oproti BST některé operace nevyžadujeme
+	+ vypsání všech prvků v pořadí klíčů (priorit)
+	+ zjištění, zda obsahuje prvek s klíčem (prioritou)
+	+ odebrání libovolného prvku
+
+**Možnosti implementace**
+- triviální: dynamickým seřazeným polem
+	- odebírání rychlé
+	- přidávání pomalé: $\Omega(n^2)$
+- binární vyhledávácí strom (klíčem priorita)
+- halda
+	- datová struktura
+	- speciální binární strom vytvořený z priorit
+	- vlastnosti haldy
+		- úplný binární strom
+		- priorita ve vrcholu je vždy větší než priorita potomků
+	- po každé operaci je potřeba obnovit vlastnosti haldy
+
+**Implementace**
+- uchováváme `int[] values`, `int[] priorities` a `int count`
+- změna priority hodnoty `value`
+	- nevíme, kde je
+	- musíme to evidovat
+		- `HashMap<ValueType, Integer> position`
+
+**Složitost**
+- binární strom je před každou operací úplný
+- hlouba rekurze je maximálně h
+- složitost přidání a odebrání je $\Omega(\log_{2}(n))$
+- obecný žravý algoritmus má složitost $\mathcal O(n \log(n))$
+
+**Řazení haldou** (Heap sort)
+- založíme prázdnou haldu
+- přidáme postupně všechny prvky
+- postupně odebereme n-krát největší prvek
+- celkem: $\mathcal O(n \log(n))$
++ vnitřní řazení haldou
+	+ haldu umístíme na uvolněná místa pole
++ urychlení vytváření haldy
+	+ budeme je vytvářet od konce stromu (od listů)
+- složitost
+	- nejhorší a očekávaná: $\Theta(n \log(n))$
+	- paměťová: $\Theta(1)$
+
+# Rekapitulace ADT
+
+**Přístup k datům pomocí indexů**
+
+|                   | vybrání     | odebrání                     | přidání                      |
+| ----------------- | ----------- | ---------------------------- | ---------------------------- |
+| spojová struktura | $\Theta(n)$ | $\Theta(1)$ pokud byl vybrán | $\Theta(1)$ pokud byl vybrán |
+| dynamické pole    | $\Theta(1)$ | $\Theta(n)$                  | $\Theta(n)$                  |
+
+**Přístup k datům pomocí klíče**
+
+|         | přidání           | odebrání          | vybrání           | vybrání maxima    | odebrání maxima   |
+| ------- | ----------------- | ----------------- | ----------------- | ----------------- | ----------------- |
+| Tabulka | $\Theta(1)$       | $\Theta(1)$       | $\Theta(1)$       | $\Theta(n)$       | $\Theta(n)$       |
+| BST     | $\Theta(\log(n))$ | $\Theta(\log(n))$ | $\Theta(\log(n))$ | $\Theta(\log(n))$ | $\Theta(\log(n))$ |
+| Halda   | $\Theta(\log(n))$ | N/A               | N/A               | $\Theta(1)$       | $\Theta(\log(n))$ |
