@@ -34,20 +34,20 @@ $\displaystyle s = \frac{1}{2}\cancel{a_{t}} \cdot \frac{(v_{1} - v_{2})^T}{a_{t
 
 $\displaystyle T = \frac{v_{1} - v_{0}}{\frac{v_{1}^2 - v_{0}^2}{2s}} = \frac{v_{1} - v_{0}}{v_{1}^2 - v_{0}^2} \cdot 2s = \frac{\cancel{v_{1} - v_{0}}}{\cancel{(v_{1} - v_{0})}(v_{1} + v_{0})} \cdot 2s = \frac{2s}{v_{1} + v_{0}}$
 
-$a_{0} = \sqrt{ \left(\frac{v_{1}^2 - v_{0}^2}{2s}\right)^2 + \left(\frac{v_{0}^2}{R}\right)^2 }$
+$\displaystyle a_{0} = \sqrt{ \left(\frac{v_{1}^2 - v_{0}^2}{2s}\right)^2 + \left(\frac{v_{0}^2}{R}\right)^2 }$
 
-$a_{1} = \sqrt{ \left(\frac{v_{1}^2 - v_{0}^2}{2s}\right)^2 + \left(\frac{v_{1}^2}{R}\right)^2 }$
+$\displaystyle a_{1} = \sqrt{ \left(\frac{v_{1}^2 - v_{0}^2}{2s}\right)^2 + \left(\frac{v_{1}^2}{R}\right)^2 }$
 
 - $v_{0} = 54 \text{ km/h} = 15 \text{ m/s}$
 - $v_{1} = 18 \text{ km/h} = 5 \text{ m/s}$
 
-$a_{t} = \frac{5^2 - 15^2}{2 \cdot 800} \text{ m}\cdot\text{s}^{-2} = \frac{25 - 225}{1600} \text{ m}\cdot\text{s}^{-2} = -\frac{200}{1600} \text{ m}\cdot\text{s}^{-2} = -0.125 \text{ m}\cdot\text{s}^{-2}$
+$\displaystyle a_{t} = \frac{5^2 - 15^2}{2 \cdot 800} \text{ m}\cdot\text{s}^{-2} = \frac{25 - 225}{1600} \text{ m}\cdot\text{s}^{-2} = -\frac{200}{1600} \text{ m}\cdot\text{s}^{-2} = -0.125 \text{ m}\cdot\text{s}^{-2}$
 - mínus, takže vektor míří opačným směrem
 
 ### Výsledek
 
-$T = \frac{800}{5 + 15}\cdot 2s = \frac{1600}{20}s = 80s$
+$\displaystyle T = \frac{800}{5 + 15}\cdot 2s = \frac{1600}{20}s = 80s$
 
-$a_{0} = \sqrt{ (-0.125)^2 + \left(\frac{15^2}{800}\right)^2 } \text{ m}\cdot\text{s}^{-2} = 0.308 \text{ m}\cdot\text{s}^{-2}$
+$\displaystyle a_{0} = \sqrt{ (-0.125)^2 + \left(\frac{15^2}{800}\right)^2 } \text{ m}\cdot\text{s}^{-2} = 0.308 \text{ m}\cdot\text{s}^{-2}$
 
-$a_{1} = \sqrt{ (-0.125)^2 + \left(\frac{5^2}{800}\right)^2 } \text{ m}\cdot\text{s}^{-2} = 0.129 \text{ m}\cdot\text{s}^{-2}$
+$\displaystyle a_{1} = \sqrt{ (-0.125)^2 + \left(\frac{5^2}{800}\right)^2 } \text{ m}\cdot\text{s}^{-2} = 0.129 \text{ m}\cdot\text{s}^{-2}$
