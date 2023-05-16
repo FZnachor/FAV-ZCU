@@ -10,8 +10,7 @@ Vlak se pohybuje po kruhové dráze o poloměru **800 m**. V počátečním okam
 - $a_{0} = ?$
 - $a_{1} = ?$
 
-![](_assets/priklad1.jpg)
-
+![](_assets/priklad1.svg)
 
 - $a = \sqrt{ a_{t}^2 + a_{n}^2 }$
 - $a_{t} = \text{konst.}$ (křivočarý pohyb rovnoměrně zrychlený)
