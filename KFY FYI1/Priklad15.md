@@ -19,23 +19,26 @@ tenká rozptylka
 numericky
 - využijeme zobrazovací rovnici čočky
 	- $\displaystyle\frac{1}{f} = \frac{1}{a} + \frac{1}{a'} \implies \frac{1}{a'} = \frac{1}{f} - \frac{1}{a} = \frac{a-f}{a \cdot f}$
-	- $\displaystyle a' = \frac{a \cdot f}{a-f}$
+	- poloha obrazu $\displaystyle a' = \frac{a \cdot f}{a-f}$
+	- $a$ - poloha předmětu
 + využijeme rovnici pro příčné zvětšení čočky
 	+ $\displaystyle Z = \frac{y'}{y} = -\frac{a'}{a}$
+	+ $y$ - velikost předmětu
+	+ $y'$ - velikost obrazu
 
 ### Výsledek
 
 pro $a_{1} = 40 \, \text{cm}$
 - $a_{1}' = -13.3 \, cm$
 - $Z_{1} = 0.3$
-- zdánlivý, vzpříměný, zmenšený
+- zdánlivý, vzpřímený, zmenšený
 
 pro $a_{2} = 30 \, \text{cm}$
 - $a_{2}' = -12 \, cm$
-- $Z_{1} = 0.4$
-- zdánlivý, vzpříměný, zmenšený
+- $Z_{2} = 0.4$
+- zdánlivý, vzpřímený, zmenšený
 
 pro $a_{3} = 15 \, \text{cm}$
-- $a_{1}' = -8.6 \, cm$
-- $Z_{1} = 0.57$
-- zdánlivý, vzpříměný, zmenšený
+- $a_{3}' = -8.6 \, cm$
+- $Z_{3} = 0.57$
+- zdánlivý, vzpřímený, zmenšený
