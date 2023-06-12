@@ -11,6 +11,8 @@ Paprsek bílého světla dopadá ve vzduchu na flintové sklo (druh skla použí
 
 z obrázku vidíme, že $\gamma = \beta_{č} - \beta_{f}$
 
+### Výpočet
+
 pro stanovení úhlu lomu $\beta$ využijeme Snellův zákon
 - pro **červený paprsek** dostaneme
 	- $\displaystyle \frac{\sin \alpha}{\sin \beta_{č}} = \frac{v_{č}}{v_{v}} = v_{č} \qquad (v_{v} \sim 1)$
@@ -18,6 +20,8 @@ pro stanovení úhlu lomu $\beta$ využijeme Snellův zákon
 + pro **fialový paprsek** dostaneme
 	+ $\displaystyle \frac{\sin \alpha}{\sin \beta_{f}} = \frac{v_{f}}{v_{v}} = v_{f}  \qquad (v_{v} \sim 1)$
 	+ vyjádříme $\displaystyle \sin \beta_{f} = \frac{\sin \alpha}{u_{f}}$
+
+### Výsledek
 
 vypočítáme výsledný úhel
 - $\displaystyle \gamma = \beta_{č} - \beta_{f} = \arcsin\left(\frac{\sin \alpha}{u_{č}}\right) - \arcsin\left( \frac{\sin \alpha}{u_{f}} \right)$
