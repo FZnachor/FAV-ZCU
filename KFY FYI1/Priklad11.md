@@ -15,15 +15,15 @@ z obrázku vidíme, že $\gamma = \beta_{č} - \beta_{f}$
 
 pro stanovení úhlu lomu $\beta$ využijeme Snellův zákon
 - pro **červený paprsek** dostaneme
-	- $\displaystyle \frac{\sin \alpha}{\sin \beta_{č}} = \frac{v_{č}}{v_{v}} = v_{č} \qquad (v_{v} \sim 1)$
-	- vyjádříme $\displaystyle \sin \beta_{č} = \frac{\sin \alpha}{v_{č}}$
+	- $\displaystyle \frac{\sin \alpha}{\sin \beta_{č}} = \frac{n_{č}}{n_{v}} = n_{č} \qquad (n_{v} \sim 1)$
+	- vyjádříme $\displaystyle \sin \beta_{č} = \frac{\sin \alpha}{n_{č}}$
 + pro **fialový paprsek** dostaneme
-	+ $\displaystyle \frac{\sin \alpha}{\sin \beta_{f}} = \frac{v_{f}}{v_{v}} = v_{f}  \qquad (v_{v} \sim 1)$
-	+ vyjádříme $\displaystyle \sin \beta_{f} = \frac{\sin \alpha}{u_{f}}$
+	+ $\displaystyle \frac{\sin \alpha}{\sin \beta_{f}} = \frac{n_{f}}{n_{v}} = n_{f}  \qquad (n_{v} \sim 1)$
+	+ vyjádříme $\displaystyle \sin \beta_{f} = \frac{\sin \alpha}{n_{f}}$
 
 ### Výsledek
 
 vypočítáme výsledný úhel
-- $\displaystyle \gamma = \beta_{č} - \beta_{f} = \arcsin\left(\frac{\sin \alpha}{u_{č}}\right) - \arcsin\left( \frac{\sin \alpha}{u_{f}} \right)$
+- $\displaystyle \gamma = \beta_{č} - \beta_{f} = \arcsin\left(\frac{\sin \alpha}{n_{č}}\right) - \arcsin\left( \frac{\sin \alpha}{n_{f}} \right)$
 - dosadíme
 	- $\gamma = \arcsin\left( \frac{\sin 60^\circ}{1.735} \right) - \arcsin\left( \frac{\sin 60^\circ}{1.811} \right) = 1.375692^\circ$
