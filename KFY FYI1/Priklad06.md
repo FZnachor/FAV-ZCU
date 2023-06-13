@@ -1,6 +1,6 @@
 ### Zadání
 
-Vypočítejte moment setrvačnosti homogenního válce o poloměru **R** a hmotnosti **m** vzhledem k rotační ose symetrie.
+Vypočítejte **moment setrvačnosti homogenního válce** o poloměru **R** a hmotnosti **m** vzhledem k **rotační ose symetrie**.
 
 - homogenní válec $\to \rho = \text{konst.}$ (hustota)
 - poloměr $R$
