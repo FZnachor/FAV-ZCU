@@ -27,6 +27,6 @@ $J = \int_{m} r^2 \cdot dm = \int_{V} r^2 \cdot \rho \cdot dV = \int_{0}^{R} r^2
 ### Výsledek
 
 $J = \frac{1}{2} \pi \cdot R^2 \cdot l \cdot \rho \cdot R^2 = \frac{1}{2}m \cdot R^2$
-- $S = \pi \cdot R^2$
-- $v = S \cdot l$
-- $m = v \cdot \rho$
+- $S = \pi \cdot R^2$ - obsah
+- $V = S \cdot l$ - objem
+- $m = V \cdot \rho$ - hmotnost
