@@ -16,9 +16,14 @@ Na základě obecného vzorce pro potenciální energii $W_{pot}(r) = -\kappa\fr
 
 ### Výpočet
 
-$\displaystyle W_{pot}(h) = -\kappa \cdot \frac{m \cdot M}{R_{z} + h} + \kappa \cdot \frac{m \cdot M}{R_{z}} = \kappa \cdot m \cdot M_{z} \cdot \left[ \frac{1}{R_{z}} - \frac{1}{R_{z}+h} \right] = \dots = m \cdot \left( \kappa \cdot \frac{M_{z}}{R_{z}} \right) \cdot h = m \cdot g \cdot h \cdot \frac{1}{1+\frac{h}{R_{z}}}$
-- $h \ll R_{z} \implies \text{zanedbáme}$
-- pouze blízko povrchu Země
+- $\displaystyle W_{pot}(h) = -\kappa \cdot \frac{m \cdot M_{z}}{R_{z} + h} + \kappa \cdot \frac{m \cdot M_{z}}{R_{z}} = \kappa \cdot m \cdot M_{z} \cdot \left[ \frac{1}{R_{z}} - \frac{1}{R_{z}+h} \right] =$
+- $\displaystyle= \kappa \cdot m \cdot M_{z} \cdot \left[ \frac{\cancel{R_{z}}+h-\cancel{R_{z}}}{R_{z}(R_{z}+h)} \right] = \kappa \cdot m \cdot M_{z} \cdot \frac{h}{R_{z}^2\left( 1+\frac{h}{R_{z}} \right)} =$
+- $\displaystyle = m \cdot \left( \kappa \cdot \frac{M_{z}}{R^2_{z}} \right) \cdot h = m \cdot g \cdot h$
+
+
++ $h \ll R_{z} \implies \text{zanedbáme}$
++ $\displaystyle\kappa \cdot \frac{M_{z}}{R_{z}^2} \sim g$
++ pouze blízko povrchu Země
 
 ### Výsledek
 
