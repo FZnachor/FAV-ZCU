@@ -1,6 +1,6 @@
 ### Zadání
 
-Zjistěte, jak se pohybuje bodové těleso ve stacionárním homogenním silovém poli (takovým polem může být gravitační nebo elektrostatické pole v určité oblasti prostoru).
+Zjistěte, **jak se pohybuje bodové těleso** ve **stacionárním homogenním silovém poli** (takovým polem může být gravitační nebo elektrostatické pole v určité oblasti prostoru).
 
 - stacionární ($\vec F \neq \vec F(t)$)
 	- velikost ani směr síly nezávisí na čase

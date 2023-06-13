@@ -1,6 +1,6 @@
 ### Zadání
 
-Balistické kyvadlo je tvořeno truhlíkem s pískem zavěšeným na dlouhých drátech. Vstřelíme-li do truhlíku projektil, kyvadlo se vychýlí, a na základě této výchylky určete rychlost střely.
+Balistické kyvadlo je tvořeno **truhlíkem s pískem zavěšeným na dlouhých drátech**. Vstřelíme-li do truhlíku projektil, kyvadlo se vychýlí, a **na základě této výchylky určete rychlost střely**.
 
 - $M$ - hmotnost bal. kyvadla
 - $l$ - délka závěsu

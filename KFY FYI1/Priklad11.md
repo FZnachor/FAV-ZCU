@@ -1,6 +1,6 @@
 ### Zadání
 
-Paprsek bílého světla dopadá ve vzduchu na flintové sklo (druh skla používaného v optice) pod úhlem 60°. Index lomu flintového skla pro červené světlo vlnové délky 761 nm je 1,735 a pro fialové světlo vlnové délky 397 nm je 1,811. Určete úhel mezi lomeným červeným a fialovým paprskem.
+Paprsek bílého světla dopadá ve vzduchu na flintové sklo (druh skla používaného v optice) **pod úhlem 60°**. Index lomu flintového skla pro červené **světlo vlnové délky 761 nm je 1.735** a pro fialové **světlo vlnové délky 397 nm je 1,811**. Určete **úhel mezi lomeným červeným a fialovým paprskem**.
 
 - $\alpha = 60^\circ$
 - $v_{č} = 1.735$

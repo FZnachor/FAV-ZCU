@@ -1,6 +1,6 @@
 ### Zadání
 
-Koule zadaného poloměru mírně kývá na závěsu zadané délky. Spočtěte: dobu kyvu kyvadla. Jaké chyby se dopustíme, budeme-li kouli považovat za bodovou hmotnost? (kyv = pohyb ze strany na stranu, kmit = 2 kyvy = pohyb z jedné strany na druhou a zpět)
+**Koule** zadaného poloměru **mírně kývá na závěsu** zadané délky. Spočtěte: **dobu kyvu kyvadla**. Jaké chyby se dopustíme, budeme-li kouli považovat za bodovou hmotnost? (kyv = pohyb ze strany na stranu, kmit = 2 kyvy = pohyb z jedné strany na druhou a zpět)
 
 - $R$ - poloměr koule
 - $l$ - délka závěsu

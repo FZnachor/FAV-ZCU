@@ -1,6 +1,6 @@
 ### Zadání
 
-Spočtěte délku matematického sekundového kyvadla, víte-li, že jeho výchylka klesne, nejsou-li hrazeny energetické ztráty, za 5 minut na 1/10. Jakému logaritmickému dekrementu to odpovídá? (Uvažujeme malé kmity)
+Spočtěte **délku matematického sekundového kyvadla**, víte-li, že jeho **výchylka klesne**, nejsou-li hrazeny energetické ztráty, **za 5 minut na 1/10**. Jakému logaritmickému dekrementu to odpovídá? (Uvažujeme malé kmity)
 
 - $T^M_{kyv} = 1 \, \text{s}$
 - $t = 5 \, \text{min}$
