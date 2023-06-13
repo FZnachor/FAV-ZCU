@@ -41,4 +41,4 @@ z přednášky: tzv. podmínka pro max. interferenci na mřížce
 **d) největší pozorovatelná vlnová délka ve spektru 3. řádu**
 - $\displaystyle d \cdot \sin \alpha = n \cdot \lambda \implies \lambda = \frac{d}{n} \cdot \sin \alpha \dots \lambda_{3}^\text{max} = \frac{d}{3}$
 	- $\sin \alpha = 1 \qquad \left( a = \frac{\pi}{2} \right)$
-- dosadíme: $\displaystyle\lambda_{3}^\text{max} = 2 \cdot 10^{-6} \, [\text{m}] = 6.666 \cdot 10^{-7} \, \text{m} = 667 \, \text{nm}$
+- dosadíme: $\displaystyle\lambda_{3}^\text{max} = \frac{2 \cdot 10^{-6}}{3} \, [\text{m}] = 6.666 \cdot 10^{-7} \, \text{m} = 667 \, \text{nm}$
