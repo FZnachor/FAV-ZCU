@@ -22,7 +22,7 @@ pro optické rozhraní 2 platí
 ### Výpočet
 
 vztah mezi úhly $\gamma$ a $\beta$ - viz. pravoúhlý trojúhelník
-- $\beta = \frac{\pi}{2} - \gamma \implies \sin \beta = \sin (\frac{\pi}{2}) = \cos \gamma$
+- $\beta = \frac{\pi}{2} - \gamma \implies \sin \beta = \sin \left(\frac{\pi}{2} - \gamma\right) = \cos \gamma$
 
 určení numerické apertury
 - $\sin \alpha_{m} = n_{1} \cdot \sin \beta = n_{1} \cdot \cos \gamma =$

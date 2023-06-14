@@ -35,7 +35,7 @@ pro $t = T$
 
 **Dráha**
 
-$\displaystyle s = \frac{1}{2}\cancel{a_{t}} \cdot \frac{(v_{1} - v_{2})^T}{a_{t}^{\cancel{2}}} + v_{0} \cdot \frac{v_{1} - v_{0}}{a_{t}} = \frac{v_{1}^2 - 2v_{1}v_{0} + v_{0}^2}{2a_{t}} + \frac{v_{0}v_{1} - v_{0}^2}{a_{t}} = \frac{v_{1}^2 - \cancel{2v_{1}v_{0}} + \cancel{v_{0}^2} + \cancel{2v_{1}v_{0}} - \cancel{2}v_{0}^2}{2a_{t}} = \frac{v_{1}^2 - v_{0}^2}{2a_{t}}$
+$\displaystyle s = \frac{1}{2}\cancel{a_{t}} \cdot \frac{(v_{1} - v_{2})^2}{a_{t}^{\cancel{2}}} + v_{0} \cdot \frac{v_{1} - v_{0}}{a_{t}} = \frac{v_{1}^2 - 2v_{1}v_{0} + v_{0}^2}{2a_{t}} + \frac{v_{0}v_{1} - v_{0}^2}{a_{t}} = \frac{v_{1}^2 - \cancel{2v_{1}v_{0}} + \cancel{v_{0}^2} + \cancel{2v_{1}v_{0}} - \cancel{2}v_{0}^2}{2a_{t}} = \frac{v_{1}^2 - v_{0}^2}{2a_{t}}$
 
 **Doba jízdy**
 
