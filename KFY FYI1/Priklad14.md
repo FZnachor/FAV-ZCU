@@ -36,7 +36,7 @@ pro $a_{1} = 40 \, \text{cm}$
 pro $a_{2} = 30 \, \text{cm}$
 - $a_{2}' = 60 \, cm$
 - $Z_{2} = -2$
-- skutečný, převrácený, zmenšený
+- skutečný, převrácený, zvětšený
 
 pro $a_{3} = 15 \, \text{cm}$
 - $a_{3}' = -60 \, cm$
