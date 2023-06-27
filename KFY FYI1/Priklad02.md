@@ -10,15 +10,12 @@ Podél rovnoměrně se otáčející tyče se od jejího upevnění rovnoměrně
 
 ![](_assets/priklad2.svg)
 
-- $\alpha = \omega \cdot t$
-- $r = v_{0} \cdot t$
-- $r = \sqrt{ v_{x}^2 + v_{y}^2 }$
-
 ### Výpočet
 
 **Parametrické rovnice dráhy kuličky**
-- $x = r \cdot \cos \alpha = r \cdot \cos(\omega t) = v_{0} \cdot t \cdot \cos(\omega t)$
-- $y = r \cdot \sin \alpha = r \cdot \sin(\omega t) = v_{0} \cdot t \cdot \sin(\omega t)$
+- $\alpha = \omega \cdot t, \quad v = v_{0}\cdot t$
+- $x = v \cdot \cos \alpha = v \cdot \cos(\omega t) = v_{0} \cdot t \cdot \cos(\omega t)$
+- $y = v \cdot \sin \alpha = v \cdot \sin(\omega t) = v_{0} \cdot t \cdot \sin(\omega t)$
 
 **Velikost rychlosti kuličky**
 - $v_{x} = \frac{dx}{dt} = v_{0} \cdot \cos(\omega t) - v_{0} \cdot t \cdot \omega \cdot \sin(\omega t)$
