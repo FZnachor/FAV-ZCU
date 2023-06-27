@@ -25,7 +25,7 @@ křivočarý rovnoměrně zrychlený (zpomalený) pohyb
 ### Výpočet
 
 pro $t = 0 \implies s_{0} = 0$
-+ $v_{0} = a_{t} \cdot t + v_{0}$
++ $v = a_{t} \cdot t + v_{0}$
 + $s = \frac{1}{2}a_{t} \cdot t^2 + v_{0} \cdot t = 0$
 
 pro $t = T$
