@@ -2,8 +2,8 @@
 
 Podél rovnoměrně se otáčející tyče se od jejího upevnění rovnoměrně pohybuje kulička. Určete: **parametrické rovnice dráhy kuličky**, **velikost rychlosti kuličky** a její **celkové**, **tečné** a **normálové zrychlení**.
 
-- $\omega = \text{konst.}$ (rotace tyče)
-- $v_{0} = \text{konst.}$ (pohyb kuličky podél tyče)
+- $\omega = \text{konst.}$ (úhlová rychlost, rotace tyče)
+- $v_{0} = \text{konst.}$ (rychlost kuličky podél tyče)
 - parametrická rovnice trajektorie kuličky = ?
 - velikost rychlosti kuličky v = ?
 - celkové ($a = \ ?$), tečné ($a_{t} = \ ?$) a normálové ($a_{n} = \ ?$) zrychlení
@@ -11,25 +11,40 @@ Podél rovnoměrně se otáčející tyče se od jejího upevnění rovnoměrně
 ![](_assets/priklad2.svg)
 
 - $\alpha = \omega \cdot t$
-- $r = v_{0} \cdot z$
+- $r = v_{0} \cdot t$
 - $r = \sqrt{ v_{x}^2 + v_{y}^2 }$
-+ parametrická rovnice trajektorie kuličky
-	+ $x = \cos \alpha \cdot r = v_{0}\cdot \cos(\omega t)$
-	+ $y = \sin \alpha \cdot r = v_{0}\cdot \sin(\omega t)$
-+ umocníme na druhou a sečteme
-	+ $x^2 + y^2 = (v_{0}t)^2 \cdot [\cos^2(\omega t) + \sin^2(\omega t)] = (v_{0}t)^2 \cdot 1$
-	+ $x^2 + y^2 = (v_{0}t)^2$ ... rovnice rovinné spirály
-
-- $\displaystyle v_{x} = \frac{dx}{dt} = \frac{d}{dt}[v_{0} t \cdot \cos(\omega t)] = v_{0} \cos(\omega t) - v_{0}\omega t \sin(\omega t)$
-- $\displaystyle v_{y} = \frac{dy}{dt} = \frac{d}{dt}[v_{0}t \cdot \sin(\omega t)] = v_{0} \sin(\omega t) + v_{0}\omega t \cos(\omega t)$
 
 ### Výpočet
 
-$\displaystyle r = \sqrt{ [v_{0} \cos(\omega t) - v_{0}\omega t \sin(\omega t)]^2 + [v_{0} \sin(\omega t) + v_{0}\omega t \cos(\omega t)]^2 } = v_{0} \cdot \sqrt{ 1 + (\omega t)^2 }$
+**Parametrické rovnice dráhy kuličky**
+- $x = r \cdot \cos \alpha = r \cdot \cos(\omega t) = v_{0} \cdot t \cdot \cos(\omega t)$
+- $y = r \cdot \sin \alpha = r \cdot \sin(\omega t) = v_{0} \cdot t \cdot \sin(\omega t)$
 
-$\displaystyle a_x = \frac{dv_{x}}{dt} = \frac{d}{dt}[v_{0} \cos(\omega t) - v_{0}\omega t \sin(\omega t)] = \dots = -2 \cdot v_{0} \cdot \omega \sin(\omega t) - v_{0} \cdot \omega^2 t \cos(\omega t)$
+**Velikost rychlosti kuličky**
+- $v_{x} = \frac{dx}{dt} = v_{0} \cdot \cos(\omega t) - v_{0} \cdot t \cdot \omega \cdot \sin(\omega t)$
+- $v_{y} = \frac{dy}{dt} = v_{0} \cdot \sin(\omega t) + v_{0} \cdot t \cdot \omega \cdot \cos(\omega t)$
+- výsledná rychlost kuličky: $v = \sqrt{ v_{x}^2 + v_{y}^2 }$
 
-$\displaystyle a_{y} = \frac{dv_{y}}{dt} = \frac{d}{dt}[v_{0} \sin(\omega t) + v_{0}\omega t \cos(\omega t)] = \dots = 2 \cdot v_{0} \cdot \omega \cos(\omega t) - v_{0} \cdot \omega^2 t \sin(\omega t)$
+Zkrácení vzorce pro $v$
+
+$v = \sqrt{ v_{x}^2 + v_{y}^2 }$
+
+pod odmocninou máme
+- $v_{0}^2\cos^2(\omega t) \cancel{- 2v_{0}\cos(\omega t)v_{0}t\omega \sin(\omega t)} + v_{0}^2t^2\omega^2\sin^2(\omega t) +$
+- $v_{0}^2\sin^2(\omega t) \cancel{+ 2v_{0}\sin(\omega t)v_{0}t\omega \cos(\omega t)} + v_{0}^2t^2\omega^2\cos^2(\omega t)$
+
+$v = \sqrt{ v_{0}^2[\cos^2(\omega t) + \sin^2(\omega t)] + v_{0}^2t^2\omega^2[\cos^2(\omega t) + \sin^2(\omega t)] }$
+- hodnoty v hranatých závorkách rovny 1
+
+$v = \sqrt{ v_{0}^2 + v_{0}^2t^2\omega^2 } = v_{0}\sqrt{ 1+(t\omega)^2 }$
+
+**Zrychlení**
+
+$\displaystyle a_x = \frac{dv_{x}}{dt} = - v_{0}\omega \sin(\omega t) - v_{0}\omega \sin(\omega t) - v_{0}t\omega^2\cos(\omega t) = -2v_{0}\omega \sin(\omega t) - v_{0}t\omega^2\cos(\omega t)$
+
+$\displaystyle a_{y} = \frac{dv_{y}}{dt} = v_{0}\omega \cos(\omega t) + v_{0}\omega \cos(\omega t) - v_{0}t\omega^2\sin(\omega t) = 2v_{0}\omega \cos(\omega t) - v_{0}t\omega^2\sin(\omega t)$
+
+$a = \sqrt{ a_{x}^2 + a_{y}^2 }$ - celkové zrychlení
 
 ### Výsledek
 
