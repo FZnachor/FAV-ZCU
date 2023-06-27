@@ -8,7 +8,7 @@
 - $\Delta v = \, ?$
 + na systém nepůsobí vnější vlivy
 + kosmický prostor $\to$ izolovaný systém $\to$ zákon zachování hybnosti
-	- $\vec p = \text{konst.}$
+	- $\vec p = m\cdot \vec v = \text{konst.}$ (hybnost)
 
 ![](_assets/priklad5.svg)
 
@@ -18,13 +18,14 @@ hybnost systému ve dvou různých okamžicích musí být stejná
 	- v čase $t$ platí
 		- $p(t) = m(t) \cdot v(t)$
 	- v čase $t + dt$ platí
-		- $p(t) = m(t+dt) \cdot v(t+dt) + \mu [v(t)-u]$
+		- $p(t+dt) = m(t+dt) \cdot v(t+dt) + \mu [v(t)-u]$
+		-  $\mu$ - hmotnost paliva spáleného za $dt$
 
 dostaneme tedy
-+ $m(t) \cdot u(t) = m(t+dt) \cdot v(t+dt) + \mu[v(t)-u]$
++ $m(t) \cdot v(t) = m(t+dt) \cdot v(t+dt) + \mu[v(t)-u]$
 
 dále platí
-- $m(t+dt) = m(d) + dm$
+- $m(t+dt) = m(t) + dm$
 - $v(t+dt) = v(t) + dv$
 - $\mu = -dm$
 - dosazíme do přechozí rovnice
