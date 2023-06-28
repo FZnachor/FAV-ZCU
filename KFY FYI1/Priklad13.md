@@ -25,7 +25,7 @@ z přednášky: tzv. podmínka pro max. interferenci na mřížce
 ### Výpočet
 
 **a) stanovení mřížkové konstanty d**
-- $\displaystyle d = \frac{1}{\text{počet vrypů/1m}} = \frac{1}{500 \cdot 10^3} [\text{m}] = 2 \cdot 10^{-6} \, \text{m} = 2 \, \micro\text{m}$
+- $\displaystyle d = \frac{1}{\text{počet vrypů/1m}} = \frac{1}{500 \cdot 10^3} [\text{m}] = 2 \cdot 10^{-6} \, \text{m} = 2 \, \mu\text{m}$
 
 **b) úhel maxima 2. řádu**
 - $\alpha_{2}$, tedy $n = 2$
