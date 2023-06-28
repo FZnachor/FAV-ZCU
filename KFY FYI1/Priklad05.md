@@ -7,13 +7,12 @@
 - $u = 3 \, \text{km/s}$
 - $\Delta v = \, ?$
 + na systém nepůsobí vnější vlivy
-+ kosmický prostor $\to$ izolovaný systém $\to$ zákon zachování hybnosti
-	- $\vec p = m\cdot \vec v = \text{konst.}$ (hybnost)
 
 ![](_assets/priklad5.svg)
 
 hybnost systému ve dvou různých okamžicích musí být stejná
-- $p(t) = p(t + dt)$
+- kosmický prostor $\to$ izolovaný systém $\to$ zákon zachování hybnosti
+- hybnost $\vec p = m\cdot \vec v = \text{konst.} \implies p(t) = p(t + dt)$
 	- palivo $\mu$ se přemění na plyny, ty uniknou z rakety
 	- v čase $t$ platí
 		- $p(t) = m(t) \cdot v(t)$
