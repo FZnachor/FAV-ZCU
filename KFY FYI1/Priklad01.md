@@ -59,7 +59,7 @@ $\displaystyle a_{t} = \frac{5^2 - 15^2}{2 \cdot 800} \text{ m}\cdot\text{s}^{-2
 
 ### Výsledek
 
-$\displaystyle T = \frac{800}{5 + 15}\cdot 2s = \frac{1600}{20}s = 80s$
+$\displaystyle T = \frac{800}{5 + 15}\cdot 2\text{ s} = \frac{1600}{20}\text{ s} = 80\text{ s}$
 
 $\displaystyle a_{0} = \sqrt{ (-0.125)^2 + \left(\frac{15^2}{800}\right)^2 } \text{ m}\cdot\text{s}^{-2} = 0.308 \text{ m}\cdot\text{s}^{-2}$
 

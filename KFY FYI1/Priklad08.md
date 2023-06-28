@@ -17,7 +17,7 @@ zákon zachování mechanické energie
 - $W_{kin} + W_{pot} = \text{konst.}$
 
 zákon zachování hybnosti
-- $\vec p = \text{konst.}$
+- $\vec p = \text{konst.}$ (hybnost)
 - v tomto případě
 	- $\vec{p}_\text{střela} = \vec{p}_\text{střela + kyvadlo}$
 	- $m \cdot v_{0} = (m+M) \cdot v_{1}$
@@ -30,7 +30,7 @@ z obrázku platí
 - $\displaystyle \frac{2lh}{d^2} = \frac{h^2}{d^2} + 1$
 - pro velká l platí, že
 	- $h \ll d \implies \text{zanedbáme} \, \frac{h^2}{d^2}$
-- $h  = \frac{d^2}{2l}$
+- $\displaystyle h = \frac{d^2}{2l}$
 
 ### Výpočet
 
@@ -46,8 +46,10 @@ využijeme vzorečku ze zákona o zachování hybnosti
 
 ### Výsledek
 
-svislá výchylka $h$ 
+rychlost střely podle svislé výchylky $h$ 
+- dosazení do vzorce pro $v_{0}$ podle zákona o zachování hybnosti
 - $\displaystyle v_{0} = \frac{m+M}{m} \cdot \sqrt{ 2gh }$
 
-vodorovná výchylka $d$
+rychlost střely podle vodorovné výchylky $d$
+- pro zjištění $h$ dosadíme vzorec pro jeho výpočet z $d$
 - $\displaystyle v_{0} = \frac{m+M}{m} \cdot \sqrt{ \cancel{2} \cdot g \cdot \frac{d^2}{\cancel{2}l} } = \frac{m+M}{m} \cdot \sqrt{ \frac{g}{l} } \cdot d$
