@@ -6,8 +6,8 @@
 - $l$ - délka závěsu
 - $T_{k} = \, ?$ (doba kyvu kyvadla)
 - chyba pro $R \to 0 = \, ?$
-- netlumené kmity (tření)
-- tíhové pole Země
++ netlumené kmity (tření)
++ tíhové pole Země
 
 ![](_assets/priklad9.svg)
 
@@ -35,7 +35,7 @@ pro úhly $\varphi < 5^\circ \implies \sin \varphi \sim \varphi$
 - využijeme vzoreček pro úhlovou rychlost $\omega^2$ uvedený výše
 - $\displaystyle T_{k} = \frac{\pi}{\omega}$
 
-$\displaystyle T_{k} = \frac{\pi}{\sqrt{ \frac{l \cdot g}{\frac{2}{5}R^2+l^2} }} = \pi \cdot \frac{\sqrt{ l \cdot \left[ \frac{2}{5}\left( \frac{R}{l} \right)^2+1 \right] }}{\sqrt{ l \cdot g }} = \pi \cdot \sqrt{ \frac{l}{g} } \cdot \sqrt{ \frac{2}{5} \left( \frac{R}{l}^2 + 1 \right) }$
+$\displaystyle T_{k} = \frac{\pi}{\sqrt{ \frac{l \cdot g}{\frac{2}{5}R^2+l^2} }} = \pi \cdot \frac{\sqrt{ \frac{2}{5} R^2 + l^2 }}{\sqrt{ l \cdot g }} = \pi \cdot \frac{\sqrt{ l \cdot \left[ \frac{2}{5}\left( \frac{R}{l} \right)^2+1 \right] }}{\sqrt{ g }} = \pi \cdot \sqrt{ \frac{l}{g} } \cdot \sqrt{ \frac{2}{5} \left( \frac{R}{l} \right)^2 + 1 }$
 
 ### Výsledek
 
