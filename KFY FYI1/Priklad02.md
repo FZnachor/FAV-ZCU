@@ -13,9 +13,9 @@ Podél rovnoměrně se otáčející tyče se od jejího upevnění rovnoměrně
 ### Výpočet
 
 **Parametrické rovnice dráhy kuličky**
-- $\alpha = \omega \cdot t, \quad v = v_{0}\cdot t$
-- $x = v \cdot \cos \alpha = v \cdot \cos(\omega t) = v_{0} \cdot t \cdot \cos(\omega t)$
-- $y = v \cdot \sin \alpha = v \cdot \sin(\omega t) = v_{0} \cdot t \cdot \sin(\omega t)$
+- $\alpha = \omega \cdot t, \quad r = v_{0}\cdot t$
+- $x = r \cdot \cos \alpha = v_{0} \cdot t \cdot \cos(\omega t)$
+- $y = r \cdot \sin \alpha = v_{0} \cdot t \cdot \sin(\omega t)$
 
 **Velikost rychlosti kuličky**
 - $v_{x} = \frac{dx}{dt} = v_{0} \cdot \cos(\omega t) - v_{0} \cdot t \cdot \omega \cdot \sin(\omega t)$
