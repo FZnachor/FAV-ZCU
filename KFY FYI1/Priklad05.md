@@ -39,7 +39,7 @@ upravíme vzorec
 
 upravíme získanou rovnici
 - $0 = m(t) \cdot dv + u \cdot dm$
-- $udm = m(t) \cdot dv$
+- $udm = - m(t) \cdot dv$
 - $\displaystyle \frac{dm}{m(t)} = -\frac{dv}{u}$
 
 provedeme integraci
