@@ -85,7 +85,7 @@ Teorie grafů
 		- $\deg_{G}(v) \leq n-1 = \vert V(G) \vert - 1$
 		- $\Delta(G) \leq \vert V(G) \vert - 1$
 	- Věta: $\sum_{v \in V} \deg_{G}(V) = 2m = 2 \cdot \vert E(G) \vert$
-		- důsledek: počet vrcholů lichého stupně je v grafu vždy sudý
+		- důsledek: počet vrcholů lichého stupně je v grafu vždy sudýv
 			- handshaking lemma
 - skóre grafu
 	- posloupnost stupňů všech vrcholů seřazená nerostoucím způsobem

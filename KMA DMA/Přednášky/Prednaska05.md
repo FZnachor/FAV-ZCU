@@ -95,7 +95,7 @@ Věta (Booleovský kalkulus)
 Stoneova věta
 - Př. dělitelé čísla 30, uspořádání dělitelnosti
 	- $X = \{ 1, 2, 3, 5, 6, 10, 15, 30 \}$ - B. algebra
-- Př. $A = \{ a, b, c \}$M.2 and 2.5" Drive
+- Př. $A = \{ a, b, c \}$
 	- $(2^A, \leq)$ - B. algebra
 - izomorfizmus dvou B. algeber
 	- $B = (X, \wedge, \vee, \overline{}, 0_{B}, 1_{B}), C = (Y, n, u, ', 0_{C}, 1_{C})$ je zobrazení $F : X \to Y$, které je
