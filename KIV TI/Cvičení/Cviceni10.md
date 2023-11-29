@@ -236,3 +236,20 @@ G = \left[\begin{array}{ccc:c}
 $$
 
 šířka: 21, výška: 3
+
+$w = [w_{1} w_{2} w_{3} \dots w_{21}]^\text{T}$
+- $\widehat u_{1} = w_{1}$
+- $\widehat u_{1} = w_{4}$
+- $\widehat u_{1} = w_{5}$
+- $\widehat u_{1} = w_{6}$
+- $\widehat u_{1} = w_{7}$
+- $\widehat u_{1} = w_{8}$
+- $\widehat u_{1} = w_{9}$
+
+$\widehat u_{1} = \text{majorita}(\{w_{1}w_{4}w_{5}w_{6}w_{7}w_{8}w_{9}\})$
+- opravuji
+	- 7:0
+	- 6:1
+	- 5:2
+- detekuji
+	- 4:3
