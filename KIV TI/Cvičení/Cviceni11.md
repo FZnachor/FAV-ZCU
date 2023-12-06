@@ -140,15 +140,3 @@ kódování pomocí $g(x)$:
 | 15    | `1111`          | `1001011` | o   |
 
 Pozn.: Označené kódy jsou posuvy toho prvního označeného.
-
-**Př. 6**: Vytvořte systematický cyklický kód s generujícím mnohočlenem $g(x) = 1 + x + x^3$. Vypočtěte všechny značky a vhodně zvolte generující matici.
-
-- $u = [1110]^\text{T}$
-- $u(x) = x^3 + x^2 + x$
-+ $u(x) \cdot x^{n-k}$
-	+ $(x^3 + x^2 + x) \cdot x^3 = x^6 + x^5 + x^4$
-+ $u(x)  \cdot x^{n-k} : g(x) = \cancel{q(x)}, z(x)$
-	+ $u(x) \cdot x^{n-k} = q(x) \cdot g(x) + z(x)$
-	+ $u(x) \cdot x^{n-k} + z(x) = q(x) \cdot g(x)$
-- $v(x) = u(x) \cdot x^{n-k} + z(x)$
-	- $z(x)$ má stupeň nejvýše $n-k-1$
