@@ -46,6 +46,7 @@ $N_{n}(x) = a_{0} + a_{1}(x-x_{0}) + a_{2}(x-x_{0})(x-x_{1}) + \dots + a_{n}(x-x
 | 1   | 1       | 2          | $\frac{2-1}{1-0} = 1$                                                     |                                                                                  |                                                                                         |
 | 2   | -1      | 2          | $\frac{2-2}{-1-1} = 0$                                                    | $\frac{0-1}{-1-0} = 1$                                                           |                                                                                         |
 | 3   | 3       | 0          | $\frac{0-2}{3-(-1)} = -\frac{1}{2}$                                       | $\frac{-\frac{1}{2}-0}{3-1} = -\frac{1}{4}$                                      | $\frac{-\frac{1}{4}-1}{3-0} = -\frac{5}{12}$                                            |
+
 Na diagonále se nachází koeficienty $a_{0}, a_{1}, a_{2}, a_{3}$ Newtonova interpolačního polynomu, stačí je pouze dosadit.
 
 ### Nevilleův algoritmus
