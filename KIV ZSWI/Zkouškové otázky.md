@@ -62,7 +62,7 @@ Popište a vysvětlete princip **dvou nezbytných podmínek dynamiky**: **proakt
 - **aktivity lidí** (měkká podmínka)
 	- podpora spontánní aktivity, tvůrčí práce a zapojení zaměstnanců do řešení problémů a rozhodování (za rozhodování je ale stále zodpovědný manažer)
 
-Popište význam, důležitost a možnost **změny** následujících **lidských zdrojů**: **vlastností**, **schopností** a **postojů**
+Popište **význam**, **důležitost** a možnost **změny** následujících **lidských zdrojů**: **vlastností**, **schopností** a **postojů**
 - **vlastnosti**
 	- zděděné rysy osobnosti člověka spojené s biologickou a psychickou podstatou
 	- téměr nezměnitelné, člověka s určitými vlastnosti nelze vychovávat
@@ -102,7 +102,7 @@ Proč se zabýváme **požadavky na software**? **Pro koho** jsou sesbírané a 
 	- popis toho, co je potřeba implementovat, žádaných chování systému s jeho vlastnostmi a možných omezení procesu vývoje
 - **užitečné pro**
 	- **zákazníky** - financují projekt a chtějí dostat systém, který pokryje jejich potřeby
-	- **zaměstance** - definují požadavky, které se poté navrhují, implementují a udržují
+	- **zaměstnance** - definují požadavky, které se poté navrhují, implementují a udržují
 
 Vysvětlete pojmy **podnikatelské** a **uživatelské požadavky**.
 - **podnikatelské požadavky**
@@ -134,7 +134,7 @@ Uveďte alespoň **tři dobré zvyky**, které jste použili **při psaní speci
 
 Vysvětlete **pojem vize** a popište význam **uvedení vize** a **stanovení rozsahu** v dokumentu specifikace požadavků.
 - **vize**
-	- společný směr všem investorům
+	- dlouhodobá představa o produktu, k čemu má do budoucna sloužit, co zrychlí, zlevní, usnadní, ...
 	- k čemu software je a co by se z něj v budoucnu mělo stát, vize se mění poměrně zvolna, rozsah se v čase upravuje dle termínů, rozpočtu, kvality, …
 - **rozsah**
 	- podmnožinou vize, řádně definuje, která část dlouhodobé vize bude zpracovávána aktuálním projektem
@@ -142,7 +142,7 @@ Vysvětlete **pojem vize** a popište význam **uvedení vize** a **stanovení r
 
 Vysvětlete **princip a použití kontextového diagramu** a **diagramu případu užití** v rámci specifikace požadavků. Nakreslete jednoduché příkladové obrázky.
 - **kontextový diagram**
-	- říká, jakým způsobem systém souvisí a komunikuje (přímo) s entitatmi okolo
+	- říká, jakým způsobem systém souvisí a komunikuje (přímo) s entitami okolo
 	- používá se jako nástroj k pochopení prostředí
 - **diagram případů užití**
 	- znázorňuje uživatelské požadavky a jak se systémem uživatelská role pracuje
@@ -186,11 +186,9 @@ Popište **vodopádový model vývoje sw**, uveďte jeho **výhody a nevýhody**
 	- zákazník může na konci zjistit, že vytvořený produkt není to, co chtěl
 
 Popište modely vývoje sw: **výzkumník** (evoluční prototypování) a **prototyp** (throw-away prototypování), uveďte **vhodnou oblast jejich použití**.
-- **evoluční model vývoje**
-	- specifikace, vývoj a validace jsou smíšené
-	- ze specifikace je velmi rychle vyvinut prvotní systém a ten je dále upravován na základě zákazníka
 - **výzkumník**
 	- cílem je pracovat se zákazníkem na zajištění jeho požadavků
+	- ze specifikace je velmi rychle vyvinut prvotní systém a ten je dále upravován na základě zákazníka (evoluční model vývoje)
 	- vývoj začíná dobře srozumitelnými částmi systému a vyvíjí se přidáváním nových vlastností navrhovaných zákazníkem, při vývoji se často vrací k předchozím etapám
 	- oblast použití
 		- inovativní projekty, kde nejsou přesně definované požadavky
@@ -229,7 +227,7 @@ Popište základní **principy**, **fáze** a **aktivity** metodiky **Rational U
 
 Vysvětlete **zásadní rozdíly mezi agilním přístupem** k vývoji sw a **vodopádovým modelem**.
 - **agilní přístup**
-	- iteratiní a inkrementální vývoj s krátkými iteracemi
+	- iterativní a inkrementální vývoj s krátkými iteracemi
 	- komunikace mezi zákazníkem a vývojovým týmem
 	- průběžné automatizované testování
 - **vodopádový model**
@@ -256,8 +254,8 @@ Jak byste **prakticky postupovali při zavádění modelu vývoje sw**?
 		- základní model, konzistentní se strukturovaným programováním shora dolů
 		- je vhodný, pokud jsou známe požadavky (platformy, překladače, ...)
 	- **evoluční vývoj**
-		- pokud části požadavků nejsou zřejmé, např.: uživatelské rozhraní (nevím, co chci, ale poznám to až to uvidím)
-	- **kompletně orientovaný vývoj**
+		- pokud části požadavků nejsou zřejmé, např.: uživatelské rozhraní (nevím, co chci, ale poznám to, až to uvidím)
+	- **komponentně orientovaný vývoj**
 		- máme-li vhodné komponenty
 	- **inkrementální vývoj**
 		- potřebujeme omezit přepracování, dodáváme systém po částech
@@ -272,7 +270,7 @@ Jak byste **prakticky postupovali při zavádění modelu vývoje sw**?
 	- skládá se z jasně stanovených posloupností aktivit
 - **rozdíly**
 	- procesy jsou většinou dlouhodobé a opakující se, projekty jsou jednorázové
-	- proces je vnitřní organizace firmy, o projektu ví spoustu lidí okolo
+	- proces je vnitřní organizace firmy, o projektu ví spousta lidí okolo
 	- proces je přesně určen a stanoven, projekt se v průběhu práce mění a přepracovává
 
 Co znamená **trojí (čtvero) omezení projektu**?
@@ -316,7 +314,7 @@ Vysvětlete základní **princip a použití UML diagramu případů užití**. 
 
 Vysvětlete základní **princip a použití UML diagramu tříd**. Nakreslete příkladový obrázek.
 - popisuje statickou strukturu a vztahy mezi třídami
-	- atributy, operace, třídy a jejich vztahy: dědičnost, závislost, asociace
+	- atributy, metody, třídy a jejich vztahy: dědičnost, závislost, asociace
 - slouží jako nástroj ke komunikaci mezi vývojáři, architekty
 - slouží k analýze systému
 
@@ -333,7 +331,7 @@ Vysvětlete základní **princip a použití UML sekvenčního diagramu**. Nakre
 - reprezentace systému
 	- nepřerušovaná čára - zpráva (volání metody)
 	- přerušovaná čára - návratová hodnota
-	- svislý obdélník - instance existuje (pokud je tam přerušovaná zpráva, pak neexistuje)
+	- svislý obdélník - instance existuje
 
 Vysvětlete základní **princip a použití UML diagramu aktivit**. Nakreslete příkladový obrázek.
 - popisuje tok činností a chování systému
@@ -352,7 +350,7 @@ Vysvětlete základní **princip a použití** alespoň jednoho z následující
 	- říká, jaké kompomenty v systému jsou
 		- jak spolu interagují
 		- jaká mají rozhraní a jak spolu souvisí
-	- používá se při návrhu SW (oblast architektury)
+	- používá se při návrhu SW architektury
 		- pro identifikaci komponent systému, jejich funkcí, závislostí a rozhraní
 
 Vysvětlete **pojem analytický model**, popište, jak vypadá **analytická třída**
@@ -382,9 +380,10 @@ Vysvětlete **pojmy asociace, agregace, kompozice**.
 	- obousměrná
 - agregace
 	- vztah, kde jedna část může existovat nezávisle na celku
+	- například tiskárna může existovat bez počítače, když celek je počítač s tiskárnou
 	- jednosměrná asociace
 - kompozice
-	- vztah, kde je jeden objekt součástí druhého a nemůže bez něj existovat
+	- vztah, kde je jeden objekt součástí celku a nemůže bez něj existovat
 	- nejsilnější vazba
 
 Vysvětlete **rozdíl a návaznost** mezi **analýzou a návrhem softwaru**.
@@ -393,13 +392,13 @@ Vysvětlete **rozdíl a návaznost** mezi **analýzou a návrhem softwaru**.
 	- prostředí, kde bude software nasazen
 - návrh říká, jak to máme dělat
 	- proveden na základě požadavků zjištěných analýzou
-	- návrch architektury a způsobu implementace funkcionality
+	- návrh architektury a způsobu implementace funkcionality
 - analýza a návrh probíhají do jisté míry současně
 
 Vysvětlete **pojem rozhraní**, jak **rozhodnete** ve fázi návrhu o **vhodnosti existence rozhraní**.
 - odděluje specifikaci od implementace
 - lze jej připojit ke třídám či komponentám
-- definuje služby které jsou nabízeny
+- definuje nabízené služby
 - zavedení
 	- v případě, kdy máme více tříd s podobným účelem či rolí
 	- když chceme rozvolnit asociační vazby
@@ -492,15 +491,15 @@ Popište **základní principy**, na kterých jsou založeny **návrhové vzory*
 
 Vysvětlete **SOLID** (**Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Inversion of Control/Dependency Injection**) principy v objektovém návrhu.
 - **SOLID** - pět základních principů objektově orientovaného návrhu.
-- **S** - **jediná zodpovědnost** = třída má pouze jednu specifikou úlohu nebo funkci
+- **S** - **jediná zodpovědnost** = třída má pouze jednu specifickou úlohu nebo funkci
 - **O** - **otevřenost uzavřenost** = třídy jsou otevřené pro rozšíření a uzavřené pro modifikaci
-- **L** - **Liskov** = odvozené třídy jsou schopny plnit všechno to co jejich předci
+- **L** - **Liskov** = odvozené třídy jsou schopny plnit všechno, co jejich předci
 - **I** – **rozdělení rozhraní** = rozhraní je specifické pro jednotlivé uživatele
 - **D** – **invertování závislostí** = moduly závisí na abstrakcích, nikoli na konkrétních třídách
 
 Vysvětlete principy **DRY** a **KISS** v souvislosti s návrhem software.
 - **DRY** - Don't Repeat Yourself
-	- nemělo by docházet v duplikaci kódu nebo informací v systému
+	- nemělo by docházet k duplikaci kódu nebo informací v systému
 	- snižuje riziko chyb, jelikož změny se provádějí pouze na jednom místě
 - **KISS** - Keep It Simple, Stupid
 	- návrh a implementace SW má být co nejjednodušší
@@ -557,7 +556,7 @@ Jaký je **smysl testování**? Do jaké míry je ekonomicky **rozumné testovat
 
 Vysvětlete **pojmy black box a white-box testování**
 - **black box**
-	- neznáme implementaci, známe vstupy a očekávané výstupy – pohled uživatele
+	- neznáme implementaci, známe vstupy a očekávané výstupy - pohled uživatele
 	- též funkcionální testování
 	- metoda simulující reálný způsob použití aplikace
 	- výhoda: tester nemusí být programátor
@@ -572,14 +571,14 @@ Vysvětlete **pojem akceptační testování**.
 - obsah testů by měl určit zadavatel
 
 Vysvětlete a popište, jak probíhá **jednotkové testování**. Uveďte příklad.
-- testovaních jednoduchých komponent (tříd, metod)
+- testovaní jednoduchých komponent (tříd, metod)
 - první fáze testování, rychlé a méně nákladné
 - cílem je ověřit správnou funkčnost jednotlivých částí
 
 Vysvětlete **pojmy A/B testování** a **zátěžové testování**.
 - **A/B testování**
 	- metoda používaná k porovnávání dvou verzí produktu
-	- uživatelé se náhodně rozdělí do dvou skupin a každé se zobrazují dvě různé varianty (A a B) a měří se, která verze vede k lepšímu výsledku
+	- uživatelé se náhodně rozdělí do dvou skupin a každé se zobrazuje jedna ze dvou různých variant (A a B) a měří se, která verze vede k lepšímu výsledku
 - **zátěžové testy**
 	- zjišťuje chování a výkon SW při vysokém počtu uživatelů nebo dotazů
 
@@ -652,22 +651,23 @@ Popište **princip dualismu autorského práva** – **právo majetkové** a **p
 	- je často převoditelné a může být předmětem obchodování
 - **právo osobnostní**
 	- práva jsou nepřevoditelná a autor se nemůže těchto práv vzdát
-	- práva jsou pevně spojena s osobnosơ autora a jsou chráněna i po jeho smrti
+	- práva jsou pevně spojena s osobností autora a jsou chráněna i po jeho smrti
 - **výjimky**
 	- k dílu vytvořeného z pracovněprávního vztahu má majetková práva zaměstnavatel
-	- **školní dílo** = škola má nevýhradní licenci k užití (nesmí ho užít komerčně)
+	- **školní dílo** = škola má nevýhradní licenci k nekomerčnímu užití
 
 Jak můžete vy/firma dále **používat software vytvořený jako zaměstnanecké dílo**?
 - firma získává autorská práva k SW vytvořenému zaměstnancem
 	- může jej upravovat, používat, prodávat a licencovat
-- zaměstnanec software nesmí SW dále používat pro své účely ani jej licencovat
+- zaměstnanec nesmí SW dále používat pro své účely ani jej licencovat
 	- může být uvedený jako autor a dílo může odvolat
 
 Popište **základní typy licencování softwaru** a **základní obsah licenční smlouvy**.
 - **výhradní typ**
-	- poskytovatel uděluje licenci uživateli právo užívat SW výhradně, to znamená že nemůže udělit žádné jiné třeơ straně ani jej sám využívat
+	- poskytovatel uděluje licenci uživateli právo užívat SW výhradně
+	- nemůže udělit licenci žádné jiné třetí straně ani jej sám využívat
 - **nevýhradní typ**
-	- umožnuje poskytovateli SW nadále disponovat SW a udělat licence dalším
+	- umožnuje poskytovateli SW nadále disponovat SW a udělovat licence dalším
 - **obsah licenční smlouvy**
 	- identifikace stran, specifikace SW, rozsah a způsob užití SW, doba trvání licence, odměna za licenci
 
