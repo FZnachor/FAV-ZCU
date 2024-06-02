@@ -228,7 +228,45 @@ Podmínky
 - **izotropní** - má konstantní zářivost ve všech směrech vyzařování
 - **homogenní** - ve všech místech svítí zdroj stejně
 
-### Dodatková otázka:
-- Uveďte základní vlastnosti **těžiště** soustavy hmotných bodů (tělesa) a odvoďte vztah pro jeho polohu.
-- Proč říkáme, že těžiště je rovnovážný bod tělesa?
-- Jak je těžiště užitečné pro popis pohybu celého tělesa?
+### Dodatková otázka: Těžiště
+- základní vlastnosti **těžiště** soustavy hmotných bodů (tělesa), odvoďte vztah pro jeho polohu
+- proč říkáme, že těžiště je rovnovážný bod tělesa?
+- jak je těžiště užitečné pro popis pohybu celého tělesa?
+
+#### Základní vlastnosti těžiště, vztah pro jeho polohu
+
+Máme soustavu hmotných bodů, které chceme **vyjádřit jako jeden**, kterému se přiřadí **celková rychlost** i **působiště výsledné síly**.
+- nazveme jej hmotným středem soustavy
+
+**Hmotnost těžiště**
+- součet hmotností všech hmotných bodů
+- $m_{0} = m = m_{1} + m_{2} + \dots + m_{N} = \sum^N_{k=1} m_{k}$
+
+**Poloha (průvodič) těžiště** $\vec{r}_{0}$
+
+**Rychlost těžiště**
+- $\displaystyle\vec{v}_{0} = \frac{d\vec{r}_{0}}{dt}$ (derivace průvodiče)
+
+**Hybnost těžiště**
+- $\displaystyle p_{0} = m\cdot \vec{v}_{0} = m\frac{d\vec{r}_{0}}{dt}$
+- hybnost těžiště $\vec{p}_{0}$ musí být rovna celkové hybnosti soustavy $\vec{P}$
+	- $\vec{p}_{0} = \vec{P}$
+
+**Vzorec pro polohu těžiště**
+- dosadíme do vzorce $\vec{p}_{0} = \vec{P}$
+- $\displaystyle m\frac{d\vec{r}_{0}}{dt} = \sum^N_{k=1} m_{k} \frac{d\vec{r}_{k}}{dt}$
+- $\displaystyle\frac{d}{dt}m\vec{r}_{0} = \frac{d}{dt} \sum^N_{k=1} m_{k}\vec{r}_{k}$
+- $\displaystyle m\vec{r}_{0} = \sum^N_{k=1} m_{k}\vec{r}_{k} + \text{konst}$
+- z rovnosti derivací plyne rovnost funkcí - až na libovolnou konstantu
+	- pro zjištění polohy těžiště se používá **nulová konstanta**
+- $\displaystyle\vec{r}_{0} = \frac{1}{m}\sum^N_{k=1}m_{k}\vec{r}_{k}$
+
+#### Proč říkáme, že těžiště je rovnovážný bod tělesa?
+
+Pokud těleso podepřeme (nebo zavěsíme) v těžišti, součet všech vnějších sil bude nulový a těleso bude v klidu - proto se jedná o rovnovážný stav.
+
+- podepřením (nebo zavěšením) tělesa v těžišti zajistíme, že **součet všech vnějších sil je nulový** - pak soustava hmotných bodů musí zůstat v klidu
+
+#### Jak je těžiště užitečné pro popis pohybu celého tělesa?
+
+Za pomoci těžiště jsme schopni nahradit soustavu hmotných bodů za jeden hmotný bod.
