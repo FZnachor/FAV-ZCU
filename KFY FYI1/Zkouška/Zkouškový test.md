@@ -186,6 +186,48 @@ Podmínky
 - **svítivost a jas** - přesné definice a vysvětlení (také použítých veličin) (obrázky)
 - co to je **izotropní bodový zdroj** a **homogenní izotropní plošný zdroj**
 
+#### Světelný tok (jak se liší od zářivého)
+
+- fotometrická veličina, která měří **energii elektromagnetického záření** v oblasti **viditelného světla**
+	- **zářivý tok** (radiometrická veličina) měří **veškerou energii** elektromagnetického záření (tedy nejen viditelnou část)
+- jde o efektivní část zářivé energie (té, která vyvolává zrakový vjem), prošlá za jednotku času plochou $S$ ve stanoveném směru (nebo dopadlá na plochu $S$)
+- jednotkou je **1 lumen** (lm)
+- $\phi = \frac{dW}{dt}[\text{lm}]$
+
+#### Svítivost a jas - definice a vysvětlení
+
+**Svítivost**
+- fotometrická veličina analogická **zářivosti** (radiometrická veličina)
+- udává **intenzitu světelného toku** vysílaného **bodovým zdrojem** v určitém směru (do malého prostorového úhlu $d\Omega$)
+- definována jako podíl **světelného toku** vysílaného bodovým zdrojem a malého prostorového úhlu $d\Omega$
+- jednotkou je **1 kandela** (cd)
+- $\displaystyle I = \frac{d\phi}{d\Omega} \, [cd]$
+
+![](_assets/svitivost.svg)
+
+**Jas** (měrná svítivost)
+- fotometrická veličina analogická **záři**
+- definován jako podíl
+	- **svítivosti** elementární části povrchu $S$ plošného zdroje ve **zvoleném směru** (stanoveném úhlem $\alpha$ od kolmice plochy)
+	- **její zdánlivé velikosti** v tomto směru (jejího průmětu do roviny kolmé k tomuto směru)
+- měří, jak "jasný" se zdroj jeví z určitého úhlu
+- jednotkou je **1 nit** (nt)
+- $\displaystyle L = \frac{dI}{dS\cdot \cos \alpha} \, [nt]$
+
+![](_assets/jas.svg)
+
+#### Izotropní bodový zdroj a homogenní izotropní plošný zdroj
+
+**Izotropní bodový zdroj**
+- zdroj elektromagnetického záření, **jehož rozměny jsou natolik malé**, že je možno **je zanedbat** a považovat tento zdroj za bodový
+	- např. oproti vzdálenosti $r$ od místa pozorování (od plochy $S$)
+- **izotropní** - má konstantní zářivost ve všech směrech vyzařování
+
+**Homogenní izotropní plošný zdroj**
+- zdroj elektromagnetického záření, který má danou plochu $S$
+- **izotropní** - má konstantní zářivost ve všech směrech vyzařování
+- **homogenní** - ve všech místech svítí zdroj stejně
+
 ### Dodatková otázka:
 - Uveďte základní vlastnosti **těžiště** soustavy hmotných bodů (tělesa) a odvoďte vztah pro jeho polohu.
 - Proč říkáme, že těžiště je rovnovážný bod tělesa?
