@@ -1,4 +1,4 @@
-### Popište a vysvětlete **inerciální a neinerciální** souřadné soustavy
+### Popište a vysvětlete inerciální a neinerciální souřadné soustavy
 - základní vztahy pro průvodiče, rychlosti a zrychlení (obrázek)
 - platnost 1. a 2. Newtonova zákona v těchto soustavách
 - co jsou to Galileovy transformace a za jakých podmínek platí
@@ -168,20 +168,87 @@ Podmínky
 	- $\vec{F}^*_{3} = \vec{F}^*_{C} = -2m\cdot \vec{\omega}\times \vec{v}'$ - **Coriolisova síla**
 		- objevuje se pouze, pokud se hmotný bod pohybuje rychlostí, která není rovnoběžná s osou rotace (tedy $z = z'$)
 
-### Popište a vysvětlete **tlumený** harmonický oscilátor
+### Popište a vysvětlete tlumený harmonický oscilátor
 - výchozí podmínky - všechny působící síly
 - sestavení pohybové rovnice - její řešení pro různé velikosti tlumení (včetně grafů)
 - jaká je perioda, amplituda a energie oscilátoru u kmitavého řešení
 - co je to útlum a kvalita oscilátoru
 - stav velmi malého tlumení
 
-### Popište skládání dvou **rovinných vln stejné** frekvence postupujících **stejným** směrem
+### Popište skládání dvou rovinných vln stejné frekvence postupujících stejným směrem
 - sestavte výchozí rovnice pro obě vlny (od dvou koherentních zdrojů na ose x) (obrázek)
 - převeďte na komplexní tvary - a sečtěte na výslednou vlnu
 - podmínky extrémních stavů
 - aplikace
 
-### Definujte a vysvětlete **fotometrické veličiny**
+#### Výchozí rovnice pro obě vlny, obrázek
+
+- podle **principu superpozice** můžeme libovolné pohyby (nebo vlny) **skládat nezávisle na sobě** (jelikož jsou zcela nezávislé)
+- každý z vícero pohybů můžeme analyzovat **samostatně**
+	- výsledky poté v **libovolném pořadí složíme** (sečteme)
+
+Úhlová rychlost
+- $\displaystyle\omega = \frac{2\pi}{T} = 2\pi f$
+- $\omega_{1} = \omega_{2} = \omega$
+- máme stejnou frekvenci, tedy i stejnou úhlovou rychlost a periodu
+
+Výchozí rovnice
+- $y_{1} = A_{1}\cdot \sin(\omega t+\varphi_{1})$
+- $y_{2} = A_{2}\cdot \sin(\omega t+\varphi_{2})$
+
+Výsledný pohyb
+- $y = y_{1}+y_{2}$
+- $y = A_{1}\cdot\sin(\omega t+\varphi_{1}) + A_{2}\cdot \sin(\omega t+\varphi_{2})$
+- součtem dvou sinusoid **stejné frekvence** je opět sinusoida nezměněné frekvence
+- změnila se pouze **amplituda** a **fázová konstanta** $\varphi$ (v případě fázového posunu)
+
+![](_assets/vlny.svg)
+- černá vlna je součtem modrých vln
+
+#### Převeďte na komplexní tvary, výsledná vlna
+
+Použití komplexních funkcí
+- $\displaystyle \hat{u}_{1} = A_{1}\cdot e^{i\cdot(\omega t+\varphi_{1})} = A_{1}\cdot e^{i\cdot \varphi_{1}} \cdot e^{i\cdot \omega\cdot t} = \hat{A}_{1}\cdot e^{i\cdot\omega\cdot t}$
+- $\displaystyle \hat{u}_{2} = A_{2}\cdot e^{i\cdot(\omega t+\varphi_{2})} = A_{2}\cdot e^{i\cdot \varphi_{2}} \cdot e^{i\cdot \omega\cdot t} = \hat{A}_{2}\cdot e^{i\cdot\omega\cdot t}$
+- komplexní tvar **výsledných kmitů**
+	- $\hat{u} = \hat{u}_{1} + \hat{u}_{2} = \hat{A}_{1}\cdot e^{i\cdot \omega\cdot t} + \hat{A}_{2}\cdot e^{i\cdot \omega\cdot t} = (\hat{A}_{1} + \hat{A}_{2}) \cdot e^{i\cdot \omega\cdot t}$
+	- stejná frekvence umožňuje vytknutí exponenciely
+- standardní tvar komplexního zápisu kmitů
+	- $\hat{u} = (\hat{A}_{1} + \hat{A}_{2}) \cdot e^{i\cdot \omega\cdot t} = \hat{A} \cdot e^{i\cdot \omega\cdot t} = A\cdot e^{i\cdot \varphi} \cdot e^{i\cdot \omega\cdot t}$
+	- důkaz, že výsledné kmity jsou opět harmonické se stejnou frekvencí jako původní
+- výsledná komplexní amplituda
+	- je součtem obou počátečních komplexních amplitud
+	- $\hat{A} = \hat{A}_{1} + \hat{A}_{2}$
+	- $A\cdot e^{i\cdot \varphi} = A\cdot e^{i\cdot \varphi_{1}} + A\cdot e^{i\cdot \varphi_{2}}$
+
+#### Podmínky extrémních stavů
+
+Podmínky extrémních stavů určují, jaké musí mít vlny počáteční fáze $\varphi_{1}, \varphi_{2}$, abychom dosáhli maximální/minimální amplitudy, kterou je možné z těchto vln složit.
+
+Podmínka maxima
+- oba počáteční vektory musí být souhlasně rovnoběžné ($\varphi_{1} = \varphi_{2}$)
+- $\varphi_{2} - \varphi_{1} = 0 \pm n\cdot 2\pi, \quad n = 0,1,2,3,\dots$
+	- vlny mají stejný fázový rozdíl (proto $0$)
+	- mohou se lišit o celou periodu (proto $n\cdot2\pi$)
+- fázový rozdíl kmitů je roven sudému násobku $\pi$
+- kmity jsou ve fázi
+
+Podmínka minima
+- oba počáteční vektory musí být nesouhlasně rovnoběžné ($\varphi_{2} - \varphi_{1} = \pm\pi$)
+- $\varphi_{2} - \varphi_{1} = \pi \pm n\cdot 2\pi, \quad n = 0,1,2,3,\dots$
+	- vlny jsou vůči sobě posunuty o $\pi$
+	- mohou se opět lišit o celou periodu
+- $\varphi_{2} - \varphi_{1} = \pm(2n+1)\pi$
+- fázový rozdíl kmitů je roven lichému násobku $\pi$
+- kmity jsou v protifázi
+
+#### Aplikace
+
+- mechanické konstrukce (namáhání materiálu)
+- elektrické obvody (zesílení/zeslabení výsledného signálu)
+- interferenční a difrakční přístroje
+
+### Definujte a vysvětlete fotometrické veličiny
 - **světelný tok** (jak se liší od zářivého toku)
 - **svítivost a jas** - přesné definice a vysvětlení (také použítých veličin) (obrázky)
 - co to je **izotropní bodový zdroj** a **homogenní izotropní plošný zdroj**
