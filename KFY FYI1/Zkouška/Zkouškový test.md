@@ -171,6 +171,53 @@ Podmínky
 	- $\vec{F}^*_{3} = \vec{F}^*_{C} = -2m\cdot \vec{\omega}\times \vec{v}'$ - **Coriolisova síla**
 		- objevuje se pouze, pokud se hmotný bod pohybuje rychlostí, která není rovnoběžná s osou rotace - tedy $z = z'$
 
+
+### Definujte a vysvětlete základní energetické veličiny hmotného bodu v gravitačním poli
+- **práce síly pole** a **vnější síly** - jak se na nich projeví **konzervativnost gravitačního pole**
+- **potenciální energie**, **kinetická energie** a **celková mechanická energie**
+- zákon zachování mechanické energie
+
+#### Práce síly pole a vnější síly, konzervativnost gravitačního pole
+
+Práce síly pole
+- práce vykonaná gravitační silou při přesunu hmotného bodu
+- závisí pouze na počáteční a konečné poloze
++ existuje **centrální těleso** (CT) o hmotnosti $M$
++ ve vzdálenosti $\vec{r}$ od **CT** se nachází těleso o hmotnosti $m$
++ poté centrální těleso působí na druhé těleso silou $\vec{F}$
+	+ $\displaystyle\vec{F} = -\kappa \cdot \frac{Mm}{r^2} \cdot \vec{r_{0}}$
+	+ $\kappa$ je gravitační konstanta
+	+ $\vec{r}_{0} = \frac{\vec{r}}{r}$ je jednotkový vektor určující směr síly působící na těleso $m$
++ pozorované těleso hmotnosti $m$ je v gravitačním poli **CT**
+
+Práce vnější síly
+- práce vykonaná jinou silou než gravitační, která působí na hmotný bod $m$
+
+**Konzervativnost gravitačního pole**
+- práce vykonaná v tomto poli při přesunu hmotného bodu je závislá pouze na **počáteční a konečné poloze**, nikoliv na dráze
+- znamená, že pole nezpůsobuje ztrátu ani zisk celkové mechanické energie systému
+
+#### Potenciální a kinetická energie, celková mechanická energie
+
+**Potenciální energie**
+- práce, kterou těleso vykoná při pohybu z místa $\vec{r}$ do výchozího místa $\vec{r_{1}}$
+- nezáleží na dráze
+- $\displaystyle W_{p}(\vec{r}, \vec{r_{1}}) = -\kappa \frac{Mm}{\vec{r}} + \kappa \frac{Mm}{\vec{r_{1}}}$
+
+**Kinetická energie**
+- zabýváme se změnou pohybové síly tělesa
+- závisí pouze na pohybovém stavu (rychlosti) tělesa v počátečním a koncovém bodě
+- $W_{k}(v) = \frac{1}{2}mv^2$
+
+**Celková mechanická energie**
+- součet potenciální a kinetické energie
+- v libovolném místě **konzervativního silového pole** stále stejnou hodnotu
+- **zákon o zachování mechanické energie**
+	- $W = W_{p} + W_{k} = \text{konst.}$
+	- tento součet nám říká o **zachování mechanické energie**
+	- jediným jeho předpokladem je **konzervativnost silového pole**
+		- konzervativní silové pole nezpůsobuje ztrátu ani zisk celkové mechanické energie systému
+
 ### Popište a vysvětlete tlumený harmonický oscilátor
 - výchozí podmínky - všechny působící síly
 - sestavení pohybové rovnice - její řešení pro různé velikosti tlumení (včetně grafů)
