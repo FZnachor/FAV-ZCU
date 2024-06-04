@@ -15,7 +15,7 @@
 **Neinerciální soustavy**
 - vztažná soustava, která se pohybuje **zrychleně** (např. zrychleně rovnoměrně, po kruhové dráze, ...)
 - kromě skutečných sil brány v úvahu také zdánlivé (inertní) síly
-	- **setrvačná síla, Coriolisova síla, centrifugální (odstředivá) síla**
+	- **Eulerova (setrvačná) síla, odstředivá síla, Coriolisova síla**
 - pro použití Newtonových zákonů je potřeba přidávat tyto zdánlivé síly
 
 Máme dvě vzájemně nezávislé soustavy $S$ a $S'$, ve kterých pozorujeme stejný hmotný bod $m$
@@ -136,6 +136,8 @@ Podmínky
 	- **Eulerova (setrvačná) síla**
 		- $\displaystyle\vec{F}^*_{t} = -m\vec{a}_{t} = -m\cdot \frac{du}{dt}\cdot \vec{t} = -m\cdot \vec{\epsilon} \times \vec{r}$
 		- má opačný směr oproti tečné síle
+
+![](_assets/sily-soustav.svg)
 
 **Rotační pohyb** soustavy $S'$ vůči soustavě $S$
 - předpoklady
