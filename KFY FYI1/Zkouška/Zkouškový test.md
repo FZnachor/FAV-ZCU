@@ -219,11 +219,99 @@ Práce vnější síly
 		- konzervativní silové pole nezpůsobuje ztrátu ani zisk celkové mechanické energie systému
 
 ### Popište a vysvětlete tlumený harmonický oscilátor
-- výchozí podmínky - všechny působící síly
+- výchozí podmínky, všechny působící síly
 - sestavení pohybové rovnice - její řešení pro různé velikosti tlumení (včetně grafů)
 - jaká je perioda, amplituda a energie oscilátoru u kmitavého řešení
 - co je to útlum a kvalita oscilátoru
 - stav velmi malého tlumení
+
+#### Výchozí podmínky, všechny působící síly
+
+Tlumený harmonický oscilátor je systém, který vykazuje oscilace (kmitání) kolem rovnovážné polohy, přičemž tyto oscilace postupně ztrácejí energii v důsledku **odporových sil** (tlumení).
+
+Tlumící (odporová) síla působící na pružinu
+- $\displaystyle\vec{F}_{t} = -B\cdot \vec{v} = -B\cdot \frac{d\vec{r}}{dt}$
+	- $B$ - koeficient tlumení
+	- $\vec{r}$ - průvodič (poloha)
+
+Síla pružiny
+- $F = -k\cdot y$
+	- $k$ - tuhost pružiny
+	- $y$ - výchylka od rovnovážné polohy
+
+Úpravy vzorce
+- $\displaystyle m\cdot a = -k\cdot y - B\cdot \frac{dy}{dt}$
+	- $F = m\cdot a$ - podle 2. NZ
+- síla je rovna síle pružiny a přidané tlumící síle
+	- v jednorozměrném případě vznikne rovnice níže
+	- $\displaystyle m\cdot \frac{d^2y}{dt^2} = -k\cdot y - B\cdot \frac{dy}{dt}$
+- tento vzorec upravíme
+	- $\displaystyle\frac{d^2y}{dt^2} + \frac{B}{m} \cdot \frac{dy}{dt} + \frac{k}{m} \cdot y = 0$
+	- $\displaystyle\ddot{y} + \frac{B}{m} \cdot \dot{y} + \frac{k}{m} \cdot y = 0$
+
+#### Sestavení pohybové rovnice a její řešení (vč. grafů)
+
+Vlastní úhlová frekvence
+- $\displaystyle\frac{k}{m} = \omega^2$
+- vlastní, jelikož platí pro netlumenou soustavu
+
+Konstanta útlumu
+- $\displaystyle\frac{B}{m} = 2b$
+- $b$ vyjadřuje intenzitu účinku brzdících sil
+
+**Pohybová rovnice**
+- dosadíme předchozí vztahy
+- $\ddot{y} + 2b\dot{y} + \omega^2y = 0$
+
+Řešení
+- dosadíme partikulární integrál do rovnice výše
+	- $\alpha^2 + 2b\alpha + \omega^2 = 0$
+- je to kvadratická rovnice, můžeme tedy napsat její řešení
+	- $\alpha_{1,2} = -b \pm \sqrt{ b^2 - \omega^2 }$
+- existují tak dvě partikulární řešení a obecné řešení bude mít tvar:
+	- $y = C_{1}\cdot e^{\alpha_{1}t} + C_{2}\cdot e^{\alpha_{2}t}$
+	- o konkrétním tvaru rozhodne velikost konstant $b$ a $\omega$
+
+#### Perioda, amplituda a energie oscilátoru u kmit. řešení
+
+Úhlová frekvence tlumených kmitů
+- $\omega_{1} = \sqrt{ \omega^2 - b^2 }$
+
+Perioda tlumených kmitů
+- $\displaystyle T = \frac{2\pi}{\omega_{1}}$
+
+Amplituda tlumených kmitů
+- $A_{1} = A \cdot e^{-bt}$
+	- $A$ - původní amplituda
+	- amplituda s časem klesá
+
+Energie tlumeného oscilátoru
+- $\displaystyle W = \frac{1}{2}m\omega^2_{1}A^2\cdot e^{-2bt}$
+
+#### Útlum a kvalita oscilátoru
+
+Útlum
+- poměr dvou po sobě jdoucích maximálních výchylek na jednu stranu
+	- v časech $t$ a $t + T_{1}$ (plus doba kmitu)
+- $\displaystyle\lambda = \frac{y(t)}{y(t+T_{1})} = e^{bT_{1}}$
+
+Kvalita oscilátoru
+- $2\pi$ násobek podílu **střední hodnoty celkové energie** oscilátoru v jedné periodě a **ztráty této energie** během jedné periody kmitů
+- $\displaystyle Q = 2\pi\cdot \frac{W_{\text{stř.}}}{W_{1}}$
+
+#### Stav velmi malého tlumení
+
+- využívá se v elektronice
+- konstanta tlumení je daleko menší než vlastní frekvence oscilátoru
+- $b \ll \omega$
+
+Kvalita oscilátoru (při velmi malém tlumení)
+- v tomto případě se amplituda i energie zmenší **jen nepatrně**
+	- střední hodnota energie je přibližně rovna okamžité energii
+		- $W_{\text{stř.}} \approx W$
+	- frekvence kmitů je přibližně rovna vlastní frekvenci oscilátoru
+		- $\omega_{1} = \sqrt{ \omega^2-b^2 } \approx \omega$
+- $\displaystyle Q = \frac{\omega}{2b}$
 
 ### Popište a vysvětlete nucený harmonický oscilátor
 - výchozí podmínky, všechny působící síly
