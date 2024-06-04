@@ -178,6 +178,86 @@ Podmínky
 - co je to útlum a kvalita oscilátoru
 - stav velmi malého tlumení
 
+### Popište a vysvětlete nucený harmonický oscilátor
+- výchozí podmínky, všechny působící síly
+- pohybová rovnice, obecné a ustálené řešení
+- velikost amplitudy – její průběh (do grafu)
+- kdy nastane jev amplitudové rezonance - jeho popis, speciálně pro velmi malé tlumení
+
+#### Výchozí podmínky, všechny působící síly
+
+Jelikož by kmity přirozeně ustaly, budeme je v tomto případě udržovat působením vnější síly.
+
+Tlumící (odporová) síla působící na pružinu
+- $\displaystyle\vec{F}_{t} = -B\cdot \vec{v} = -B\cdot \frac{d\vec{r}}{dt}$
+	- $B$ - koeficient tlumení
+	- $\vec{r}$ - průvodič (poloha)
+
+Síla pružiny
+- $F = -k\cdot y$
+	- $k$ - tuhost pružiny
+	- $y$ - výchylka od rovnovážné polohy
+
+**Harmonická budící síla**
+- $F_{b} = F_{0} \cdot \sin \Omega t$
+	- $\Omega$ - úhlová frekvence
+	- $F_{0}$ - amplituda budící síly - nejvyšší hodnota $F_{b}$
+- nejjednodušší budící síla se sinusovým průběhem
+
+Úpravy vzorce
+- postupujeme jako u tlumených kmitů, ale přidáme navíc budící sílu
+- $\displaystyle m\cdot \frac{d^2y}{dt^2} = -k\cdot y - B\cdot \frac{dy}{dt} + F_{0}\cdot \sin \Omega t$
+- $\displaystyle\ddot{y} + \frac{B}{m} \cdot \dot{y} + \frac{k}{m} \cdot y = \frac{F_{0}}{m}\cdot \sin \Omega t$
+
+#### Pohybová rovnice, obecné a ustálené řešení
+
+Vlastní úhlová frekvence
+- $\displaystyle\frac{k}{m} = \omega^2$
+
+Konstanta útlumu
+- $\displaystyle\frac{B}{m} = 2b$
+
+**Pohybová rovnice nucených kmitů**
+- $\displaystyle\ddot{y} + 2b\dot{y} + \omega^2y = \frac{F_{0}}{m}\cdot \sin \Omega t$
+
+Partikulární řešení
+- uvažujeme jen malé tlumení
+- $y = A\cdot\sin(\Omega t + \Phi_{0})$
+	- $\Phi_{0}$ - počáteční fáze kmitání, $t = 0$
+
+**Obecné řešení nucených kmitů**
+- $y = C\cdot e^{-bt} \cdot \sin(\omega_{1}t + \varphi_{0}) + A\cdot \sin(\Omega t + \Phi_{0})$
+- dvě části jsou důsledkem dvou vlivů na pohyb hm. bodu
+	1. spolupůsobení třecí a pružné síly (tlumené kmity)
+	2. harmonický kmitavý pohyb stejné frekvence, způsoben budící silou
+
+**Ustálené řešení nucených kmitů**
+- je určeno pouze partikulárním řešením
+- $y = A\cdot\sin(\Omega t + \Phi_{0})$
+- první člen obecného řešení prakticky vymizí (přestane kmitat)
+
+#### Velikost amplitudy, její průběh
+
+Vztah pro amplitudu nucených kmitů
+- $\displaystyle A = \frac{F_{0}}{m}\cdot\frac{1}{\sqrt{ (\omega^2 - \Omega^2)^2 + 4b^2\Omega^2 }}$
+
+Fázový posun
+- $\displaystyle\tan\Phi_{0} = -\frac{2b\Omega}{\omega^2-\Omega^2}$
+
+![](_assets/tlumeni.svg)
+
+#### Amplitudová rezonance, velmi malé tlumení
+
+- dochází k ní, když se frekvence vnější síly $\Omega$ blíží přirozené frekvenci oscilátoru $\omega$
+- v takovém případě je amplituda maximální
+
+Rezonance
+- bez tlumení - $A$ teoreticky roste do nekonečna
+- s tlumením - $A$ dosáhne konečné hodnoty i při rezonanci, protože tlumení omezuje růst amplitudy
+
+Velmi malé tlumení
+- amplituda rezonančních kmitů je výrazně vyšší, jelikož je tlumena jen málo
+
 ### Popište skládání dvou rovinných vln stejné frekvence postupujících stejným směrem
 - sestavte výchozí rovnice pro obě vlny (od dvou koherentních zdrojů na ose x) (obrázek)
 - převeďte na komplexní tvary - a sečtěte na výslednou vlnu
