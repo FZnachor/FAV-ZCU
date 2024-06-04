@@ -119,7 +119,7 @@ Podmínky
 - soustavy $S$ a $S'$ se vůči sobě pohybují **posuvným pohybem** (translací)
 	- osy soustav musí zachovávat svůj směr
 - obě dvě soustavy musí být **inerciální**
-- **v nulovém čase** ($t = 0$) **obě soustavy splývají** (jejich počátky jsou na stejném místě, tedy $O' = O$)
+- **v nulovém čase** $t = 0$ **obě soustavy splývají** - jejich počátky jsou na stejném místě, tedy $O' = O$
 
 #### Kdy působí setrvačné síly a kam směřují (obrázek)
 
@@ -140,9 +140,9 @@ Podmínky
 - předpoklady
 	- inerciální soustava $S$ je v klidu
 	- neinerciální soustava $S'$ se otáčí úhlovou rychlostí $\omega$ kolem **společných os** $z = z'$
-	- počátky obou soustav splývají ($O = O'$)
+	- počátky obou soustav splývají - $O = O'$
 - sledujeme jediný hmotný bod $m$ v soustavách $S$ i $S'$
-	- počátky obou soustav splývají, vektory jsou tedy totožné ($\vec{r} = \vec{r}'$)
+	- počátky obou soustav splývají, vektory jsou tedy totožné - $\vec{r} = \vec{r}'$
 	- souřadnice tohoto jediného vektoru jsou v obou soustavách různé
 - hmotný bod je se soustavou $S'$ pevně spojený
 	- je vůči ní v klidu a je touto soustavou unášen
@@ -166,7 +166,7 @@ Podmínky
 	- $\vec{F}^*_{1} = \vec{F}^*_{t} = -m\cdot \vec{\epsilon}\times \vec{r}$ - **Eulerova (setrvačná) síla**
 	- $\vec{F}^*_{2} = \vec{F}^*_{n} = -m\cdot \vec{\omega}\times(\vec{\omega}\times \vec{r})$ - **odstředivá síla**
 	- $\vec{F}^*_{3} = \vec{F}^*_{C} = -2m\cdot \vec{\omega}\times \vec{v}'$ - **Coriolisova síla**
-		- objevuje se pouze, pokud se hmotný bod pohybuje rychlostí, která není rovnoběžná s osou rotace (tedy $z = z'$)
+		- objevuje se pouze, pokud se hmotný bod pohybuje rychlostí, která není rovnoběžná s osou rotace - tedy $z = z'$
 
 ### Popište a vysvětlete tlumený harmonický oscilátor
 - výchozí podmínky - všechny působící síly
@@ -226,15 +226,15 @@ Použití komplexních funkcí
 Podmínky extrémních stavů určují, jaké musí mít vlny počáteční fáze $\varphi_{1}, \varphi_{2}$, abychom dosáhli maximální/minimální amplitudy, kterou je možné z těchto vln složit.
 
 Podmínka maxima
-- oba počáteční vektory musí být souhlasně rovnoběžné ($\varphi_{1} = \varphi_{2}$)
+- oba počáteční vektory musí být souhlasně rovnoběžné - $\varphi_{1} = \varphi_{2}$
 - $\varphi_{2} - \varphi_{1} = 0 \pm n\cdot 2\pi, \quad n = 0,1,2,3,\dots$
-	- vlny mají stejný fázový rozdíl (proto $0$)
-	- mohou se lišit o celou periodu (proto $n\cdot2\pi$)
+	- vlny mají stejný fázový rozdíl, proto $0$
+	- mohou se lišit o celou periodu, proto $n\cdot2\pi$
 - fázový rozdíl kmitů je roven sudému násobku $\pi$
 - kmity jsou ve fázi
 
 Podmínka minima
-- oba počáteční vektory musí být nesouhlasně rovnoběžné ($\varphi_{2} - \varphi_{1} = \pm\pi$)
+- oba počáteční vektory musí být nesouhlasně rovnoběžné - $\varphi_{2} - \varphi_{1} = \pm\pi$
 - $\varphi_{2} - \varphi_{1} = \pi \pm n\cdot 2\pi, \quad n = 0,1,2,3,\dots$
 	- vlny jsou vůči sobě posunuty o $\pi$
 	- mohou se opět lišit o celou periodu
@@ -257,15 +257,15 @@ Podmínka minima
 
 - fotometrická veličina, která měří **energii elektromagnetického záření** v oblasti **viditelného světla**
 	- **zářivý tok** (radiometrická veličina) měří **veškerou energii** elektromagnetického záření (tedy nejen viditelnou část)
-- jde o efektivní část zářivé energie (té, která vyvolává zrakový vjem), prošlá za jednotku času plochou $S$ ve stanoveném směru (nebo dopadlá na plochu $S$)
+- jde o efektivní část zářivé energie (té, která vyvolává zrakový vjem), prošlá či dopadlá za jednotku času na plochu $S$ ve stanoveném směru
 - jednotkou je **1 lumen** (lm)
-- $\phi = \frac{dW}{dt}[\text{lm}]$
+- $\displaystyle\phi = \frac{dW}{dt}[\text{lm}]$
 
 #### Svítivost a jas - definice a vysvětlení
 
 **Svítivost**
 - fotometrická veličina analogická **zářivosti** (radiometrická veličina)
-- udává **intenzitu světelného toku** vysílaného **bodovým zdrojem** v určitém směru (do malého prostorového úhlu $d\Omega$)
+- udává **intenzitu světelného toku** vysílaného **bodovým zdrojem** v určitém směru, tedy do malého prostorového úhlu $d\Omega$
 - definována jako podíl **světelného toku** vysílaného bodovým zdrojem a malého prostorového úhlu $d\Omega$
 - jednotkou je **1 kandela** (cd)
 - $\displaystyle I = \frac{d\phi}{d\Omega} \, [cd]$
@@ -275,7 +275,7 @@ Podmínka minima
 **Jas** (měrná svítivost)
 - fotometrická veličina analogická **záři**
 - definován jako podíl
-	- **svítivosti** elementární části povrchu $S$ plošného zdroje ve **zvoleném směru** (stanoveném úhlem $\alpha$ od kolmice plochy)
+	- **svítivosti** elementární části povrchu $S$ plošného zdroje ve **zvoleném směru** stanoveným úhlem $\alpha$ od kolmice plochy
 	- **její zdánlivé velikosti** v tomto směru (jejího průmětu do roviny kolmé k tomuto směru)
 - měří, jak "jasný" se zdroj jeví z určitého úhlu
 - jednotkou je **1 nit** (nt)
@@ -287,7 +287,7 @@ Podmínka minima
 
 **Izotropní bodový zdroj**
 - zdroj elektromagnetického záření, **jehož rozměny jsou natolik malé**, že je možno **je zanedbat** a považovat tento zdroj za bodový
-	- např. oproti vzdálenosti $r$ od místa pozorování (od plochy $S$)
+	- např. oproti vzdálenosti $r$ od místa pozorování, např. od plochy $S$
 - **izotropní** - má konstantní zářivost ve všech směrech vyzařování
 
 **Homogenní izotropní plošný zdroj**
