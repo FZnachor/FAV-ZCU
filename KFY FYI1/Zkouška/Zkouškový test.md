@@ -31,7 +31,7 @@ Z obrázku je zřejmý **vztah pro průvodiče**
 - $\displaystyle\vec{r} = \vec{r}' + \vec{R}$
 
 Derivace podle času - **vztah pro rychlost**
-- $\displaystyle\frac{d\vec{r}}{dt} = \frac{d\vec{r}'}{dt} + \frac{d\vec{R}}{t}$
+- $\displaystyle\frac{d\vec{r}}{dt} = \frac{d\vec{r}'}{dt} + \frac{d\vec{R}}{dt}$
 	- můžeme upravit, rychlost je vyjádřena jako $v = \frac{dr}{dt}$
 - $\vec{v} = \vec{v}' + \vec{u}$
 	- $\vec{v}$ je rychlost bodu v soustavě $S$
@@ -56,7 +56,7 @@ Druhý Newtonův zákon (zákon síly)
 	- hmotnost je míra setrvačnosti, brání v pohybu
 
 **Rovnoměrný přímočarý pohyb** soustavy $S'$ vůči soustavě $S$
-- unášivá rychlost mezi soustavami je konstantní
+- **unášivá rychlost** mezi soustavami je konstantní
 	- $\vec{u} = \text{konst.}$
 - v soustavě $S$ platí pro těleso **zákon setrvačnosti** (1. NZ)
 	- těleso se bez působení sil pohybuje v soustavě $S$ rovnoměrným přímočarým pohybem nebo je v klidu
@@ -75,26 +75,27 @@ Druhý Newtonův zákon (zákon síly)
 		- $m\cdot \vec{a}' = m\cdot(\vec{a}-\vec{a}_{u}) = m\cdot \vec{a} = \vec{F} = \vec{F}'$
 	- v obou soustavách jsou tedy **stejná zrychlení** i **stejné síly**
 		- pohybová rovnice tedy platí v nezměněném tvaru v každé inerciální soustavě
-		- pohybové rovnice jsou invariantní vůči Galileově transformaci
+		- pohybové rovnice jsou invariantní (nezměněné) vůči Galileově transformaci
 
 **Nerovnoměrný křivočarý (posuvný) pohyb** soustavy $S'$ vůči soustavě $S$
 - pohyb musí být stále translací (osy se tedy neotáčí)
 - **unášivá rychlost** je nyní obecně proměnnou veličinou
-	- může měnit velikost, směr i orientaci
+	- rychlost může měnit velikost, směr i orientaci
 	- $\vec{u} \neq \text{konst.}$
-- při křivočarém pohybu soustavy $S'$ je její **unášivé zrychlení nenulové**
-	- rychlost se tedy v průběhu mění
-	- $\vec{a}_{u} = \frac{d\vec{u}}{dt} \neq 0$
-- v případě konstantní rychlosti tělesa v soustavě $S$ nebude v $S'$ rychlost konstantní
-	- $\vec{v}' = \vec{v} - \vec{u} \neq \text{konst.}$
+	- **unášivé zrychlení** je tedy nenulové
+		- $\displaystyle\vec{a}_{u} = \frac{d\vec{u}}{dt} \neq 0$
+- platnost 1. NZ v soustavě $S'$
+	- v případě konstantní rychlosti tělesa v soustavě $S$ nebude v $S'$ rychlost konstantní
+		- $\vec{v}' = \vec{v} - \vec{u} \neq \text{konst.}$
 	- kvůli tomu v soustavě $S'$ **neplatí zákon setrvačnosti** a jedná se tak o **neinerciální soustavu**
-- jelikož je unášivé zrychlení nenulové, tak je zrychlení bodu v soustavě $S'$ odlišné od zrychlení stejného bodu v soustavě $S$
-	- $\vec{a}' = \vec{a} - \vec{a}_{u}$
-- pohybová rovnice v $S'$ má poté tvar
-	- $m\cdot \vec{a}' = m\cdot(\vec{a} - \vec{a}_{u}) = m\cdot \vec{a}-m\cdot \vec{a}_{u} = \vec{F} + \vec{F}^* = \vec{F}'$
-	- v obou soustavách jsou nyní **jiná zrychlení** i **jiné síly**
+- platnost 2. NZ v soustavě $S'$
+	- jelikož je unášivé zrychlení nenulové, tak je zrychlení bodu v soustavě $S'$ odlišné od zrychlení stejného bodu v soustavě $S$
+		- $\vec{a}' = \vec{a} - \vec{a}_{u} \neq \vec{a}$
+	- pohybová rovnice v $S'$ má poté tvar
+		- $m\cdot \vec{a}' = m\cdot(\vec{a} - \vec{a}_{u}) = m\cdot \vec{a}-m\cdot \vec{a}_{u} = \vec{F} + \vec{F}^* = \vec{F}'$
+		- v obou soustavách jsou nyní **jiná zrychlení** i **jiné síly**
 	- pohybová rovnice **není invariantní**
-		- změnila svůj tvar a kromě původní působící síly se zde objevuje **nová setrvačná síla** závisející na unášivém zrychlení soustavy
+		- změnila svůj tvar a kromě původní působící síly se zde objevuje **nová setrvačná síla** $\vec{F}^*$ závisející na unášivém zrychlení soustavy
 
 #### Co jsou to Galileovy transformace a za jakých podmínek platí
 
