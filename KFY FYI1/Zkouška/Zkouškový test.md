@@ -15,7 +15,7 @@
 **Neinerciální soustavy**
 - vztažná soustava, která se pohybuje **zrychleně** (např. zrychleně rovnoměrně, po kruhové dráze, ...)
 - kromě skutečných sil brány v úvahu také zdánlivé (inertní) síly
-	- **Eulerova (setrvačná) síla, odstředivá síla, Coriolisova síla**
+	- **Eulerova (setrvačná) síla** $\vec{F}^*_{t}$, **odstředivá síla** $\vec{F}^*_{n}$, **Coriolisova síla** $\vec{F}^*_{C}$
 - pro použití Newtonových zákonů je potřeba přidávat tyto zdánlivé síly
 
 Máme dvě vzájemně nezávislé soustavy $S$ a $S'$, ve kterých pozorujeme stejný hmotný bod $m$
@@ -129,7 +129,7 @@ Podmínky
 	- $\vec{F}^* = -m\cdot \vec{a}_{u}$
 - rozložení setrvačné síly na složky
 	- $\vec{a}_{u} = \vec{a}_{n} + \vec{a}_{t}$
-	- $\vec{F}_{n}^* = -m(\vec{a}_{n} + \vec{a}_{t}) = -m\vec{a}_{n} -m\vec{a}_{t} = \vec{F}^*_{n} + \vec{F}^*_{t}$
+	- $\vec{F}^* = -m(\vec{a}_{n} + \vec{a}_{t}) = -m\vec{a}_{n} -m\vec{a}_{t} = \vec{F}^*_{n} + \vec{F}^*_{t}$
 	- **odstředivá síla**
 		- $\displaystyle\vec{F}^*_{n} = -m\vec{a}_{n} = -m\cdot \frac{u^2}{R}\cdot \vec{n} = -m\cdot \vec{\omega}\times \vec{\omega}\times \vec{r}$
 		- má opačný směr oproti dostředivé síle
@@ -206,7 +206,7 @@ Práce vnější síly
 
 **Kinetická energie**
 - zabýváme se změnou pohybové síly tělesa
-- závisí pouze na pohybovém stavu (rychlosti) tělesa v počátečním a koncovém bodě
+- závisí pouze na velikosti rychlosti tělesa
 - $W_{k}(v) = \frac{1}{2}mv^2$
 
 **Celková mechanická energie**
@@ -437,7 +437,7 @@ Použití komplexních funkcí
 - výsledná komplexní amplituda
 	- je součtem obou počátečních komplexních amplitud
 	- $\hat{A} = \hat{A}_{1} + \hat{A}_{2}$
-	- $A\cdot e^{i\cdot \varphi} = A\cdot e^{i\cdot \varphi_{1}} + A\cdot e^{i\cdot \varphi_{2}}$
+	- $A\cdot e^{i\cdot \varphi} = A_{1}\cdot e^{i\cdot \varphi_{1}} + A_{2}\cdot e^{i\cdot \varphi_{2}}$
 
 #### Podmínky extrémních stavů
 
