@@ -1,35 +1,35 @@
 # FAV ZČU
 
-👋 Vítej v repozitáři, kde shromažďujeme poznámky z předmětů vyučovaných na [Fakultě aplikovaných věd](https://fav.zcu.cz) ZČU v Plzni.
+👋 Vítej v repozitáři, kam shromažďujeme poznámky z předmětů vyučovaných na [Fakultě aplikovaných věd](https://fav.zcu.cz) ZČU v Plzni.
 
-- 🚫 neručíme za správnost všeho, co tu najdeš - určitě budeme rádi, pokud něco opravíš nebo upřesníš
-- 🙋‍♂️ máš-li své poznámky a chceš se o ně podělit, můžeš je sem přidat
+- 🚫 Neručíme za správnost všeho, co tu najdeš. Určitě budeme rádi, pokud něco opravíš nebo upřesníš.
+- 🙋‍♂️ Chceš-li se podělit o své poznámky, tak nás neváhej kontaktovat.
 
-Pokud máš jakékoliv otázky, návrhy či vylepšení, všechny kontakty najdeš níže.
+Pokud máš jakékoliv otázky, návrhy či nápady na vylepšení, tak všechny kontakty najdeš níže.
 
 ## 📂 Struktura repozitáře
 
-- všechny materiály najdeš ve složkách jednotlivých předmětů
-- kromě složek předmětů je tu i speciální složka `Informace`, kak dáváme jiné důležité informace ke studiu na FAVce
+- Všechny materiály najdeš ve složkách jednotlivých kateder a jejich předmětů.
+- Kromě těchto složek je tu i speciální složka `Informace`, kde jsou další důležité informace ke studiu na FAVce.
 
 ## 📗 Chci se zapojit!
 
-To je skvělý! Každá pomoc s poznámkami se bude hodit. 
+To budeme rádi! Každá pomoc s poznámkami se bude hodit. Pokud se chceš přidat, tak nás kontaktuj.
 
 ### 📋 Pravidla repozitáře
 
 Aby repozitář nějak vypadal, platí tu následující pravidla:
 
-- zprávy commitů **piš v češtině**, s velkým počátečním písmenem a bez tečky na konci
-- přidávej **jenom markdown (.md) soubory**, tedy žádné `PDF` nebo `DOCX` a podobně (můžeš ale použít některý online konvertor)
-- do markdownu **je možné přidat např. obrázek** či jiný soubor, takové soubory prosím ukladej do složky `_assets` ve složce s `MD` souborem
+- Zprávy commitů **píšeme v češtině**, s velkým počátečním písmenem a bez tečky na konci.
+- Přidáváme **pouze markdown (.md) soubory**, tedy žádné `PDF`, `DOCX` a podobně. Pro převod z jiných formátů je možné použít online konvertor.
+- Do markdownu **je možné přidat např. obrázek** či jiný soubor, takové soubory ukládáme do složky `_assets` ve složce s `MD` souborem.
+- Je také podporován TeXový zápis matematických vzorců mezi znaky $, například `$x^2 + 4x$` nebo `$$x^2 + 4x$$`.
 
-Určitě se na něco zapomnělo nebo se nemyslelo na nějakou specifickou situaci, takže je vždy možné se domluvit a pravidla upřesnit či změnit.
+Určitě se na něco zapomnělo, takže je vždy možné se domluvit a pravidla upřesnit či změnit.
 
-## 💬 Nápady? Otázky? Cokoli?
+## 💬 Nápady? Otázky? Cokoliv?
 
 Vždy můžeš kontaktovat vlastníka repozitáře:
 
--   Discord: **Zet#8255**
--   Email: **[filip@znachor.cz](mailto:filip@znachor.cz)**
--   Web: **[www.znachor.cz](https://www.znachor.cz)**
+- Discord: **__zet**
+- Více kontaktů: **[web](https://www.znachor.cz/kontakt)**
